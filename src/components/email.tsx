@@ -1,7 +1,6 @@
 // Desenvolvido por [Danilo Da Silva Batista] - https://github.com/kovarike
 // Este código foi criado/alterado por mim.
 
-
 "use client";
 import { emailSchema } from "@/lib/mail";
 
