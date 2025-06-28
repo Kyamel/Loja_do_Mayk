@@ -13,7 +13,7 @@ export function Footer() {
                 <div className="flex flex-col space-y-4 md:items-start items-center border-b border-gray-300 p-2">
                     <h2 className="md:text-4xl text-2xl font-algorithms-font font-bold text-white text-center">Focus Consultoria Jr.</h2>
                     {/* <p className="text-base font-algorithms-font font-bold text-white text-center">Telefone: (00) 00000-0000</p> */}
-                    <p className="text-base font-algorithms-font font-bold text-white text-center">E-mail: contatofocusconsultoriajr@gmail.com / consul.focus.jr@gmail.com</p> 
+                    <p className="text-base font-algorithms-font font-bold text-white text-center">E-mail: contatoMaykshop@gmail.com </p> 
                     <p className="text-sm font-algorithms-font font-bold text-white text-center"> Localização: Rua Trinta e Seis 115 - UFOP-ICEA Cruzeiro Celeste</p>
                 </div>
                 <div className="flex flex-col space-y-4 items-center">
@@ -33,7 +33,7 @@ export function Footer() {
             </div>
         
 
-            <p className="text-center font-algorithms-font font-light text-white/45">Copyright &copy; 2025 Focus Consultoria Jr.</p>
+            <p className="text-center font-algorithms-font font-light text-white/45">Copyright &copy; 2025 MaykShop.</p>
         </footer>
     )
 }

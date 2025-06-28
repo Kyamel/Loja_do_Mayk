@@ -44,7 +44,7 @@ export default function RootLayout({
     <html lang="pt-BR" className="bg-F-bg">
       
       <body
-        className={`${roboto.variable} ${montserrat.variable} antialiased bg-F-bg min-h-screen flex flex-col`}
+        className={`${roboto.variable} ${montserrat.variable} antialiased bg-[#e5e5f2] min-h-screen flex flex-col`}
       >
         <Header />
 

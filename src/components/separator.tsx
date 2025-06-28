@@ -7,6 +7,6 @@ interface SeparatorProps extends HTMLAttributes<HTMLDivElement> {}
 
 export function Separator(props : SeparatorProps){
     return (
-        <div className="bg-[#920606] mx-auto w-full max-h-10 p-[1px] rounded-md my-8" {...props} />
+        <div className="bg-[#000099] mx-auto w-full max-h-10 p-[1px] rounded-md my-8" {...props} />
     );
 };
