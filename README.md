@@ -65,3 +65,44 @@ Figma-
         npm i 
         npm run dev
         ```
+
+  
+<!-- Begin - Lucas: Adicionar requisitos e rodamap -->
+### 7. Requisitos não Funcionais
+
+Veja [Requisitos não Funcionais](./docs/requisitos_nao_funcionais.md).
+
+### 8. Rodamap
+
+- Adaptar os componentes existentes para seguir o novo sistema de temas da aplicação (modo claro/escuro, variáveis CSS, novo sistema de cores).
+
+- Criar um componente **ImagemCarrossel** genérico:
+  - Deve aceitar `props` de `Card[]` para gerar um carrossel de imagens.
+  - Deve funcionar tanto em **toque (mobile)** quanto com **mouse (desktop)**.
+
+- Criar um componente **SliderBar**:
+  - Usado para navegação manual do carrossel em telas maiores (desktop).
+  - Deve ser incorporado pelo ImagemCarrossel para permitir o deslizar suave usando mouse.
+
+- Adicionar uma **seção de comentários** acima do `footer`, usando o sistema **Disqus** para embutir os comentários.
+
+- Criar um componente **PopUpMenu**:
+  - Ao clicar em uma imagem de produto, exibe os **detalhes**, **preço** e um **QR code PIX** para pagamento.
+
+- Desenvolver uma **lib de simulação de API**:
+  - Dados mockados dos produtos.
+  - Será usada pelos componentes `Carrossel` e `PopUpMenu` para priorixar a listagem de items em estoque e para detalhes do popup de pagamento.
+
+- No `PopUpMenu`, integrar chamada para essa lib:
+  - Quando o cliente confirmar a compra, a lib **envia uma notificação por e-mail** para o endereço do **Mayke** com os dados da compra (produto, valor, horário).
+
+- Gerar documentação do sistema inteiro e salvar em `/docs`, componentes, libs e api se houver. Pode ser instalado sistema de geração de documentação automático via hints como Storybook e TypeDocs
+
+
+- Gerar documentação do sistema inteiro e salvar em `/docs`, incluindo:
+  - Componentes visuais com **Storybook**
+  - Funções, tipos e classes com **Typedoc**
+  - `Storybook` para componentes React (baseado em props e estados)
+  - `Typedoc` para código TypeScript puro (baseado em JSDoc + types)
+
+<!-- End - Lucas: Adicionar requisitos e rodamap -->
