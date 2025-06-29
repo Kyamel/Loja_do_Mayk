@@ -2,19 +2,19 @@
 // Este código foi criado/alterado por mim.
 
 "use client";
-import { emailSchema } from "@/lib/mail.js";
+import { emailSchema } from "@/lib/mail";
 
 import { z } from "zod";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-import { sendMail } from "@/lib/http/sendmail.js";
-import { Loading } from "./loading.jsx";
+import { sendMail } from "@/lib/http/sendmail";
+import { Loading } from "./loading";
 
 // Begin - Lucas: Modulariza componente
-import { TextInput } from "./TextInput.jsx";
-import { TextAreaInput } from "./TextAreaInput.jsx";
+import { TextInput } from "./TextInput";
+import { TextAreaInput } from "./TextAreaInput";
 // End - Lucas: Modulariza componente
 
 type DataSchema = z.infer<typeof emailSchema>;
