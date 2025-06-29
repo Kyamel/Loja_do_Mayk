@@ -3,6 +3,16 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Lucas: Paleta retro para modo claro */
+  --black: #000000;
+  --white: #ffffff;
+  --red: #ff0000;
+  --green: #00ff00;
+  --blue: #0000ff;
+  --cyan: #00ffff;
+  --magenta: #ff00ff;
+  --yellow: #ffff00;
 }
 
 @theme inline {
@@ -16,6 +26,16 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+
+    /* Lucas: Paleta retro adaptada para modo escuro (cores mais vibrantes, contraste maior) */
+    --black: #101010;
+    --white: #e0e0e0;
+    --red: #ff4444;
+    --green: #44ff44;
+    --blue: #4444ff;
+    --cyan: #44ffff;
+    --magenta: #ff44ff;
+    --yellow: #ffff44;
   }
 }
 
@@ -34,17 +54,6 @@ body {
 }
 */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
   color: var(--foreground);
@@ -55,14 +64,92 @@ body {
 }
 
 /* Begin - Lucas: add retro color palete e fonte */
-:root {
-  --black: #000000;
-  --white: #ffffff;
-  --red: #ff0000;
-  --green: #00ff00;
-  --blue: #0000ff;
-  --cyan: #00ffff;
-  --magenta: #ff00ff;
-  --yellow: #ffff00;
+
+
+/* ======= Modo CRT ======= */
+body.crt {
+  background: #000;
+  color: #0f0;
+  text-shadow: 0 0 2px #0f0;
+  filter: contrast(1.2) brightness(0.9);
 }
+
+/* ======= Pixel art friendly ======= */
+img, canvas {
+  image-rendering: pixelated;
+}
+
+/* ======= Grid para sprites/blocos ======= */
+.pixel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 32px);
+  gap: 4px;
+}
+
+/* ======= Base retrô: títulos e links ======= */
+@layer base {
+  h1, h2, h3 {
+    font-family: 'Press Start 2P', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--blue);
+  }
+
+  a:hover {
+    color: var(--yellow);
+  }
+}
+
+/* Pequenos dispositivos (mobile portrait) */
+@media (max-width: 639px) {
+  body {
+    font-size: 12px;
+  }
+
+  .pixel-grid {
+    grid-template-columns: repeat(auto-fill, 24px);
+    gap: 3px;
+  }
+
+  h1, h2, h3 {
+    font-size: 0.8rem;
+  }
+}
+
+/* Tablets e pequenos laptops */
+@media (min-width: 640px) and (max-width: 1023px) {
+  body {
+    font-size: 14px;
+  }
+
+  .pixel-grid {
+    grid-template-columns: repeat(auto-fill, 28px);
+    gap: 3.5px;
+  }
+
+  h1, h2, h3 {
+    font-size: 0.9rem;
+  }
+}
+
+/* Desktop e maiores */
+@media (min-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+
+  .pixel-grid {
+    grid-template-columns: repeat(auto-fill, 32px);
+    gap: 4px;
+  }
+
+  h1, h2, h3 {
+    font-size: 1rem;
+  }
+}
+
 /* End - Lucas: add retro color palete e fonte */
