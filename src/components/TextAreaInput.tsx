@@ -15,10 +15,14 @@ export function TextAreaInput({ label, error, className = "", ...props }: TextAr
       )}
       <textarea
         {...props}
-        className={`p-2 border border-gray-300 w-full h-24 resize-none max-h-24 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 ${className}`}
+        className={`p-2 border border-gray-300 w-full h-24 resize-none max-h-24 rounded-md 
+          text-gray-900 dark:text-white 
+          placeholder-gray-400 dark:placeholder-gray-500 
+          focus:outline-none focus:ring-2 focus:ring-blue-500 ${className}`}
         aria-invalid={!!error}
         aria-describedby={error ? `${props.id}-error` : undefined}
       />
+        {/* Lucas: Conteúdo do main com tema responsivo */}
       {error && (
         <p
           id={`${props.id}-error`}

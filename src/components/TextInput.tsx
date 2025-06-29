@@ -15,10 +15,11 @@ export function TextInput({ label, error, className = "", ...props }: TextInputP
       )}
       <input
         {...props}
-        className={`p-2 border border-gray-300 w-full rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 ${className}`}
+        className={`p-2 border border-gray-300 w-full rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white ${className}`}
         aria-invalid={!!error}
         aria-describedby={error ? `${props.id}-error` : undefined}
       />
+      {/* Lucas: Conteúdo do main com tema responsivo */}
       {error && (
         <p
           id={`${props.id}-error`}
