@@ -21,25 +21,17 @@ const queryClient = new QueryClient({
 export function ContainerFull({ children, props }: ContainerProps) {
   return (
     <QueryClientProvider client={queryClient}>
-      <main
-        {...props}
-        className="flex-grow pb-20 w-full relative overflow-hidden"
-        style={{
-          fontFamily: "var(--font-sans)",
-          color: "var(--text-primary)",
-        }}
-      >
-        {/* Lucas: camadas de fundo retrô */}
-
-        {/* Conteúdo sobreposto */}
-        <div className="relative z-10 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 mx-auto">
-          {children}
-        </div>
+      
+      <main {...props}
+        className="flex-grow w-full text-white mx-auto"
+        style={{ backgroundColor: "var(--background)" }}
+        >
+        {children}
       </main>
     </QueryClientProvider>
+
   );
 }
-
 
 
 

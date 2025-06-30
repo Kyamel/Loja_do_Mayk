@@ -67,12 +67,12 @@
     /* Sombras */
     --shadow-default: rgba(204, 153, 0, 0.5);
 
-    --layer1-color: #ffd966; /* amarelo vibrante */
-    --layer2-color: #fabde8; /* rosa suave */
-    --layer3-color: #f28ab2; /* rosa mais forte */
-    --layer4-color: #f4d35e; /* amarelo mostarda */
-    --layer5-color: #a64ca6; /* roxo vibrante */
-    --layer6-color: #6a4c93; /* roxo escuro */
+    --layer1-color: #fff4b8;  /* amarelo pastel suave */
+    --layer2-color: #f9d5e5;  /* rosa pastel claro */
+    --layer3-color: #f7b8c8;  /* rosa antigo pastel */
+    --layer4-color: #fbe8a6;  /* amarelo claro pastel */
+    --layer5-color: #c1a3c4;  /* lavanda pastel */
+    --layer6-color: #a8a0c2;  /* azul acinzentado pastel */
 }
 
 @theme inline {
@@ -146,12 +146,12 @@
     /* Sombras */
     --shadow-default: rgba(255, 204, 0, 0.5); /* sombra amarela vibrante */
 
-    --layer1-color: #704214cc; /* marrom translúcido */
-    --layer2-color: #7a4075cc; /* roxo translúcido */
-    --layer3-color: #9c3355cc; /* rosa translúcido */
-    --layer4-color: #e2b54ccc; /* amarelo queimado translúcido */
-    --layer5-color: #6a4c93cc; /* roxo escuro translúcido */
-    --layer6-color: #4a3674cc; /* azul arroxeado translúcido */
+    --layer1-color: rgba(120, 80, 20, 0.9);    /* marrom dourado */
+    --layer2-color: rgba(130, 40, 70, 0.9);    /* vinho escuro */
+    --layer3-color: rgba(100, 30, 60, 0.9);    /* rosa queimado escuro */
+    --layer4-color: rgba(110, 90, 20, 0.9);    /* mostarda escura */
+    --layer5-color: rgba(80, 60, 120, 0.9);    /* lavanda profunda */
+    --layer6-color: rgba(50, 40, 90, 0.9);     /* roxo bem escuro */
   }
 }
 
