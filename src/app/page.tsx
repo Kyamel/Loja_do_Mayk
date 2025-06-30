@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Faq } from '@/components/faq';
 import { Separator } from '@/components/separator';
 import styles from './page.module.css'; // onde terá os estilos das layers
+import { DisqusComments } from '@/components/DisqusComments';
 
 export const metadata: Metadata = {
   title: "MaykShop | Tecnologia e Games",
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 
-
+// Lucas: Adicionar layers no fundo da página principal, seguingo estilo retro
 export default function Home() {
   return (
     <ContainerFull>
@@ -43,12 +44,16 @@ export default function Home() {
 
       <section className={styles.layer3Section}>
         <div className="max-w-3xl mx-auto px-4 py-8 text-center">
-          <h2 className="text-3xl font-bold" style={{ color: "var(--text-primary)" }}>
+          <h2 className="text-3xl font-bold mb-6" style={{ color: "var(--text-primary)" }}>
             Entre em Contato com a MaykShop
           </h2>
           <Email />
         </div>
       </section>
+
+    <section>
+      <DisqusComments />
+    </section>
     </ContainerFull>
   );
 }
