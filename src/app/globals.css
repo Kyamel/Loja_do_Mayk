@@ -3,8 +3,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-
   /* Lucas: Paleta retro para modo claro */
+  --fs-sm: 1rem;
+  --fs-md: 1.25rem;
+  --fs-lg: 1.5rem;
+  --fs-xl: 1.875rem;
+
   /* --- FUNDOS --- */
     --bg-primary: #fdf6e3;          /* bege claro */
     --bg-secondary: #fff8dc;        /* bege mais claro para cards */
@@ -62,6 +66,13 @@
 
     /* Sombras */
     --shadow-default: rgba(204, 153, 0, 0.5);
+
+    --layer1-color: #ffd966; /* amarelo vibrante */
+    --layer2-color: #fabde8; /* rosa suave */
+    --layer3-color: #f28ab2; /* rosa mais forte */
+    --layer4-color: #f4d35e; /* amarelo mostarda */
+    --layer5-color: #a64ca6; /* roxo vibrante */
+    --layer6-color: #6a4c93; /* roxo escuro */
 }
 
 @theme inline {
@@ -134,6 +145,13 @@
 
     /* Sombras */
     --shadow-default: rgba(255, 204, 0, 0.5); /* sombra amarela vibrante */
+
+    --layer1-color: #704214cc; /* marrom translúcido */
+    --layer2-color: #7a4075cc; /* roxo translúcido */
+    --layer3-color: #9c3355cc; /* rosa translúcido */
+    --layer4-color: #e2b54ccc; /* amarelo queimado translúcido */
+    --layer5-color: #6a4c93cc; /* roxo escuro translúcido */
+    --layer6-color: #4a3674cc; /* azul arroxeado translúcido */
   }
 }
 
@@ -204,8 +222,15 @@ img, canvas {
 
 /* Pequenos dispositivos (mobile portrait) */
 @media (max-width: 639px) {
+  :root {
+    --fs-sm: 0.875rem;  /* 14px */
+    --fs-md: 1.05rem;   /* ~16.8px */
+    --fs-lg: 1.25rem;   /* 20px */
+    --fs-xl: 1.5rem;    /* 24px */
+  }
+
   body {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .pixel-grid {
@@ -214,14 +239,21 @@ img, canvas {
   }
 
   h1, h2, h3 {
-    font-size: 0.8rem;
+    font-size: var(--fs-lg);
   }
 }
 
 /* Tablets e pequenos laptops */
 @media (min-width: 640px) and (max-width: 1023px) {
+  :root {
+    --fs-sm: 1rem;       /* 16px */
+    --fs-md: 1.25rem;    /* 20px */
+    --fs-lg: 1.5rem;     /* 24px */
+    --fs-xl: 1.75rem;    /* 28px */
+  }
+
   body {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .pixel-grid {
@@ -230,14 +262,21 @@ img, canvas {
   }
 
   h1, h2, h3 {
-    font-size: 0.9rem;
+    font-size: var(--fs-lg);
   }
 }
 
 /* Desktop e maiores */
 @media (min-width: 1024px) {
+  :root {
+    --fs-sm: 1.1rem;     /* ~17.6px */
+    --fs-md: 1.35rem;    /* ~21.6px */
+    --fs-lg: 1.6rem;     /* ~25.6px */
+    --fs-xl: 2rem;       /* 32px */
+  }
+
   body {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .pixel-grid {
@@ -246,7 +285,7 @@ img, canvas {
   }
 
   h1, h2, h3 {
-    font-size: 1rem;
+    font-size: var(--fs-xl);
   }
 }
 

@@ -21,19 +21,25 @@ const queryClient = new QueryClient({
 export function ContainerFull({ children, props }: ContainerProps) {
   return (
     <QueryClientProvider client={queryClient}>
-      
-      <main {...props}  
-      className="flex-grow pb-20 w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 mx-auto
-          bg-[#e5e5f2] dark:bg-[#121212]   // Lucas: modo escuro ativado
-          text-neutral-900 dark:text-neutral-100 // Lucas: texto ajustado para tema claro/escuro"
+      <main
+        {...props}
+        className="flex-grow pb-20 w-full relative overflow-hidden"
+        style={{
+          fontFamily: "var(--font-sans)",
+          color: "var(--text-primary)",
+        }}
       >
-        {/* Lucas: Conteúdo do main com tema responsivo */}
-        {children}
+        {/* Lucas: camadas de fundo retrô */}
+
+        {/* Conteúdo sobreposto */}
+        <div className="relative z-10 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 mx-auto">
+          {children}
+        </div>
       </main>
     </QueryClientProvider>
-
   );
 }
+
 
 
 
