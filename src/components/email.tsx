@@ -15,6 +15,8 @@ import { Loading } from "./loading";
 // Begin - Lucas: Modulariza componente
 import { TextInput } from "./TextInput";
 import { TextAreaInput } from "./TextAreaInput";
+import styles from './Email.module.css';
+import { SubmitButton } from "./SubmitButton";
 // End - Lucas: Modulariza componente
 
 type DataSchema = z.infer<typeof emailSchema>;
@@ -62,10 +64,10 @@ export  function Email() {
 
 
 // Begin - Lucas: Modulariza componente
-return (
+ return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col items-center justify-center p-4 border border-gray-300 rounded-md shadow-lg space-y-4 mx-auto text-black w-full max-w-md"
+      className={styles.form}
       noValidate
     >
       {mutation.isPending ? (
@@ -110,19 +112,15 @@ return (
         </>
       )}
 
-      <button
-        type="submit"
-        disabled={mutation.isPending}
-        className={`p-2 w-auto rounded-md mx-auto text-white ${
-          mutation.isError
-            ? "bg-red-600 hover:bg-red-700"
-            : mutation.isSuccess
-            ? "bg-green-600 hover:bg-green-700"
-            : mutation.isPending
-            ? "bg-gray-500 cursor-not-allowed"
-            : "bg-black hover:bg-gray-900"
-        } transition-colors duration-300`}
-      >
+      <SubmitButton status={
+        mutation.isError
+          ? "error"
+          : mutation.isSuccess
+          ? "success"
+          : mutation.isPending
+          ? "pending"
+          : "default"
+      } disabled={mutation.isPending}>
         {mutation.isError
           ? "Erro ao enviar email. Tente novamente."
           : mutation.isSuccess
@@ -130,9 +128,8 @@ return (
           : mutation.isPending
           ? "Enviando..."
           : "Enviar"}
-      </button>
+      </SubmitButton>
     </form>
   );
-
 // End - Lucas: Modulariza componente
 }
