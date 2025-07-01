@@ -7,7 +7,7 @@ import { Avatar } from "./avatar";
 
 export function Footer() {
     return (
-        <footer className="flex flex-col space-y-3 space-x-3 bg-black text-white py-4 text-center my-0  w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 mx-auto">
+        <footer className="flex flex-col space-y-3 space-x-3 bg-black text-white py-4 text-center my-0  w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 mx-auto z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-4">
 
                 <div className="flex flex-col space-y-4 md:items-start items-center border-b border-gray-300 p-2">

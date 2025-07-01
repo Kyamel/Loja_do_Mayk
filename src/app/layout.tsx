@@ -12,6 +12,8 @@ import { Footer } from "@/components/footer";
 
 
 
+
+
 const roboto = Roboto({
   variable: "--font-Roboto",
   subsets: ["latin"],
@@ -41,11 +43,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="bg-F-bg">
+    <html lang="pt-BR">
       
       <body
-        className={`${roboto.variable} ${montserrat.variable} antialiased bg-[#e5e5f2] min-h-screen flex flex-col`}
+        className={`${roboto.variable} ${montserrat.variable} antialiased min-h-screen flex flex-col bg-[url('/back3.png')] bg-cover bg-center h-screen w-full bg-no-repeat bg-fixed`}
       >
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm pointer-events-none z-0"></div>
         <Header />
 
         {children}

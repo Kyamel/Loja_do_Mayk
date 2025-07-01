@@ -23,7 +23,7 @@ export function Faq({question, response }:FaqProps) {
       <p
         style={{
           fontSize: "var(--fs-sm)",
-          color: "var(--text-secondary)",
+          color: "var(--text-primary)",
           fontFamily: "var(--font-sans)",
           fontWeight: 300,
         }}
