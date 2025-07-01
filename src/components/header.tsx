@@ -82,7 +82,8 @@ export function Header({ children }: HeaderProps) {
       )}
 
       {showScrollNav && (
-        <nav className="mx-auto hidden md:flex fixed top-5 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-80 text-gray-400 px-6 py-3 rounded-full shadow-lg space-x-6">
+        // Lucas: fix bug da navbar ficar com cor igual ao do fundo e difícil de ler em fundo colorido.
+        <nav className="fixed top-5 left-1/2 transform -translate-x-1/2 bg-black text-gray-400 px-6 py-3 rounded-full shadow-lg space-x-6 z-50">
           <Navigation />
         </nav>
       )}

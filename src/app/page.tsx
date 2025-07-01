@@ -7,48 +7,53 @@ import { ContainerFull } from "@/components/containerfull";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Faq } from '@/components/faq';
 import { Separator } from '@/components/separator';
+import styles from './page.module.css'; // onde terá os estilos das layers
+import { DisqusComments } from '@/components/DisqusComments';
 
 export const metadata: Metadata = {
   title: "MaykShop | Tecnologia e Games",
   description: "Tecnologia e Games.",
-
 };
 
 
+// Lucas: Adicionar layers no fundo da página principal, seguingo estilo retro
 export default function Home() {
   return (
-
     <ContainerFull>
-
-      <div className=" flex flex-col items-center justify-center px-4 md:px-0 w-auto mx-auto md:max-w-[800px] gap-4 mt-5">
-        <div className="flex flex-col items-center justify-center w-full gap-4 ">
-          <h2 className="md:text-4xl text-2xl font-bold text-black text-center">MaykShop</h2>
-
+      <section className={styles.layer1Section}>
+        <div className="max-w-3xl mx-auto px-4 py-8 text-center">
+          <h2 className="text-4xl font-bold" style={{ color: "var(--text-primary)" }}>
+            MaykShop
+          </h2>
+          <p style={{ fontSize: "var(--fs-md)", color: "var(--text-primary)" }}>
+            A MaykShop é uma empresa especializada em segmentação comercial, criada para conectar entusiastas e amadores das áreas de tecnologia e games.
+          </p>
+          <Separator />
         </div>
-        <div className="flex flex-col items-center justify-center w-full gap-4">
-          <p className="md:text-xl text-base font-algorithms-font text-black text-center">A MaykShop é uma empresa especializada em segmentação comercial, criada para conectar entusiastas e amadores das áreas de tecnologia e games</p>
-          <p className="md:text-xl text-base font-algorithms-font text-black text-center">O objetivo principal gerar impacto no mercado local e regional, conectando entusiastas e amadores de tecnologia e games</p>
+      </section>
+
+      <section className={styles.layer2Section}>
+        <div className="max-w-3xl mx-auto px-4 py-8 text-center">
+          <h2 className="text-3xl font-bold" style={{ color: "var(--text-primary)" }}>
+            Perguntas Frequentes
+          </h2>
+          <Faq question="O QUEM SOMOS" response="A MaykShop é uma empresa especializada em segmentação comercial, que reúne entusiastas e amadores da tecnologia e dos games" />
+          <Separator />
         </div>
-        <Separator />
-      </div>
+      </section>
 
-      <div className="text-black flex flex-col items-center justify-center px-4 md:px-0 w-auto mx-auto md:max-w-[800px] gap-4 mt-5 space-y-2">
-        <h2 className='md:text-4xl text-2xl font-bold text-black text-center underline mb-3'>Perguntas Frequentes</h2>
-        <ul className='list-none space-y-4'>
-          <Faq question='O QUEM SOMOS ' response='A MaykeShop é uma empresa especializada em segmentação comercial, que reúne entusiastas e amadores da tecnologia e dos games' />
+      <section className={styles.layer3Section}>
+        <div className="max-w-3xl mx-auto px-4 py-8 text-center">
+          <h2 className="text-3xl font-bold mb-6" style={{ color: "var(--text-primary)" }}>
+            Entre em Contato com a MaykShop
+          </h2>
+          <Email />
+        </div>
+      </section>
 
-
-        </ul>
-        <Separator />
-      </div>
-
-      <div className=" flex flex-col items-center justify-center px-4 md:px-0 w-auto mx-auto md:max-w-[800px] gap-4 mt-8">
-        <h2 className='md:text-4xl text-2xl font-bold text-black text-center mb-3'>Entre em Contato com a MaykShop</h2>
-        <Email />
-      </div>
+    <section>
+      <DisqusComments />
+    </section>
     </ContainerFull>
   );
 }
-
-
-

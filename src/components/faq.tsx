@@ -7,14 +7,29 @@ interface FaqProps {
 }
 
 export function Faq({question, response }:FaqProps) {
+  // Lucas: Adicionar Esquema de Global
   return (
-
-    
-    <div className='flex flex-col items-center justify-center gap-4 mx-auto'>
-        <li className='md:text-xl text-base font-semibold list-none text-start w-full '>{question}</li>
-        <p className=' md:text-lg text-sm font-algorithms-font font-light text-gray-500'>{response}</p>
+    <div className="flex flex-col items-center justify-center gap-4 mx-auto">
+      <li
+        className="list-none text-start w-full font-semibold"
+        style={{
+          fontSize: "var(--fs-xl)",
+          color: "var(--text-primary)",
+          fontFamily: "var(--font-sans)",
+        }}
+      >
+        {question}
+      </li>
+      <p
+        style={{
+          fontSize: "var(--fs-sm)",
+          color: "var(--text-secondary)",
+          fontFamily: "var(--font-sans)",
+          fontWeight: 300,
+        }}
+      >
+        {response}
+      </p>
     </div>
-    
-
   );
 }

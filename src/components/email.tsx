@@ -12,6 +12,13 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { sendMail } from "@/lib/http/sendmail";
 import { Loading } from "./loading";
 
+// Begin - Lucas: Modulariza componente
+import { TextInput } from "./TextInput";
+import { TextAreaInput } from "./TextAreaInput";
+import styles from './Email.module.css';
+import { SubmitButton } from "./SubmitButton";
+// End - Lucas: Modulariza componente
+
 type DataSchema = z.infer<typeof emailSchema>;
 
 export  function Email() {
@@ -56,28 +63,73 @@ export  function Email() {
   }
 
 
-  return (
-
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-center justify-center p-4 border border-gray-300 rounded-md shadow-lg space-y-4 mx-auto text-black w-full">
-      {mutation.isPending ? <Loading/> :(
+// Begin - Lucas: Modulariza componente
+ return (
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className={styles.form}
+      noValidate
+    >
+      {mutation.isPending ? (
+        <Loading />
+      ) : (
         <>
-          <input type="text" {...register("name")} autoFocus autoComplete='off' placeholder="Digite Seu Nome" className="p-2 border border-gray-300 w-full rounded-md"/>
-          {errors.name && <p className="text-red-500 text-sm w-full text-center">{errors.name.message}</p>}
+          <TextInput
+            id="name"
+            type="text"
+            {...register("name")}
+            placeholder="Digite Seu Nome"
+            error={errors.name?.message}
+            autoFocus
+            autoComplete="off"
+          />
 
-          <input type="email" {...register("email")} autoFocus autoComplete='off' placeholder="Digite Seu Email" className="p-2 border border-gray-300 w-full rounded-md"/>
-          {errors.email && <p className="text-red-500 text-sm w-full text-center">{errors.email.message}</p>}
-                    
-          <input type="text" {...register("subject")} autoFocus autoComplete='off' placeholder="Assunto" className="p-2 border border-gray-300 w-full  rounded-md"/>
-          {errors.subject && <p className="text-red-500 text-sm w-full text-center">{errors.subject.message}</p>}
-                    
-          <textarea {...register("message")} autoFocus autoComplete='off' placeholder="Mensagem" className="p-2 border border-gray-300 w-full h-24 resize-none max-h-24 rounded-md"/>
-          {errors.message && <p className="text-red-500 text-sm w-full text-center">{errors.message.message}</p>}
+          <TextInput
+            id="email"
+            type="email"
+            {...register("email")}
+            placeholder="Digite Seu Email"
+            error={errors.email?.message}
+            autoComplete="off"
+          />
+
+          <TextInput
+            id="subject"
+            type="text"
+            {...register("subject")}
+            placeholder="Assunto"
+            error={errors.subject?.message}
+            autoComplete="off"
+          />
+
+          <TextAreaInput
+            id="message"
+            {...register("message")}
+            placeholder="Mensagem"
+            error={errors.message?.message}
+            autoComplete="off"
+          />
         </>
-
       )}
 
-      
-      <button type="submit" className="p-2 bg-black text-white w-auto rounded-md mx-auto">{ mutation.isError ? "Erro ao enviar email. Tente novamente." : mutation.isSuccess ? "Email enviado com sucesso!" : mutation.isPending ? "Enviando..." : "Enviar"}</button>
+      <SubmitButton status={
+        mutation.isError
+          ? "error"
+          : mutation.isSuccess
+          ? "success"
+          : mutation.isPending
+          ? "pending"
+          : "default"
+      } disabled={mutation.isPending}>
+        {mutation.isError
+          ? "Erro ao enviar email. Tente novamente."
+          : mutation.isSuccess
+          ? "Email enviado com sucesso!"
+          : mutation.isPending
+          ? "Enviando..."
+          : "Enviar"}
+      </SubmitButton>
     </form>
   );
+// End - Lucas: Modulariza componente
 }
