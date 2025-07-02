@@ -1,3 +1,4 @@
+<!-- Begin - Jonas: Criar e manter escopo atualizado conforme andamento atual do projeto -->
 ### 1. Tema - Loja do Mayk
 
   Um website para promover e exibir os produtos vendidos pela loja de Mayk
@@ -16,12 +17,14 @@
 ### 3. Restrições
 
   * O sistema será desenvolvido utilizando tecnologias web open-source.
-  * O sistema será desenvolvido utilizando html/css/JavaScript e frameworks de componentes reutilizáveis.
+  * O sistema será desenvolvido utilizando html/css/TypeScript e frameworks de componentes reutilizáveis.
   
 ### 4. Protótipo
 
   Prototipagem ainda não iniciada (27/06)
-
+  Protótipo de _landing page_ (28/06)
+  Adição de módulos de funcionalidades e segunda versão da _landing page_ (01/07)
+<!-- End - Jonas: Criar e manter escopo atualizado conforme andamento atual do projeto -->
 ### 5. Recursos
 
 Para enviar e-mail sem backend-
@@ -58,9 +61,9 @@ Figma-
         git clone https://github.com/KretliJ/Loja_do_Mayk.git
         ```
 
- - 4. Intallar o node - [https://nodejs.org/en/download]
+ - 4. Instalar o node - [https://nodejs.org/en/download]
 
- - 5. Intalar as dependencias e Executar o projeto: 
+ - 5. Instalar as dependencias e Executar o projeto: 
         ``` bash 
         npm i 
         npm run dev
@@ -72,7 +75,7 @@ Figma-
 
 Veja [Requisitos não Funcionais](./docs/requisitos_nao_funcionais.md).
 
-### 8. Rodamap
+### 8. Roadmap
 
 - Adaptar os componentes existentes para seguir o novo sistema de temas da aplicação (modo claro/escuro, variáveis CSS, novo sistema de cores).
 
