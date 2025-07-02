@@ -5,9 +5,8 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import "./header.css";
 
-import Logo from "../../public/logo.png";
+import Logo from "../../public/logo.png"
 
 import { throttle } from "lodash";
 
@@ -17,18 +16,8 @@ interface HeaderProps {
 
 const Navigation = () => (
   <>
-    <Link
-      href="/"
-      className="hover:text-white hadow-lg hover:shadow-xl hover:transform hover:scale-105 transition-all duration-75 ease-in-out"
-    >
-      Inicio
-    </Link>
-    <Link
-      href="/contatos"
-      className="hover:text-white hadow-lg hover:shadow-xl hover:transform hover:scale-105 transition-all duration-75 ease-in-out"
-    >
-      Contatos
-    </Link>
+    <Link href="/" className="hover:text-white hadow-lg hover:shadow-xl hover:transform hover:scale-105 transition-all duration-75 ease-in-out">Inicio</Link>
+    <Link href="/contatos" className="hover:text-white hadow-lg hover:shadow-xl hover:transform hover:scale-105 transition-all duration-75 ease-in-out">Contatos</Link>
   </>
 );
 
@@ -63,25 +52,14 @@ export function Header({ children }: HeaderProps) {
   }, [handleScroll]);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 p-3 text-center flex flex-col justify-between items-center bg-black">
+ <header className="fixed top-0 left-0 w-full z-50 p-3 text-center flex flex-col justify-between items-center bg-black">
       <div className="bg-transparent flex justify-between items-center w-full">
-        <Link
-          href="/"
-          className="flex items-center space-x-2 bg-transparent rounded-md px-2 max-h-20 p-2"
-        >
-          <Image
-            src={Logo}
-            alt="Focus Consultoria JR"
-            sizes="80"
-            width={340}
-            height={80}
-            className="object-contain py-2 logoimgtype2"
-            //Jonas - Alterações da logo. Mais de um estilo disponível
-          />
+        <Link href="/" className="flex items-center space-x-2 bg-transparent rounded-md px-2 max-h-20 p-2">
+          <Image src={Logo} alt="MaykShop logo" sizes="80" width={340} height={80} className="md:max-w-[340px] max-h-20 object-contain py-2"/>
         </Link>
-
+        
         <div className="md:hidden flex items-center border-2 border-slate-600 rounded-md">
-          <button
+          <button 
             className="bg-black text-white px-4 py-2 rounded-lg text-center"
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label="Menu"
@@ -89,7 +67,7 @@ export function Header({ children }: HeaderProps) {
             ☰
           </button>
         </div>
-
+        
         <nav className="hidden md:flex top-5 left-1/2 transform -translate-x-1/2 bg-transparent text-gray-400 px-6 py-3 rounded-full space-x-6 mr-0">
           <Navigation />
         </nav>
@@ -100,6 +78,8 @@ export function Header({ children }: HeaderProps) {
           <Navigation />
         </nav>
       )}
+
+   
     </header>
   );
 }
