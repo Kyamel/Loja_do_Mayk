@@ -2,11 +2,11 @@
 // Este código foi criado/alterado por mim.
 
 interface FaqProps {
-    question: string;
-    response: string;
+  question: string;
+  response: string;
 }
 
-export function Faq({question, response }:FaqProps) {
+export function Faq({ question, response }: FaqProps) {
   // Lucas: Adicionar Esquema de Global
   return (
     <div className="flex flex-col items-center justify-center gap-4 mx-auto">
@@ -15,7 +15,8 @@ export function Faq({question, response }:FaqProps) {
         style={{
           fontSize: "var(--fs-xl)",
           color: "var(--text-primary)",
-          fontFamily: "var(--font-sans)",
+          fontFamily: "VCRMono",
+          fontWeight: 200,
         }}
       >
         {question}
@@ -24,8 +25,9 @@ export function Faq({question, response }:FaqProps) {
         style={{
           fontSize: "var(--fs-sm)",
           color: "var(--text-primary)",
-          fontFamily: "var(--font-sans)",
-          fontWeight: 300,
+          fontFamily: "VCRMono",
+          fontWeight: 200,
+          textAlign: "justify",
         }}
       >
         {response}
