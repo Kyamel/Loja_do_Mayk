@@ -11,7 +11,7 @@
 
   /* --- FUNDOS --- */
     --bg-primary: #fdf6e3;          /* bege claro */
-    --bg-secondary: #fff8dc;        /* bege mais claro para cards */
+    --bg-secondary: #fff8dc;        /* bege mais claro para cards */  
     --bg-accent: #ffcc00;           /* amarelo vibrante */
     --bg-muted: #eee8d5;            /* fundo input claro */
     --bg-overlay: rgba(253, 246, 227, 0.8);
@@ -267,7 +267,7 @@ img, canvas {
 }
 
 /* Desktop e maiores */
-@media (min-width: 1024px) {
+@media (min-width: 1024px) {3xl
   :root {
     --fs-sm: 1.1rem;     /* ~17.6px */
     --fs-md: 1.35rem;    /* ~21.6px */

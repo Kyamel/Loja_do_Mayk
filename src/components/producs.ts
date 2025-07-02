@@ -6,19 +6,19 @@ interface IProducs {
 
 export const Producs: IProducs[] = [
   {
-    title: "Curso de React",
-    description: "Aprenda a construir aplicações web modernas com React e TypeScript.",
-    Iimage: "/images/react-course.png",
+    title: "Console Nintendo Switch",
+    description: "Console híbrido da Nintendo. Jogue em casa ou em qualquer lugar!",
+    Iimage: "/Switch.png",
   },
   {
-    title: "API com Node.js",
-    description: "Domine o backend com Express, autenticação JWT e MongoDB.",
-    Iimage: "/images/node-api.png",
+    title: "Jogos Mario Bros",
+    description: "Coleção completa dos clássicos jogos do Mario Bros e família.",
+    Iimage: "/mario.png",
   },
   {
-    title: "UI com Tailwind CSS",
-    description: "Crie interfaces responsivas e modernas utilizando Tailwind CSS.",
-    Iimage: "/images/tailwind-ui.png",
+    title: "Nintendo Switch Pro",
+    description: "Versão premium do Switch com controles aprimorados.",
+    Iimage: "/switch_logo.png",
   },
   {
     title: "Docker e DevOps",
@@ -42,11 +42,6 @@ export const Producs: IProducs[] = [
   },
   {
     title: "Criptografia Moderna",
-    description: "Implemente sistemas seguros com AES, RSA e hashing avançado.",
-    Iimage: "/images/crypto-secure.png",
-  },
-   {
-    title: "Criptografia",
     description: "Implemente sistemas seguros com AES, RSA e hashing avançado.",
     Iimage: "/images/crypto-secure.png",
   },
