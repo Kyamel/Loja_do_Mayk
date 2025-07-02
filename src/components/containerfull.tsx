@@ -23,9 +23,10 @@ export function ContainerFull({ children, props }: ContainerProps) {
     <QueryClientProvider client={queryClient}>
       
       <main {...props}
-        className="flex-grow w-[1200px] text-white mx-auto bg-transparent z-10 mt-24"
+        className="relative flex-grow max-w-[1200px] text-white mx-auto bg-transparent z-10 mt-24"
         >
         {children}
+        
       </main>
     </QueryClientProvider>
 

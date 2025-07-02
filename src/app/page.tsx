@@ -1,6 +1,6 @@
 // Desenvolvido por [Danilo Da Silva Batista] - https://github.com/kovarike
 // Este código foi criado/alterado por mim.
-
+"use client"
 import { Metadata } from "next";
 import { Email } from "@/components/email";
 import { ContainerFull } from "@/components/containerfull";
@@ -9,14 +9,20 @@ import { Faq } from "@/components/faq";
 import { Separator } from "@/components/separator";
 import { Producs } from "../components/producs";
 import { Cards } from "../components/cards";
+import { VendaModal } from "@/components/vendaModal";
+import { useState } from "react";
+import { Produto } from "@/types/types";
 
-export const metadata: Metadata = {
-  title: "MaykShop | Tecnologia e Games",
-  description: "Tecnologia e Games.",
-};
+// export const metadata: Metadata = {
+//   title: "MaykShop | Tecnologia e Games",
+//   description: "Tecnologia e Games.",
+// };
 
 // Lucas: Adicionar layers no fundo da página principal, seguingo estilo retro
 export default function Home() {
+
+   const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(null)
+
   return (
     <ContainerFull>
       <section>
@@ -47,7 +53,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-3xl mx-auto px-4 py-8 text-center">
+      <section className="w-full mx-auto px-4 py-8 text-center">
         <h2
           className="text-4xl"
           style={{
@@ -58,13 +64,13 @@ export default function Home() {
         >
           Produtos Novos e Lançamentos
         </h2>
-        <div className="max-w-3xl mx-auto px-4 py-8 text-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 p-10">
+        <div className="flex flex-col w-full justify-center items-center mx-auto px-10 py-4 text-center md:grid md:grid-cols-2 lg:grid-cols-3 space-y-5 md:gap-5">
           {Producs.map((p) => (
             <Cards
-              Iimage={p.Iimage}
-              description={p.description}
-              title={p.title}
-              key={p.title}
+              produto={p}
+              key={p.id}
+              onComprar={(produto) => setProdutoSelecionado(produto)}
+
             />
           ))}
         </div>
@@ -110,7 +116,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section></section>
+      <VendaModal produto={produtoSelecionado} onClose={() => setProdutoSelecionado(null)} />
     </ContainerFull>
   );
 }
