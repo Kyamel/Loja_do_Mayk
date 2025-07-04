@@ -33,7 +33,7 @@ export function Cards({produto, onComprar}:ProductCardProps){
         </div>
       )}
 
-      <p className="flex flex-col md:text-lg text-base font-medium text-black break-words max-h-20 ">
+      <p className="flex flex-col md:text-lg text-base font-medium text-black break-words max-h-20">
         <span className="flex items-center justify-center"><span className="md:text-lg text-base font-bold flex items-center justify-center gap-2 text-center">{produto.title}</span></span>
         {produto.description}
       </p>
