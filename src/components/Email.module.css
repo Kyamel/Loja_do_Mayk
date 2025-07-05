@@ -22,7 +22,7 @@
 .button {
   padding: 0.5rem 1rem;
   border-radius: 0.375rem;
-  color: var(--text-primary);
+  color: var(--text-secondary);
   transition: background-color 0.3s;
   cursor: pointer;
   width: auto;

@@ -68,8 +68,8 @@ body {
 
     /* Inputs e Formulários */
     --input-bg: var(--bg-muted);
-    --input-border: var(--border-muted);
-    --input-text: var(--text-primary);
+    --input-border: var(--border-muted);  
+    --input-text: var(--text-secondary);
     --input-placeholder: var(--text-muted);
 
     /* Cabeçalhos e Títulos */
@@ -130,7 +130,7 @@ body {
   /* Inputs e Formulários */
   --input-bg: var(--bg-muted);
   --input-border: var(--border-muted);
-  --input-text: var(--text-primary);
+  --input-text: var(--text-secondary);
   --input-placeholder: var(--text-muted);
 
   /* Cabeçalhos e Títulos */
@@ -141,6 +141,7 @@ body {
   
 }
 
+/*
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -148,8 +149,6 @@ body {
   --font-mono: var(--font-geist-mono);
 }
 
-
-/*
 *{
   font-family: "Helvetica Neue LT", "Helvetica Neue", "Helvetica", "Roboto", sans-serif
 }
