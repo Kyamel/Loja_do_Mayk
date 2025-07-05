@@ -37,14 +37,14 @@ export function VendaModal({ produto, onClose }: Props) {
   return (
     // Lucas: Modal fecha ao clicar fora
     <div
-      className="fixed inset-0 z-50 bg-black/30 flex justify-center items-start pt-12"
+      className="fixed inset-0 top-10 bg-black/30 flex justify-center items-start pt-12"
       onClick={onClose} // Clique fora fecha
     >
       <div
-        className="w-[90%] max-w-2xl bg-[#fff8dc] py-6 px-10 h-[800px] overflow-y-auto flex flex-col items-center rounded-lg border-gray-700 border-2 shadow-2xl text-black"
+        className="w-full max-w-2xl bg-[#fff8dc] py-6 px-10 h-[800px] overflow-y-auto flex flex-col items-center rounded-lg border-gray-700 border-2 shadow-2xl text-black"
         onClick={(e) => e.stopPropagation()} // Clique dentro não fecha
       >
-        <div className="w-full">
+        <div className="w-[50%]">
           <img
             src={produto.Iimage}
             alt={produto.title}
