@@ -15,6 +15,7 @@ import { Produto } from "@/types/types";
 
 import { Carousel } from "@/components/Carousel";
 import { getGames } from "@/lib/api/games";
+import { VerticalCarousel } from "@/components/VerticalCarousel";
 // export const metadata: Metadata = {
 //   title: "MaykShop | Tecnologia e Games",
 //   description: "Tecnologia e Games.",
@@ -82,19 +83,29 @@ export default function Home() {
         <Separator />
       </section>
 
-      {/* Lucas: Adicionar Carousel na página */}  
-      <section>  
-          <Carousel>
-            {produtos.map((p, idx) => (
-              <Cards 
-                key={idx} 
-                produto={p} 
-                onComprar={(produto) => setProdutoSelecionado(produto)} />
-            ))}
-          </Carousel>
-        <Separator/>
-      </section>  
+      {/* Lucas: Adicionar Carousel na página */}
+       <section className="w-full max-w-[1200px] mx-auto px-4 py-8">
+        <h2 className="text-4xl text-center mb-6" style={{
+          color: "var(--text-primary)",
+          fontFamily: "VCRMono",
+          fontWeight: 200,
+        }}>
+          Explore mais jogos
+        </h2>
 
+        <VerticalCarousel>
+          {produtos.map((p, idx) => (
+            <Cards
+              key={idx}
+              produto={p}
+              onComprar={(produto) => setProdutoSelecionado(produto)}
+            />
+          ))}
+        </VerticalCarousel>
+
+        <Separator />
+      </section>
+     
       <section>
         <div className="max-w-3xl mx-auto px-4 py-8 text-center">
           <h2

@@ -1,4 +1,4 @@
-/* Lucas: Crair arquivo */
+// Lucas: Crair arquivo
 // components/Carousel.tsx
 
 // components/Carousel.tsx

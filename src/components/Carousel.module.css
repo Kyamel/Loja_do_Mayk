@@ -1,62 +1,61 @@
-/* components/Carousel.module.css */
-.carouselContainer {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.carouselWrapper {
   width: 100%;
-  overflow: hidden;
-  padding: 1rem 0;
-  background-color: var(--bg-primary);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  overflow: hidden; /* Esconde qualquer overflow */
+}
+
+.carouselHeader {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .carouselTrack {
   display: flex;
-  overflow-x: auto;
+  gap: 1rem;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  gap: 1.0rem;
-  padding: 1.0rem;
+  overflow-x: auto;
+  padding-bottom: 1rem; /* Espaço para scrollbar */
+  margin-left: -1rem; /* Compensa o padding */
+  margin-right: -1rem; /* Compensa o padding */
+  width: calc(100% + 2rem); /* Compensa as margens negativas */
 }
 
 .carouselTrack::-webkit-scrollbar {
-  display: none;
+  height: 4px;
 }
 
+.carouselTrack::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 2px;
+}
+
+.carouselItem {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  width: 230px; /* Igual à largura do Cards */
+  padding: 0 1rem; /* Espaçamento interno */
+}
 
 .navButton {
   background-color: var(--button-bg-default);
   color: var(--button-text-default);
   border: 1px solid var(--button-border);
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   font-size: var(--fs-sm);
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  transform: scale(1);
+  z-index: 10;
 }
 
 .navButton:hover {
   background-color: var(--button-bg-hover);
   color: var(--button-text-hover);
-  transform: scale(1.1);
-}
-
-.navButton:first-of-type {
-  margin-left: 0.5rem;
-}
-
-.navButton:last-of-type {
-  margin-right: 0.5rem;
-}
-
-.carouselItem {
-  scroll-snap-align: start;
-  flex: auto;
-  height: 100%;
-  transition: box-shadow 0.3s ease;
-}
-
-.carouselItem:hover {
-  box-shadow: 0 4px 12px var(--shadow-default);
 }

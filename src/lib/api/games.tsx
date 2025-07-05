@@ -1,4 +1,3 @@
-// Lucas: Criar arquivo
 // lib/api/games.tsx
 
 import { Produto } from "@/types/types";
@@ -74,6 +73,49 @@ export function getGames(): Produto[] {
       Iimage: "/img10.png",
       id: "10",
       price: 130,
+    },
+    // Novos jogos adicionados
+    {
+      title: "Hollow Knight",
+      description: "Metroidvania atmosférico com combate desafiador e arte linda.",
+      Iimage: "/img11.png",
+      id: "11",
+      price: 90,
+    },
+    {
+      title: "Celeste",
+      description: "Plataforma 2D sobre superação com trilha sonora incrível.",
+      Iimage: "/img12.png",
+      id: "12",
+      price: 70,
+    },
+    {
+      title: "Dead Cells",
+      description: "Roguevania com combate rápido e níveis gerados proceduralmente.",
+      Iimage: "/img13.png",
+      id: "13",
+      price: 100,
+    },
+    {
+      title: "Hades",
+      description: "Rogue-like com narrativa forte e combate fluido no submundo grego.",
+      Iimage: "/img14.png",
+      id: "14",
+      price: 120,
+    },
+    {
+      title: "Ori and the Blind Forest",
+      description: "Plataforma e aventura com visuais deslumbrantes e história emocionante.",
+      Iimage: "/img15.png",
+      id: "15",
+      price: 110,
+    },
+    {
+      title: "Super Meat Boy",
+      description: "Plataforma hardcore com níveis rápidos e precisos.",
+      Iimage: "/img16.png",
+      id: "16",
+      price: 80,
     },
   ];
 }

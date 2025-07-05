@@ -181,15 +181,6 @@ body {
 
 /* Begin - Lucas: add retro color palete e fonte */
 
-
-/* ======= Modo CRT ======= */
-body.crt {
-
-  color: #0f0;
-  text-shadow: 0 0 2px #0f0;
-  filter: contrast(1.2) brightness(0.9);
-}
-
 /* ======= Pixel art friendly ======= */
 img, canvas {
   image-rendering: pixelated;
