@@ -1,0 +1,62 @@
+/* components/Carousel.module.css */
+.carouselContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0;
+  background-color: var(--bg-primary);
+}
+
+.carouselTrack {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  gap: 1.0rem;
+  padding: 1.0rem;
+}
+
+.carouselTrack::-webkit-scrollbar {
+  display: none;
+}
+
+
+.navButton {
+  background-color: var(--button-bg-default);
+  color: var(--button-text-default);
+  border: 1px solid var(--button-border);
+  padding: 0.5rem;
+  font-size: var(--fs-sm);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform: scale(1);
+}
+
+.navButton:hover {
+  background-color: var(--button-bg-hover);
+  color: var(--button-text-hover);
+  transform: scale(1.1);
+}
+
+.navButton:first-of-type {
+  margin-left: 0.5rem;
+}
+
+.navButton:last-of-type {
+  margin-right: 0.5rem;
+}
+
+.carouselItem {
+  scroll-snap-align: start;
+  flex: auto;
+  height: 100%;
+  transition: box-shadow 0.3s ease;
+}
+
+.carouselItem:hover {
+  box-shadow: 0 4px 12px var(--shadow-default);
+}

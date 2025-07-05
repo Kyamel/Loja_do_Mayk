@@ -267,7 +267,7 @@ img, canvas {
 }
 
 /* Desktop e maiores */
-@media (min-width: 1024px) {3xl
+@media (min-width: 1024px) {
   :root {
     --fs-sm: 1.1rem;     /* ~17.6px */
     --fs-md: 1.35rem;    /* ~21.6px */
