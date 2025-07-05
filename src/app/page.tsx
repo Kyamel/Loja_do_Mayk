@@ -27,7 +27,7 @@ export default function Home() {
   const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(null)
 
   // Lucas: Mockup de items para o Carousel.
-  const produtos: Produto[] = getGames();
+  const games: Produto[] = getGames();
 
   return (
     <ContainerFull>
@@ -105,7 +105,7 @@ export default function Home() {
         </h2>
 
         <VerticalCarousel>
-          {produtos.map((p, idx) => (
+          {games.map((p, idx) => (
             <Cards
               key={idx}
               produto={p}
