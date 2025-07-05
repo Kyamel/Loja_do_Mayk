@@ -1,46 +1,27 @@
-.carouselWrapper {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  position: relative;
-  overflow: hidden; /* Esconde qualquer overflow */
-}
-
-.carouselHeader {
+/* Lucas: Criar arquivo */
+/* components/Carousel.module.css */
+.carouselContainer {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
   gap: 1rem;
-  margin-bottom: 1rem;
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0;
+  background-color: var(--bg-primary);
 }
 
 .carouselTrack {
   display: flex;
-  gap: 1rem;
+  overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  overflow-x: auto;
-  padding-bottom: 1rem; /* Espaço para scrollbar */
-  margin-left: -1rem; /* Compensa o padding */
-  margin-right: -1rem; /* Compensa o padding */
-  width: calc(100% + 2rem); /* Compensa as margens negativas */
+  gap: 1rem;
+  padding: 0 1rem;
 }
 
 .carouselTrack::-webkit-scrollbar {
-  height: 4px;
-}
-
-.carouselTrack::-webkit-scrollbar-thumb {
-  background: var(--text-secondary);
-  border-radius: 2px;
-}
-
-.carouselItem {
-  scroll-snap-align: start;
-  flex: 0 0 auto;
-  width: 230px; /* Igual à largura do Cards */
-  padding: 0 1rem; /* Espaçamento interno */
+  display: none;
 }
 
 .navButton {
@@ -48,11 +29,10 @@
   color: var(--button-text-default);
   border: 1px solid var(--button-border);
   padding: 0.5rem 1rem;
-  font-size: var(--fs-sm);
+  font-size: var(--fs-lg);
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 10;
+  transition: background 0.3s ease;
 }
 
 .navButton:hover {

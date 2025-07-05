@@ -50,7 +50,7 @@
 
     /* Botões */
     --button-bg-default: var(--bg-accent);
-    --button-bg-hover: #b38f00;
+    --button-bg-hover: #e69600;
     --button-text-default: var(--bg-primary);
     --button-text-hover: var(--text-primary);
     --button-border: var(--border-accent);
@@ -129,7 +129,7 @@
 
     /* Botões */
     --button-bg-default: var(--bg-accent);
-    --button-bg-hover: #e6b800;
+    --button-bg-hover: #e69600;
     --button-text-default: var(--bg-primary);
     --button-text-hover: var(--text-primary);
     --button-border: var(--border-accent);
