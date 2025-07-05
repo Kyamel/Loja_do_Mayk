@@ -54,7 +54,7 @@ export function Header({ children }: HeaderProps) {
   return (
  <header className="fixed top-0 left-0 w-full z-50 p-3 text-center flex flex-col justify-between items-center bg-black">
       <div className="bg-transparent flex justify-between items-center w-full">
-        <Link href="/" className="flex items-center space-x-2 bg-transparent rounded-md px-2 max-h-20 p-2">
+        <Link href="/" className="flex items-center space-x-2 bg-transparent rounded-md px-2 max-h-8 p-2">
           <Image src={Logo} alt="MaykShop logo" sizes="80" width={340} height={80} className="md:max-w-[340px] max-h-20 object-contain py-2"/>
         </Link>
         
