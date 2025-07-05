@@ -3,18 +3,51 @@
 
 .container {
   width: 100%;
-  max-width: 80rem; /* ~1280px */
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;
-  height: 100%;
-  max-height: var(--carousel-height, 500px);
+}
+
+.scrollArea {
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+}
+
+.grid {
+  
+  display: grid;
+  gap: 1.5rem;
+  justify-items: center;
+
+  /* layout base para mobile: 1 coluna */
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 540px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 800px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+.gridItem {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  width: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
 }
 
 .button {
-  margin: 0.5rem 0;
   padding: 0.5rem 1rem;
   background-color: var(--bg-accent);
   color: var(--text-primary);
@@ -26,36 +59,5 @@
 }
 
 .button:hover {
-  background-color: var(--button-bg-hover) 
-}
-
-.scrollArea {
-  overflow-y: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-  height: 100%;
-  width: 100%;
-  padding: 0 0.5rem;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 1.5rem;
-  justify-items: center;
-  scroll-snap-align: start;
-}
-
-/* Para telas médias e maiores, 3 colunas lado a lado */
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.gridItem {
-  width: 100%;
-  scroll-snap-align: start;
-  display: flex;
-  justify-content: center;
+  background-color: var(--button-bg-hover);
 }

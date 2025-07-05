@@ -132,7 +132,7 @@ export default function Home() {
             Perguntas Frequentes
           </h2>
           <Faq
-            question="O QUEM SOMOS"
+            question="QUEM SOMOS"
             response="A MaykShop é uma empresa especializada em segmentação comercial, que reúne entusiastas e amadores da tecnologia e dos games"
           />
           <Separator />
