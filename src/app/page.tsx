@@ -70,16 +70,27 @@ export default function Home() {
         >
           Produtos Novos e Lançamentos
         </h2>
-        <div className="flex flex-col w-full justify-center items-center mx-auto px-10 py-4 text-center md:grid md:grid-cols-2 lg:grid-cols-3 space-y-5 md:gap-5">
+        {/* Lucas: Fix - Em telas médias, como tablet (teste simulando o ipad ipadOS 14.7.1 no firefox), não estava centralizando os itens corretamente*/}
+        {/* <div className="flex flex-col w-full justify-center items-center mx-auto px-10 py-4 text-center md:grid md:grid-cols-2 lg:grid-cols-3 space-y-5 md:gap-5"> */}
+        <div className="
+          w-full 
+          mx-auto 
+          px-10 
+          py-4 
+          text-center 
+          flex flex-col justify-center items-center
+          space-y-5
+          md:grid md:grid-cols-3 md:gap-5 md:justify-items-center md:space-y-0
+          lg:grid-cols-3
+        ">
           {Producs.map((p) => (
             <Cards
               produto={p}
               key={p.id}
               onComprar={(produto) => setProdutoSelecionado(produto)}
-
             />
           ))}
-        </div>
+          </div>
         <Separator />
       </section>
 

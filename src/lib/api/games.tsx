@@ -74,7 +74,6 @@ export function getGames(): Produto[] {
       id: "10",
       price: 130,
     },
-    // Novos jogos adicionados
     {
       title: "Hollow Knight",
       description: "Metroidvania atmosférico com combate desafiador e arte linda.",
@@ -109,13 +108,6 @@ export function getGames(): Produto[] {
       Iimage: "/img15.png",
       id: "15",
       price: 110,
-    },
-    {
-      title: "Super Meat Boy",
-      description: "Plataforma hardcore com níveis rápidos e precisos.",
-      Iimage: "/img16.png",
-      id: "16",
-      price: 80,
     },
   ];
 }
