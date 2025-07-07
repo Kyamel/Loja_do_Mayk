@@ -44,7 +44,7 @@ export function VendaModal({ produto, onClose }: Props) {
         className="w-full max-w-2xl bg-[#fff8dc] py-6 px-10 h-[800px] overflow-y-auto flex flex-col items-center rounded-lg border-gray-700 border-2 shadow-2xl text-black"
         onClick={(e) => e.stopPropagation()} // Clique dentro não fecha
       >
-        <div className="w-[50%]">
+        <div className="max-w-[85%] w-full border border-gray-400 rounded-md px-5 py-4 shadow-2xl mb-1">
           <img
             src={produto.Iimage}
             alt={produto.title}

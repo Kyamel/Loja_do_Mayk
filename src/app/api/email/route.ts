@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
   
     const { email, subject, message, name } = validation.data;
 
-    const { email:EmailPay, subject:SubjectPay, endereço, name:NamePay, formaPagamento } = validationPay.data;
+    const { email:EmailPay, subject:SubjectPay, cep, cidade, estado, rua, complemento, name:NamePay, formaPagamento } = validationPay.data;
 
     const sanitizedName = name.replace(/</g, "&lt;").replace(/>/g, "&gt;");
     const sanitizedMessage = message.replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
     //sanitize Email Pay
 
     const sanitizedNamePay = NamePay.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    const sanitizedMessagePay = endereço.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    // const sanitizedMessagePay = endereço.replace(/</g, "&lt;").replace(/>/g, "&gt;");
     const sanitizedEmailPay = EmailPay.replace(/</g, "&lt;").replace(/>/g, "&gt;");
     const sanitizedSubjectPay = SubjectPay?.replace(/</g, "&lt;").replace(/>/g, "&gt;");
     const sanitizedPay = formaPagamento.replace(/</g, "&lt;").replace(/>/g, "&gt;");

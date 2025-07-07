@@ -15,6 +15,33 @@ body {
 }
 
 
+*{
+  /* Estilização padrão para navegadores baseados em WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 8px;               /* Largura do scroll vertical */
+  height: 8px;              /* Altura do scroll horizontal */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;  /* Fundo do trilho */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.5); /* Cor do scroll com transparência */
+  border-radius: 10px;      /* Bordas arredondadas */
+  border: 2px solid transparent; /* Espaço entre o thumb e o track */
+  background-clip: padding-box;  /* Garante o arredondamento correto */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;           /* Scroll mais fino */
+  scrollbar-color: rgba(100, 100, 100, 0.5) transparent; /* Cor do thumb e do trilho */
+}
+
+}
+
+
 /* Suporte para tema manual */
 :root, :root.light {
   --background: #ffffff;
