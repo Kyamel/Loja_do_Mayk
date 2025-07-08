@@ -1,69 +1,59 @@
-<!-- Begin - Lucas: Adicionar requisitos e rodamap -->
-### 7. Requisitos Não Funcionais
+# Loja do Mayk
 
-### Tipagem Estática
-Sempre use TypeScript para evitar erros derivados de dados não tipados.
+Um website para promover e exibir os produtos vendidos pela loja de Mayk.
 
-#### Design Responsivo
-- A interface se adapta a diferentes tamanhos de tela (celular, tablet, desktop).
-- Use **media queries** (com CSS Modules/SCSS) ou **breakpoints do TailwindCSS**.
+## Análise do Projeto
 
-**Exemplo com Tailwind:**
-```tsx
-<p className="text-sm md:text-base lg:text-lg">Texto adaptável</p>
+O projeto **Loja do Mayk** é um sistema web desenvolvido em TypeScript com o objetivo de criar uma vitrine online para a venda de produtos. O repositório está organizado para facilitar a manutenção, implementação de funcionalidades e expansão futura.
+
+### Objetivo
+
+O principal objetivo do projeto é proporcionar uma experiência de compra descomplicada, oferecendo aos clientes uma interface intuitiva para visualizar produtos, realizar pedidos e efetuar pagamentos. Além disso, inclui funcionalidades para o envio de e-mails automáticos relacionados às compras.
+
+### Funcionalidades Principais
+
+- **Catálogo de Produtos:** Exibição dos produtos disponíveis de forma clara e atrativa.
+- **Sistema de Compra:** Permite ao usuário selecionar produtos, adicioná-los ao carrinho e realizar a compra.
+- **Pagamento Online:** Integração com sistemas de pagamento para finalizar o pedido de forma segura.
+- **Envio de E-mail:** Notificações automáticas por e-mail após a conclusão da compra.
+- **Ajuste Dinâmico de Layout e Imagens:** Layout responsivo, com otimização das imagens para melhor experiência do usuário.
+- **Cards de Produto:** Cada produto é exibido em um card com informações detalhadas.
+
+### Estrutura do Projeto
+
+- `src/`: Contém o código-fonte principal do projeto.
+- `docs/`: Documentação, incluindo requisitos funcionais e não funcionais.
+- `public/`: Arquivos estáticos, como imagens e ícones.
+- `README.md`: Documentação geral do projeto.
+
+### Exemplo de Uso
+
+1. O usuário acessa a página inicial e navega pelo catálogo de produtos.
+2. Ao escolher um produto, adiciona-o ao carrinho.
+3. No carrinho, revisa os itens e segue para o pagamento.
+4. Após o pagamento, o sistema envia um e-mail de confirmação.
+
+### Tecnologias Utilizadas
+
+- **TypeScript:** Linguagem principal do projeto.
+- **Frameworks e Libraries:** (Detalhar aqui conforme o projeto, ex: React, Next.js, Express, etc.)
+- **Integração com APIs de pagamento:** Para transações seguras.
+- **Serviço de envio de e-mail:** (Ex: Nodemailer, SendGrid, etc.)
+
+### Como Executar o Projeto
+
+```bash
+git clone https://github.com/KretliJ/Loja_do_Mayk.git
+cd Loja_do_Mayk
+npm install
+npm start
 ```
 
-#### Suporte a Tema Claro/Escuro
-- O site respeita a preferência do sistema (`prefers-color-scheme`).
-- Use **variáveis CSS globais** ou `darkMode` do TailwindCSS.
+### Contribuição
 
-**Exemplo com Tailwind:**
-```tsx
-<div className="bg-white text-black dark:bg-black dark:text-white">Tema adaptável</div>
-```
+Sinta-se à vontade para abrir issues e pull requests, contribuindo para o desenvolvimento e aprimoramento do projeto!
 
-**Exemplo com CSS/SCSS:**
-```css
-:root {
-  --bg: white;
-  --text: black;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: black;
-    --text: white;
-  }
-}
-```
+---
 
-#### Design Modular
-- Nada de hardcode! Cores, fontes e tamanhos devem vir de **variáveis CSS** ou **tokens de design**.
-- Use `:root` com SCSS, ou configure no `tailwind.config.js`.
-
-**Exemplo com CSS:**
-```css
-:root {
-  --primary: #3490dc;
-}
-.button {
-  background-color: var(--primary);
-}
-```
-
-#### Acessibilidade
-- Sempre use `alt` em imagens e atributos `aria-*` onde necessário.
-- O site é amigável para leitores de tela.
-
-**Exemplo com imagem do Next.js:**
-```tsx
-<Image src="/logo.png" alt="Logotipo da empresa" width={100} height={50} />
-```
-
-**Exemplo com botão acessível:**
-```tsx
-<button aria-label="Abrir menu de navegação">
-  <MenuIcon />
-</button>
-```
-
-<!-- End - Lucas: Adicionar requisitos e rodamap -->
+**Resumo:**  
+O projeto Loja do Mayk visa digitalizar e modernizar o processo de vendas de uma loja, oferecendo ao cliente uma experiência prática, segura e agradável. Ele conta com funcionalidades essenciais para o comércio eletrônico, integração com sistemas de pagamento e envio de notificações, além de um layout moderno e responsivo.
