@@ -22,23 +22,21 @@ export async function sendMail([{name, email, message, subject, }]: DataSchemaEm
        
 }
 
-export async function sendMailPay([{name, email, cep, cidade, estado,  rua, complemento, subject, formaPagamento}]: DataSchemaPay[]): Promise<any>{
+export async function sendMailPay([{name, email, cep, cidade, estado,  rua, complemento, subject, formaPagamento}]: DataSchemaPay[]){
     const data = {
         name,
         email, 
         subject,
-        
-            cep,
-            cidade,
-            estado,
-            rua,
-            complemento,
-        
+        cep,
+        cidade,
+        estado,
+        rua,
+        complemento,
         formaPagamento 
     };
     
-    const  res = await axios.post('/api/email', data);
+    await axios.post('/api/email', data);
 
-    return res.status;
+    
        
 }

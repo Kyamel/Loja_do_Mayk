@@ -1,6 +1,6 @@
 // components/PaymentForm.tsx
 "use client";
-import { DadosPagamento, Produto } from '@/types/types';
+import { Produto } from '@/types/types';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, type FieldErrors } from 'react-hook-form';
@@ -11,9 +11,15 @@ import { emailSchemaPay } from '@/lib/mail';
 
 type DataSchema = z.infer<typeof emailSchemaPay>;
 
+interface Props {
+  produto: Produto | null
+  
+}
 
 
-export function PaymentForm() {
+
+
+export function PaymentForm({produto}:Props) {
   const queryClient = useQueryClient();
 
 
@@ -26,7 +32,7 @@ export function PaymentForm() {
     await sendMailPay([{
       name: data.name,
       email: data.email,
-      subject: ``,
+      subject: produto?.title,
       formaPagamento: data.formaPagamento,
       rua: data.rua,
       complemento: data.complemento,

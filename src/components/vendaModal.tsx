@@ -1,6 +1,5 @@
 // components/VendaModal.tsx
-import { useState } from 'react'
-import { Produto, DadosPagamento } from '@/types/types'
+import { Produto} from '@/types/types'
 import { PaymentForm } from './paymentForm'
 
 
@@ -39,7 +38,7 @@ export function VendaModal({ produto, onClose }: Props) {
         </div>
 
      
-          <PaymentForm  />
+          <PaymentForm  produto={produto}/>
         
 
         <button

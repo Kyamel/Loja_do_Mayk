@@ -8,24 +8,24 @@ import { emailSchema, emailSchemaPay} from "@/lib/mail";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const validation = emailSchema.safeParse(body)  
+    // const validation = emailSchema.safeParse(body)  
     const validationPay = emailSchemaPay.safeParse(body);
 
-    console.log(validationPay, "API")
+    
 
-    if (!validation.success || !validationPay.success) {
-      return NextResponse.json({ error: "Dados inválidos", details: validation.error?.format() || validationPay.error?.format }, { status: 400 });
+    if (!validationPay.success) {
+      return NextResponse.json({ error: "Dados inválidos", details: validationPay.error?.format()}, { status: 400 });
     }
 
   
-    const { email, subject, message, name } = validation.data;
+    // const { email, subject, message, name } = validation.data;
 
     const { email:EmailPay, subject:SubjectPay, cep, cidade, estado, rua, complemento, name:NamePay, formaPagamento } = validationPay.data;
 
-    const sanitizedName = name.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    const sanitizedMessage = message.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    const sanitizedEmail = email.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    const sanitizedSubject = subject.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    // const sanitizedName = name.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    // const sanitizedMessage = message.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    // const sanitizedEmail = email.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    // const sanitizedSubject = subject.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 
     //sanitize Email Pay
@@ -56,13 +56,13 @@ export async function POST(req: NextRequest) {
       service: 'gmail',
       // host: "smtp.ethereal.email",
       // port: 587,
-      // secure: false,
+      secure: true, // SSL
       auth: {
         user: process.env.EMAIL,
         pass: process.env.TOKEN,
       },
       tls: {
-        rejectUnauthorized: true,
+        rejectUnauthorized: false,
       },
     });
 
@@ -72,31 +72,31 @@ export async function POST(req: NextRequest) {
     //---------------------------
 
 
-    const html = `
-    <div style="font-family: Arial, sans-serif; line-height: 1.6; background-color: #fcf5eb; padding: 20px; border-radius: 8px; max-width: 600px; margin: auto;">
-      <p style="color: #000; font-size: 16px; margin-bottom: 20px;">O Cliente <strong style="font-size: 16px;">${sanitizedName}</strong> entrou em contato solicitando nossos serviços!</p>
-      <p style="font-size: 16px; margin-bottom: 10px;"><strong style="font-size: 16px;">Email do Cliente:</strong> <span style="color: #5bc0de;">${sanitizedEmail}</span></p>
-      <p style="font-size: 16px; margin-bottom: 10px;"><strong style="font-size: 16px;">Assunto:</strong> <span style="color: #000;">${sanitizedSubject}</span></p>
-      <p style="font-size: 16px; margin-bottom: 10px;"><strong style="font-size: 16px;">Mensagem:</strong></p>
-      <pre style="white-space: pre-wrap; border: 1px solid #ddd; padding: 15px; background-color: #fcf5eb; border-radius: 4px; font-size: 16px;">
-      ${sanitizedMessage}
-      </pre>
-      <div style="background-color: #fcf5eb; padding: 20px; border-radius: 8px; margin-top: 20px;">
-      <p style="font-size: 16px;"><strong style="font-size: 16px;">Focus Consultaria JR / Diretoria de Projetos.</strong></p>
-      <p style="font-size: 16px;"><strong style="font-size: 16px;">Localização: Rua Trinta e Seis 115 - UFOP-ICEA Cruzeiro Celeste.</strong></p>
-      </div>
-    </div> 
-    `;
+    // const html = `
+    // <div style="font-family: Arial, sans-serif; line-height: 1.6; background-color: #fcf5eb; padding: 20px; border-radius: 8px; max-width: 600px; margin: auto;">
+    //   <p style="color: #000; font-size: 16px; margin-bottom: 20px;">O Cliente <strong style="font-size: 16px;">${sanitizedName}</strong> entrou em contato solicitando nossos serviços!</p>
+    //   <p style="font-size: 16px; margin-bottom: 10px;"><strong style="font-size: 16px;">Email do Cliente:</strong> <span style="color: #5bc0de;">${sanitizedEmail}</span></p>
+    //   <p style="font-size: 16px; margin-bottom: 10px;"><strong style="font-size: 16px;">Assunto:</strong> <span style="color: #000;">${sanitizedSubject}</span></p>
+    //   <p style="font-size: 16px; margin-bottom: 10px;"><strong style="font-size: 16px;">Mensagem:</strong></p>
+    //   <pre style="white-space: pre-wrap; border: 1px solid #ddd; padding: 15px; background-color: #fcf5eb; border-radius: 4px; font-size: 16px;">
+    //   ${sanitizedMessage}
+    //   </pre>
+    //   <div style="background-color: #fcf5eb; padding: 20px; border-radius: 8px; margin-top: 20px;">
+    //   <p style="font-size: 16px;"><strong style="font-size: 16px;">Focus Consultaria JR / Diretoria de Projetos.</strong></p>
+    //   <p style="font-size: 16px;"><strong style="font-size: 16px;">Localização: Rua Trinta e Seis 115 - UFOP-ICEA Cruzeiro Celeste.</strong></p>
+    //   </div>
+    // </div> 
+    // `;
 
-    const mail = {
-      from: `"Solicitação de Serviço de: ${sanitizedName}" <${process.env.EMAIL}>`,
-      to: `${process.env.EMAIL}`,
-      subject: sanitizedSubject,
-      html: html,
-      replyTo: `${sanitizedEmail}, ${process.env.EMAIL}`,
-    };
+    // const mail = {
+    //   from: `"Solicitação de Serviço de: ${sanitizedName}" <${process.env.EMAIL}>`,
+    //   to: `${process.env.EMAIL}`,
+    //   subject: sanitizedSubject,
+    //   html: html,
+    //   replyTo: `${sanitizedEmail}, ${process.env.EMAIL}`,
+    // };
 
-    await transporter.sendMail(mail);
+    // await transporter.sendMail(mail);
 
 
     //---------------------------
