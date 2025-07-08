@@ -1,7 +1,7 @@
 // components/VendaModal.tsx
 import { useState } from 'react'
 import { Produto, DadosPagamento } from '@/types/types'
-import { ErrorPay, getNameProducts, PaymentForm } from './paymentForm'
+import { PaymentForm } from './paymentForm'
 
 
 interface Props {
@@ -10,28 +10,7 @@ interface Props {
 }
 
 export function VendaModal({ produto, onClose }: Props) {
-  const [loading, setLoading] = useState(false)
-  const [success, setSuccess] = useState(false)
-
-  const handleCompra = async (dados: DadosPagamento) => {
-    if (!produto) return
-
-    setLoading(true)
-    try {
-      getNameProducts(produto);
-
-      if (!ErrorPay) {
-        setSuccess(true)
-      } else {
-        alert('Erro ao enviar compra.')
-      }
-    } catch (e) {
-      console.error(e)
-    } finally {
-      setLoading(false)
-    }
-  }
-
+  
   if (!produto) return null
 
   return (
@@ -59,13 +38,9 @@ export function VendaModal({ produto, onClose }: Props) {
           </p>
         </div>
 
-        {success ? (
-          <p className="text-green-600 mt-4 font-medium">
-            Compra realizada com sucesso!
-          </p>
-        ) : (
-          <PaymentForm onSubmit={handleCompra} loading={loading} />
-        )}
+     
+          <PaymentForm  />
+        
 
         <button
           onClick={onClose}

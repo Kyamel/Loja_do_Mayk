@@ -1,7 +1,7 @@
 // Desenvolvido por [Danilo Da Silva Batista] - https://github.com/kovarike
 // Este código foi criado/alterado por mim.
 
-import { Producs } from "@/components/producs";
+
 import { z } from "zod";
 export const emailSchema = z.object({
   name: z.string().min(3, "O nome deve ter pelo menos 3 caracteres"),

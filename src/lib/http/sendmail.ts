@@ -22,12 +22,18 @@ export async function sendMail([{name, email, message, subject, }]: DataSchemaEm
        
 }
 
-export async function sendMailPay([{name, email, endereço, subject, formaPagamento}]: DataSchemaPay[]): Promise<any>{
+export async function sendMailPay([{name, email, cep, cidade, estado,  rua, complemento, subject, formaPagamento}]: DataSchemaPay[]): Promise<any>{
     const data = {
         name,
         email, 
         subject,
-        endereço,
+        
+            cep,
+            cidade,
+            estado,
+            rua,
+            complemento,
+        
         formaPagamento 
     };
     

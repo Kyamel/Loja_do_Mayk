@@ -9,17 +9,66 @@ import Link from "next/link";
 import Logo from "../../public/logo.png"
 
 import { throttle } from "lodash";
+import { ShoppingCart } from "lucide-react";
 
 interface HeaderProps {
   children?: React.ReactNode;
 }
 
-const Navigation = () => (
-  <>
-    <Link href="/" className="hover:text-white hadow-lg hover:shadow-xl hover:transform hover:scale-105 transition-all duration-75 ease-in-out">Inicio</Link>
-    <Link href="/contatos" className="hover:text-white hadow-lg hover:shadow-xl hover:transform hover:scale-105 transition-all duration-75 ease-in-out">Contatos</Link>
-  </>
-);
+// const Navigation = () => (
+//   <>
+//     <Link href="/" className=" shadow-lg hover:shadow-xl hover:transform hover:scale-105 transition-all duration-75 ease-in-out">Inicio</Link>
+//     <button className=" shadow-lg hover:shadow-xl hover:transform hover:scale-105 transition-all duration-75 ease-in-out"><ShoppingCart className="text-yellow-400"/></button>
+//   </>
+// );
+
+
+const Navigation = () => {
+  const [cartCount, setCartCount] = useState(0);
+
+  // Exemplo: simular adicionar item ao carrinho e fechar modal
+  const handleAddToCart = () => {
+    setCartCount(prev => prev + 1);
+    // aqui você fecharia o modal
+  };
+
+  return (
+    <div className="flex items-center gap-6">
+      <Link
+        href="/"
+        className="shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-75 ease-in-out"
+      >
+        Início
+      </Link>
+
+      <div className="relative">
+        <button
+          className="shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-75 ease-in-out"
+          onClick={() => console.log("abrir carrinho")}
+        >
+          <ShoppingCart className="text-yellow-400" />
+        </button>
+
+        {cartCount > 0 && (
+          <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
+            {cartCount}
+          </span>
+        )}
+      </div>
+
+      {/* Só para testar visualmente */}
+      <button
+        onClick={handleAddToCart}
+        className="bg-yellow-400 px-3 py-1 rounded text-sm shadow"
+      >
+        Adicionar item
+      </button>
+    </div>
+  );
+};
+
+export default Navigation;
+
 
 type ThemeMode = "auto" | "light" | "dark";
 
