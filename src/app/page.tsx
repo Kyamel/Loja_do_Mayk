@@ -1,10 +1,10 @@
 // Desenvolvido por [Danilo Da Silva Batista] - https://github.com/kovarike
 // Este código foi criado/alterado por mim.
 "use client"
-import { Metadata } from "next";
+
 import { Email } from "@/components/email";
 import { ContainerFull } from "@/components/containerfull";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 import { Faq } from "@/components/faq";
 import { Separator } from "@/components/separator";
 import { Producs } from "../components/producs";
@@ -13,13 +13,9 @@ import { VendaModal } from "@/components/vendaModal";
 import { useState } from "react";
 import { Produto } from "@/types/types";
 
-import { Carousel } from "@/components/Carousel";
 import { getGames } from "@/lib/api/games";
 import { VerticalCarousel } from "@/components/VerticalCarousel";
-// export const metadata: Metadata = {
-//   title: "MaykShop | Tecnologia e Games",
-//   description: "Tecnologia e Games.",
-// };
+
 
 // Lucas: Adicionar layers no fundo da página principal, seguingo estilo retro
 export default function Home() {

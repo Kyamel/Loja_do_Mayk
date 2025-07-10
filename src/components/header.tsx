@@ -15,22 +15,10 @@ interface HeaderProps {
   children?: React.ReactNode;
 }
 
-// const Navigation = () => (
-//   <>
-//     <Link href="/" className=" shadow-lg hover:shadow-xl hover:transform hover:scale-105 transition-all duration-75 ease-in-out">Inicio</Link>
-//     <button className=" shadow-lg hover:shadow-xl hover:transform hover:scale-105 transition-all duration-75 ease-in-out"><ShoppingCart className="text-yellow-400"/></button>
-//   </>
-// );
-
-
 const Navigation = () => {
   const [cartCount, setCartCount] = useState(0);
 
-  // Exemplo: simular adicionar item ao carrinho e fechar modal
-  const handleAddToCart = () => {
-    setCartCount(prev => prev + 1);
-    // aqui você fecharia o modal
-  };
+
 
   return (
     <div className="flex items-center gap-6">
@@ -56,13 +44,6 @@ const Navigation = () => {
         )}
       </div>
 
-      {/* Só para testar visualmente */}
-      <button
-        onClick={handleAddToCart}
-        className="bg-yellow-400 px-3 py-1 rounded text-sm shadow"
-      >
-        Adicionar item
-      </button>
     </div>
   );
 };

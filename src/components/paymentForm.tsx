@@ -3,8 +3,8 @@
 import { Produto } from '@/types/types';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm, type FieldErrors } from 'react-hook-form';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useForm } from 'react-hook-form';
+import { useQueryClient } from '@tanstack/react-query';
 import { sendMailPay } from "@/lib/http/sendmail";
 import { emailSchemaPay } from '@/lib/mail';
 
@@ -16,13 +16,8 @@ interface Props {
   
 }
 
-
-
-
 export function PaymentForm({produto}:Props) {
   const queryClient = useQueryClient();
-
-
 
   const { register, handleSubmit, reset, formState: { errors}} = useForm<DataSchema>({
     resolver: zodResolver(emailSchemaPay),
@@ -42,47 +37,10 @@ export function PaymentForm({produto}:Props) {
 
     }]);
 
-
-
-
     queryClient.invalidateQueries({ queryKey: ["email"] });
     reset();
 
-
-
-
   };
-
-
-  // const mutation = useMutation({
-  //   mutationFn: async (data: DataSchema) => {
-  //     await sendMailPay([{
-  //       name: data.name,
-  //       email: data.email,
-  //       subject: `${NameProducts.title}`,
-  //       formaPagamento: data.formaPagamento,
-  //       rua: data.rua,
-  //       complemento: data.complemento,
-  //       cidade: data.cidade,
-  //       estado: data.estado,
-  //       cep: data.cep,
-  //     }]);
-  //     console.log(data)
-
-
-  //   },
-
-  //   onSuccess: () => {
-  //     queryClient.invalidateQueries({ queryKey: ["email"] });
-  //     reset();
-  //   },
-  // });
-
-  // async function onSubmitForm(data: DataSchema) {
-  //   mutation.mutate(data);
-  // }
-
-
 
   return (
     <form onSubmit={handleSubmit(onSubmitForm)} className="mt-4 space-y-3 bg-[#fff8dc] w-full mx-auto">
