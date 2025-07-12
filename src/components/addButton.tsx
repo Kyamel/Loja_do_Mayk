@@ -8,7 +8,7 @@ export function AddButton({handleAddToCart}:Props) {
   return (
     <button
         onClick={handleAddToCart}
-        className="bg-yellow-400 px-3 py-1 rounded text-sm shadow cursor-pointer hover:bg-yellow-500 transition-colors duration-200"
+        className="bg-yellow-400 px-3 py-1 rounded text-sm shadow cursor-pointer hover:bg-yellow-500 transition-colors duration-200 w-48 h-10 mx-auto text-center "
       >
         Adicionar item
       </button>

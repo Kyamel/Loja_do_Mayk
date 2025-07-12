@@ -1,35 +1,41 @@
 // Desenvolvido por [Danilo Da Silva Batista] - https://github.com/kovarike
 // Este código foi criado/alterado por mim.
-"use client";
+
 import Image from "next/image";
 
-import { useState } from "react";
+
 import { Produto } from "@/types/types";
 import { AddButton } from "./addButton";
 
 interface ProductCardProps {
   produto: Produto
   onComprar: (produto: Produto) => void
+
+
+  cartCount?: number;
+  setCartCount: React.Dispatch<React.SetStateAction<number>>;
+
 }
 
 
-export function Cards({produto, onComprar}:ProductCardProps){
-  const [cartCount, setCartCount] = useState(0);
+export function Cards({ produto, onComprar, setCartCount }: ProductCardProps) {
+
 
   // adicionar item ao carrinho e fechar modal
   const handleAddToCart = () => {
-    setCartCount(prev => prev + 1);
+    setCartCount(prevCount => prevCount + 1);
     // aqui você fecharia o modal
   };
 
   return (
-    <div className="flex flex-col p-2 gap-2 items-start text-black border border-gray-300 md:max-w-80 rounded-md px-2 min-h-[370px] w-[230px] max-h-[370px]shadow-lg hover:shadow-xl hover:transform hover:scale-105 transition-all duration-300 ease-in-out bg-[#fff8dc] space-y-16 opacity-95">
-      
-      
+    <div className={`"flex flex-col p-2 gap-2 items-start text-black border border-gray-300 md:max-w-80 rounded-md px-2 min-h-[370px] w-[230px] max-h-[370px]shadow-lg hover:shadow-xl hover:transform hover:scale-105 transition-all duration-300 ease-in-out bg-[#fff8dc] space-y-16 opacity-95 ${produto.Stock < 1 ? "opacity-30" : ""
+      }"`}>
+
+
       {produto.Iimage && (
         <div className="w-full h-28 flex items-center justify-center rounded mb-2 mt-0">
-          <Image 
-            src={produto.Iimage} 
+          <Image
+            src={produto.Iimage}
             alt={produto.title}
             width={120}
             height={120}
@@ -44,12 +50,11 @@ export function Cards({produto, onComprar}:ProductCardProps){
         {produto.description}
       </p>
       <div className="flex justify- items-center w-full mb-0 mt-5 flex-col gap-2">
-        <button onClick={() => onComprar(produto)} className="w-48 h-10 rounded-xl bg-green-600 mx-auto text-center text-white cursor-pointer">
-            Comprar Agora
-        </button>
-        <AddButton handleAddToCart={handleAddToCart}/>
+        {/* <button onClick={() => onComprar(produto)} className="w-48 h-10 rounded-xl bg-green-600 mx-auto text-center text-white cursor-pointer">
+          Comprar Agora
+        </button> */}
+        <AddButton handleAddToCart={handleAddToCart} />
       </div>
     </div>
   );
 }
-

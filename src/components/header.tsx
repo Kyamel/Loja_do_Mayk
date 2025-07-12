@@ -10,15 +10,25 @@ import Logo from "../../public/logo.png"
 
 import { throttle } from "lodash";
 import { ShoppingCart } from "lucide-react";
+import { Produto } from "@/types/types";
 
-interface HeaderProps {
-  children?: React.ReactNode;
+interface NavProps {
+  cartCount: number;
+  produto?: Produto | null;
+  onComprar: () => void
 }
 
-const Navigation = () => {
-  const [cartCount, setCartCount] = useState(0);
 
 
+const Navigation = ({ cartCount, onComprar, produto}: NavProps) => {
+
+  const handleClick = () => {
+    if (!produto) {
+      onComprar();
+    } else {
+      alert("Nenhum produto selecionado.");
+    }
+  };
 
   return (
     <div className="flex items-center gap-6">
@@ -31,8 +41,9 @@ const Navigation = () => {
 
       <div className="relative">
         <button
-          className="shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-75 ease-in-out"
-          onClick={() => console.log("abrir carrinho")}
+          className="shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-75 ease-in-out hover:border-yellow-500 hover:border p-2 rounded-full w-10 h-10 flex items-center justify-center bg-gray-900 text-white"
+          // disabled={!produto}
+          onClick={handleClick}
         >
           <ShoppingCart className="text-yellow-400" />
         </button>
@@ -53,7 +64,7 @@ export default Navigation;
 
 type ThemeMode = "auto" | "light" | "dark";
 
-export function Header({ children }: HeaderProps) {
+export function Header({  cartCount, onComprar,produto}: NavProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showScrollNav, setShowScrollNav] = useState(false);
 
@@ -128,7 +139,7 @@ export function Header({ children }: HeaderProps) {
   }, [handleScroll]);
 
   if (!mounted) return null;
-  
+
   // Lucas: Add dark mode buttom
   return (
     <header className="fixed top-0 left-0 w-full z-50 p-3 bg-black">
@@ -144,7 +155,7 @@ export function Header({ children }: HeaderProps) {
           {/* Botão tema no desktop */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full bg-gray-900 text-yellow-400 hover:bg-gray-600 transition-colors"
+            className="  transition-colors hover:border-yellow-500 hover:border p-2 rounded-full w-10 h-10 flex items-center justify-center bg-gray-900 text-white"
             aria-label={themeLabel}
             title={themeLabel}
           >
@@ -152,10 +163,10 @@ export function Header({ children }: HeaderProps) {
           </button>
           {/* Navegação */}
           <nav className="flex space-x-6 text-gray-400">
-            <Navigation />
+            <Navigation cartCount={cartCount} onComprar={onComprar} produto={produto}/>
           </nav>
         </div>
-        
+
         {/* Mobile */}
         <div className="md:hidden flex items-center space-x-4">
           {/* Botão tema no mobile */}
@@ -182,7 +193,7 @@ export function Header({ children }: HeaderProps) {
       {/* Menu mobile aberto */}
       {menuOpen && (
         <nav className="mt-5 mx-auto w-full bg-black text-gray-400 flex flex-col space-y-4 py-4 px-6 shadow-lg rounded-md md:hidden">
-          <Navigation />
+          <Navigation cartCount={cartCount} onComprar={onComprar} produto={produto}/>
         </nav>
       )}
     </header>

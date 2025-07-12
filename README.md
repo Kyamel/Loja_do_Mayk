@@ -108,4 +108,16 @@ Veja [Requisitos não Funcionais](./docs/requisitos_nao_funcionais.md).
   - `Storybook` para componentes React (baseado em props e estados)
   - `Typedoc` para código TypeScript puro (baseado em JSDoc + types)
 
+
+### 9 .Env
+
+  -variaveis que deve constar no .env para ser possivel o envio de email.
+  [
+    SENHA='contatoMaykshop$21'
+    TOKEN='pqeg ehzt hlds ayye'
+    EMAIL='contatomaykshop@gmail.com'
+  ]
+
+
+
 <!-- End - Lucas: Adicionar requisitos e rodamap -->
