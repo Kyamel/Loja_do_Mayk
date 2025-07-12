@@ -14,16 +14,16 @@ import { Produto } from "@/types/types";
 
 interface NavProps {
   cartCount: number;
-  produto?: Produto | null;
+
   onComprar: () => void
 }
 
 
 
-const Navigation = ({ cartCount, onComprar, produto}: NavProps) => {
+const Navigation = ({ cartCount, onComprar}: NavProps) => {
 
   const handleClick = () => {
-    if (!produto) {
+    if (cartCount > 0) {
       onComprar();
     } else {
       alert("Nenhum produto selecionado.");
@@ -42,13 +42,16 @@ const Navigation = ({ cartCount, onComprar, produto}: NavProps) => {
       <div className="relative">
         <button
           className="shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-75 ease-in-out hover:border-yellow-500 hover:border p-2 rounded-full w-10 h-10 flex items-center justify-center bg-gray-900 text-white"
-          // disabled={!produto}
+          disabled={cartCount === 0}
+          aria-label="Carrinho de compras"
+          title="Carrinho de compras"
+          onMouseDown={(e) => e.preventDefault()} // Previne o foco no botão  
           onClick={handleClick}
         >
           <ShoppingCart className="text-yellow-400" />
         </button>
 
-        {cartCount > 0 && (
+        { cartCount > 0 &&(
           <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
             {cartCount}
           </span>
@@ -64,7 +67,7 @@ export default Navigation;
 
 type ThemeMode = "auto" | "light" | "dark";
 
-export function Header({  cartCount, onComprar,produto}: NavProps) {
+export function Header({  cartCount, onComprar}: NavProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showScrollNav, setShowScrollNav] = useState(false);
 
@@ -163,7 +166,7 @@ export function Header({  cartCount, onComprar,produto}: NavProps) {
           </button>
           {/* Navegação */}
           <nav className="flex space-x-6 text-gray-400">
-            <Navigation cartCount={cartCount} onComprar={onComprar} produto={produto}/>
+            <Navigation cartCount={cartCount} onComprar={onComprar}/>
           </nav>
         </div>
 
@@ -193,7 +196,7 @@ export function Header({  cartCount, onComprar,produto}: NavProps) {
       {/* Menu mobile aberto */}
       {menuOpen && (
         <nav className="mt-5 mx-auto w-full bg-black text-gray-400 flex flex-col space-y-4 py-4 px-6 shadow-lg rounded-md md:hidden">
-          <Navigation cartCount={cartCount} onComprar={onComprar} produto={produto}/>
+          <Navigation cartCount={cartCount} onComprar={onComprar}/>
         </nav>
       )}
     </header>

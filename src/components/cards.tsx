@@ -11,6 +11,8 @@ interface ProductCardProps {
   produto: Produto
   onComprar: (produto: Produto) => void
 
+  onVeiw: (produto: Produto) => void
+
 
   cartCount?: number;
   setCartCount: React.Dispatch<React.SetStateAction<number>>;
@@ -18,12 +20,14 @@ interface ProductCardProps {
 }
 
 
-export function Cards({ produto, onComprar, setCartCount }: ProductCardProps) {
+export function Cards({ produto, onComprar, setCartCount, onVeiw}: ProductCardProps) {
 
 
   // adicionar item ao carrinho e fechar modal
   const handleAddToCart = () => {
-    setCartCount(prevCount => prevCount + 1);
+    setCartCount(1);
+    
+    onComprar(produto); // chama a função de compra com o produto atual
     // aqui você fecharia o modal
   };
 
@@ -45,14 +49,14 @@ export function Cards({ produto, onComprar, setCartCount }: ProductCardProps) {
         </div>
       )}
 
-      <p className="flex flex-col md:text-lg text-base font-medium text-black break-words max-h-20">
+      <p className="flex flex-col md:text-lg text-base font-medium text-black break-words max-h-20 mx-auto w-full text-center">
         <span className="flex items-center justify-center"><span className="md:text-lg text-base font-bold flex items-center justify-center gap-2 text-center">{produto.title}</span></span>
         {produto.description}
       </p>
       <div className="flex justify- items-center w-full mb-0 mt-5 flex-col gap-2">
-        {/* <button onClick={() => onComprar(produto)} className="w-48 h-10 rounded-xl bg-green-600 mx-auto text-center text-white cursor-pointer">
-          Comprar Agora
-        </button> */}
+        <button onClick={() => onVeiw(produto)} className="w-48 h-10 rounded-xl bg-green-600 mx-auto text-center text-white cursor-pointer">
+          Ver Detalhes
+        </button>
         <AddButton handleAddToCart={handleAddToCart} />
       </div>
     </div>

@@ -24,23 +24,13 @@ import { Modal } from "./modal";
 import { useCarouselProducts, useProducts } from "@/lib/api/Products";
 
 
-
-
-
-
 interface ContainerProps {
-
-  produtoSelecionado: Produto | null;
-  setProdutoSelecionado: (produto: Produto) => void;
-
-
-  // cartCount: number;
+  produtoDetalhes: Produto | null;
+  produtoCarrinho: Produto | null;
   setCartCount: React.Dispatch<React.SetStateAction<number>>;
-
-
-  
-
-
+  onComprar: (produto: Produto) => void;
+  onVeiw: (produto: Produto) => void;
+  onClose: () => void;
 }
 
 const queryClient = new QueryClient({
@@ -51,11 +41,9 @@ const queryClient = new QueryClient({
   },
 });
 
-export function ContainerFull({ produtoSelecionado, setProdutoSelecionado, setCartCount}: ContainerProps) {
+export function ContainerFull({setCartCount, onClose, onComprar, onVeiw, produtoCarrinho, produtoDetalhes}: ContainerProps) {
 
-  // const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(null)
-
-  // Lucas: Mockup de items para o Carousel.
+  
   const games: Produto[] = useCarouselProducts();
   const producs: Produto[] = useProducts();
 
@@ -63,11 +51,6 @@ export function ContainerFull({ produtoSelecionado, setProdutoSelecionado, setCa
 
   return (
     <QueryClientProvider client={queryClient}>
-      <pre className="text-white bg-black p-2 rounded mt-4 z-50 w-28">
-  produtoSelecionado: {JSON.stringify(produtoSelecionado, null, 2)}
-</pre>
-
-
       <main
         className="relative flex-grow max-w-[1200px] text-white mx-auto bg-transparent z-10 mt-24"
       >
@@ -110,8 +93,7 @@ export function ContainerFull({ produtoSelecionado, setProdutoSelecionado, setCa
           >
             Produtos Novos e Lançamentos
           </h2>
-          {/* Lucas: Fix - Em telas médias, como tablet (teste simulando o ipad ipadOS 14.7.1 no firefox), não estava centralizando os itens corretamente*/}
-          {/* <div className="flex flex-col w-full justify-center items-center mx-auto px-10 py-4 text-center md:grid md:grid-cols-2 lg:grid-cols-3 space-y-5 md:gap-5"> */}
+
           <div className="
                   w-full 
                   mx-auto 
@@ -128,7 +110,8 @@ export function ContainerFull({ produtoSelecionado, setProdutoSelecionado, setCa
                 setCartCount={setCartCount}
                 produto={p}
                 key={p.id}
-                onComprar={(produto) => setProdutoSelecionado(produto)}
+                onComprar={onComprar}
+                onVeiw={onVeiw}
               />
             ))}
           </div>
@@ -151,7 +134,8 @@ export function ContainerFull({ produtoSelecionado, setProdutoSelecionado, setCa
                 setCartCount={setCartCount}
                 key={p.id}
                 produto={p}
-                onComprar={(produto) => setProdutoSelecionado(produto)}
+                onComprar={onComprar}
+                onVeiw={onVeiw}
               />
             ))}
           </VerticalCarousel>
@@ -180,27 +164,19 @@ export function ContainerFull({ produtoSelecionado, setProdutoSelecionado, setCa
             <Separator />
           </div>
         </section>
+        
+        {produtoDetalhes && (
+          <Modal
+            produto={produtoDetalhes}
+            onClose={onClose}
+            setCartCount={setCartCount}
+            onComprar={onComprar}
+          />
+        )}
 
-        <section>
-          <div className="max-w-3xl mx-auto px-4 py-8 text-center">
-            <h2
-              className="text-3xl mb-6"
-              style={{
-                color: "var(--text-primary)",
-                fontFamily: "VCRMono",
-                fontWeight: 200,
-                textAlign: "center",
-              }}
-            >
-              Entre em Contato com a MaykShop
-            </h2>
-            <Email />
-          </div>
-        </section>
-
-        {/* <VendaModal produto={produto} onClose={onClose} open={open}/> */}
-
-        {/* <Modal setCartCount={setCartCount} onClose={() => setProdutoSelecionado(null)} produto={produto} /> */}
+        {produtoCarrinho && (
+          <VendaModal produto={produtoCarrinho} onClose={onClose} />
+        )}
 
       </main>
     </QueryClientProvider>

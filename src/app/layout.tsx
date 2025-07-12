@@ -43,7 +43,7 @@ export default function RootLayout({
     <html lang="pt-BR">
 
       <body
-        className={`${roboto.variable} ${montserrat.variable} antialiased min-h-screen flex flex-col bg-[url('/back3.png')] bg-cover bg-center h-screen w-full bg-no-repeat bg-fixed`}
+        className={`${roboto.variable} ${montserrat.variable} antialiased overflow-y-auto max-h-screen flex flex-col bg-[url('/back3.png')] bg-cover bg-center h-screen w-full bg-no-repeat bg-fixed `}
       >
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm pointer-events-none z-0"></div>
 
