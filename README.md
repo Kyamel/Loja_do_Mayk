@@ -61,9 +61,17 @@ Sinta-se à vontade para abrir issues e pull requests, contribuindo para o desen
 -
 -
 
-
+---
 **Resumo:**  
 O projeto Loja do Mayk visa digitalizar e modernizar o processo de vendas de uma loja, oferecendo ao cliente uma experiência prática, segura e agradável. Ele conta com funcionalidades essenciais para o comércio eletrônico, integração com sistemas de pagamento e envio de notificações, além de um layout moderno e responsivo.
 
 ### Requisitos e Discuções
 [Requisitos e Discuções](/docs/required.md)
+
+---
+
+### Demo
+
+<video src="/public/demo.mp4" controls width="600" autoplay muted loop/>
+  
+
