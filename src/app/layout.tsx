@@ -4,9 +4,7 @@
 import type { Metadata } from "next";
 import { Roboto, Montserrat } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "../../node_modules/sonner/dist/index";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
+import { ThemeProvider } from "@/context/theme-context";
 
 
 
@@ -27,13 +25,13 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  
+
   title: {
     default: "MaykeShop ",
     template: "%s | MaykeShop",
   },
-  
- 
+
+
 };
 
 
@@ -43,22 +41,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      
+    <html lang="pt-BR ">
+
       <body
-        className={`${roboto.variable} ${montserrat.variable} antialiased min-h-screen flex flex-col bg-[url('/back3.png')] bg-cover bg-center h-screen w-full bg-no-repeat bg-fixed`}
+    
+        className={`${roboto.variable} ${montserrat.variable} antialiased overflow-y-auto max-h-screen flex flex-col bg-[url('/back3.png')] bg-cover bg-center h-screen w-full bg-no-repeat bg-fixed `}
       >
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm pointer-events-none z-0"></div>
-        <Header />
 
-        {children}
-  
-        <Toaster />
-        <Footer />
+        <ThemeProvider>
+
+          {children}
+        </ThemeProvider>
+
+
       </body>
     </html>
   );
 }
-
-
-

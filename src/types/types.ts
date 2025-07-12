@@ -5,6 +5,7 @@ export interface Produto {
   title: string;
   description: string;
   Iimage?: string;
+  Stock: number; // mínimo 1
 }
 
 export interface DadosPagamento {

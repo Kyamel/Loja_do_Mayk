@@ -3,7 +3,7 @@
 
 "use client";
 
-import { ReactNode, useRef, Children, isValidElement } from "react";
+import { ReactNode, Children, isValidElement } from "react";
 import styles from "./VerticalCarousel.module.css";
 
 interface VerticalCarouselProps {
@@ -12,24 +12,12 @@ interface VerticalCarouselProps {
 }
 
 export function VerticalCarousel({ children, height = "500px" }: VerticalCarouselProps) {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  const scroll = (direction: "up" | "down") => {
-    if (!scrollRef.current) return;
-    const { clientHeight } = scrollRef.current;
-    scrollRef.current.scrollBy({
-      top: direction === "up" ? -clientHeight : clientHeight,
-      behavior: "smooth",
-    });
-  };
+  
 
   return (
     <div className={styles.container} style={{ maxHeight: height }}>
-      <button onClick={() => scroll("up")} className={styles.button}>
-        ▲
-      </button>
-
-      <div ref={scrollRef} className={styles.scrollArea}>
+   
+      <div >
         <div className={styles.grid}>
           {Children.map(children, (child, idx) =>
             isValidElement(child) ? (
@@ -43,10 +31,13 @@ export function VerticalCarousel({ children, height = "500px" }: VerticalCarouse
         </div>
       </div>
 
-      <button onClick={() => scroll("down")} className={styles.button}>
-        ▼
-      </button>
+      
     </div>
   );
 }
+
+
+
+
+
 

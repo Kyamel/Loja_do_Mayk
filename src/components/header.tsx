@@ -10,59 +10,54 @@ import Logo from "../../public/logo.png"
 
 import { throttle } from "lodash";
 import { ShoppingCart } from "lucide-react";
+import { ThemeToggle } from "./buttonTheme";
 
-interface HeaderProps {
-  children?: React.ReactNode;
+
+interface NavProps {
+  cartCount: number;
+  onComprar: () => void
 }
 
-// const Navigation = () => (
-//   <>
-//     <Link href="/" className=" shadow-lg hover:shadow-xl hover:transform hover:scale-105 transition-all duration-75 ease-in-out">Inicio</Link>
-//     <button className=" shadow-lg hover:shadow-xl hover:transform hover:scale-105 transition-all duration-75 ease-in-out"><ShoppingCart className="text-yellow-400"/></button>
-//   </>
-// );
 
 
-const Navigation = () => {
-  const [cartCount, setCartCount] = useState(0);
+const Navigation = ({ cartCount, onComprar}: NavProps) => {
 
-  // Exemplo: simular adicionar item ao carrinho e fechar modal
-  const handleAddToCart = () => {
-    setCartCount(prev => prev + 1);
-    // aqui você fecharia o modal
+  const handleClick = () => {
+    if (cartCount > 0) {
+      onComprar();
+    } else {
+      alert("Nenhum produto selecionado.");
+    }
   };
 
   return (
     <div className="flex items-center gap-6">
-      <Link
+      {/* <Link
         href="/"
-        className="shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-75 ease-in-out"
+        className="w-10 h-10 flex items-center justify-center  p-2  text-yellow-800 hover:text-yellow-500 transition"
       >
         Início
-      </Link>
+      </Link> */}
 
       <div className="relative">
         <button
-          className="shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-75 ease-in-out"
-          onClick={() => console.log("abrir carrinho")}
+          className=" w-10 h-10 flex items-center justify-center  p-2 rounded-full bg-gray-800 text-yellow-400 hover:bg-gray-700 transition"
+          disabled={cartCount === 0}
+          aria-label="Carrinho de compras"
+          title="Carrinho de compras"
+          onMouseDown={(e) => e.preventDefault()} // Previne o foco no botão  
+          onClick={handleClick}
         >
           <ShoppingCart className="text-yellow-400" />
         </button>
 
-        {cartCount > 0 && (
+        { cartCount > 0 &&(
           <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
             {cartCount}
           </span>
         )}
       </div>
 
-      {/* Só para testar visualmente */}
-      <button
-        onClick={handleAddToCart}
-        className="bg-yellow-400 px-3 py-1 rounded text-sm shadow"
-      >
-        Adicionar item
-      </button>
     </div>
   );
 };
@@ -70,54 +65,17 @@ const Navigation = () => {
 export default Navigation;
 
 
-type ThemeMode = "auto" | "light" | "dark";
 
-export function Header({ children }: HeaderProps) {
+export function Header({  cartCount, onComprar}: NavProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showScrollNav, setShowScrollNav] = useState(false);
 
   // Lucas: Add funções para controlar dark mode
   const [mounted, setMounted] = useState(false);
-  const [theme, setTheme] = useState<ThemeMode>("auto");
-  const themeIcon = theme === "auto" ? "🖥️" : theme === "dark" ? "🌙" : "☀️";
-  const themeLabel = theme === "auto" ? "Seguir sistema" : theme === "dark" ? "Modo escuro" : "Modo claro";
-
-  // Aplicar tema no DOM
-  const applyTheme = (mode: ThemeMode) => {
-    const html = document.documentElement;
-    html.classList.remove("light", "dark");
-
-    if (mode === "dark") {
-      html.classList.add("dark");
-    } else if (mode === "light") {
-      html.classList.add("light");
-    } else {
-      // Auto: aplica com base no sistema
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      html.classList.add(prefersDark ? "dark" : "light");
-    }
-
-    localStorage.setItem("theme", mode);
-  };
-
-  // Alterna entre os temas: auto | dark | light
-  const toggleTheme = () => {
-    const next = theme === "auto" ? "dark" : theme === "dark" ? "light" : "auto";
-    setTheme(next);
-    applyTheme(next);
-  };
 
   useEffect(() => {
     setMounted(true);
-    const stored = localStorage.getItem("theme") as ThemeMode | null;
-
-    if (stored === "dark" || stored === "light") {
-      setTheme(stored);
-      applyTheme(stored);
-    } else {
-      setTheme("auto");
-      applyTheme("auto");
-    }
+  
   }, []);
 
   const handleScroll = useCallback(
@@ -147,7 +105,7 @@ export function Header({ children }: HeaderProps) {
   }, [handleScroll]);
 
   if (!mounted) return null;
-  
+
   // Lucas: Add dark mode buttom
   return (
     <header className="fixed top-0 left-0 w-full z-50 p-3 bg-black">
@@ -155,38 +113,23 @@ export function Header({ children }: HeaderProps) {
 
         {/* Logo na esquerda */}
         <Link href="/" className="flex items-center space-x-2 rounded-md px-2 max-h-8 p-2">
-          <Image src={Logo} alt="MaykShop logo" width={340} height={80} className="md:max-w-[340px] max-h-20 object-contain py-2" />
+          <Image src={Logo} alt="MaykShop logo" width={340} height={80} className="md:max-w-[340px] max-h-20 object-contain py-2" aria-label="MaykShop" title="MaykShop"/>
         </Link>
+      
 
         {/* Desktop */}
         <div className="hidden md:flex items-center space-x-4">
-          {/* Botão tema no desktop */}
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full bg-gray-900 text-yellow-400 hover:bg-gray-600 transition-colors"
-            aria-label={themeLabel}
-            title={themeLabel}
-          >
-            {themeIcon}
-          </button>
-          {/* Navegação */}
+          
+          <ThemeToggle/>
           <nav className="flex space-x-6 text-gray-400">
-            <Navigation />
+            <Navigation cartCount={cartCount} onComprar={onComprar}/>
           </nav>
         </div>
-        
+
         {/* Mobile */}
         <div className="md:hidden flex items-center space-x-4">
-          {/* Botão tema no mobile */}
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full bg-gray-700 text-yellow-400 hover:bg-gray-600 transition-colors"
-            aria-label={themeLabel}
-            title={themeLabel}
-          >
-            {themeIcon}
-          </button>
-
+         
+          <ThemeToggle/>
           {/* Botão hambúrguer no mobile */}
           <button
             className="bg-black text-white px-4 py-2 rounded-lg"
@@ -195,13 +138,14 @@ export function Header({ children }: HeaderProps) {
           >
             ☰
           </button>
+          
         </div>
       </div>
 
       {/* Menu mobile aberto */}
       {menuOpen && (
         <nav className="mt-5 mx-auto w-full bg-black text-gray-400 flex flex-col space-y-4 py-4 px-6 shadow-lg rounded-md md:hidden">
-          <Navigation />
+          <Navigation cartCount={cartCount} onComprar={onComprar}/>
         </nav>
       )}
     </header>
