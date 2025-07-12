@@ -23,10 +23,16 @@ body{
 [data-theme='light'] {
 
 
-  /* --- FUNDOS --- */
-    --bg-primary: #fdf6e3;         
+    /* --- FUNDOS --- */
+  --bg-primary: #fdf6e3;
+  --bg-secondary: #fff8dc;
+  --bg-accent: #ffcc00;
+  --bg-muted: #eee8d5;
+  --bg-overlay: rgba(253, 246, 227, 0.8);
   
-
+  /* mantém o resto do tema */
+  
+      
     /* --- TEXTOS --- */
     --text-primary: #1d1c1c;       
     --text-secondary: #555555;      
@@ -83,7 +89,8 @@ body{
   --background: #0a0a0a;
   --foreground: #ededed;
 
-  /* Lucas: Paleta retro adaptada para modo escuro (cores mais vibrantes, contraste maior) */    
+  /* Lucas: Paleta retro adaptada para modo escuro (cores mais vibrantes, contraste maior) */   
+
   /* --- FUNDOS --- */
   --bg-primary: #121212;           
   --bg-secondary: #222222;   
