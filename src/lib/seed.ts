@@ -62,6 +62,6 @@ export function seedProducts() {
 
     localStorage.setItem("products", JSON.stringify(products));
     localStorage.setItem("carouselProducts", JSON.stringify(carouselProducts));
-    console.log("Seeded products in localStorage");
+    
   }
 }
