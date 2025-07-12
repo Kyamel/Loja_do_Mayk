@@ -72,6 +72,6 @@ O projeto Loja do Mayk visa digitalizar e modernizar o processo de vendas de uma
 
 ### Demo
 
-<video src="/public/demo.mp4" controls width="600" autoplay muted loop/>
+![Demonstração do app](/public/demo.gif)
   
 
