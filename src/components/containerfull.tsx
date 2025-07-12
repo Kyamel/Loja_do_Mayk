@@ -7,7 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 
 
-import { Email } from "@/components/email";
+
 
 
 import { Faq } from "@/components/faq";

@@ -32,8 +32,8 @@ export function Cards({ produto, onComprar, setCartCount, onVeiw}: ProductCardPr
   };
 
   return (
-    <div className={`"flex flex-col p-2 gap-2 items-start text-black border border-gray-300 md:max-w-80 rounded-md px-2 min-h-[370px] w-[230px] max-h-[370px]shadow-lg hover:shadow-xl hover:transform hover:scale-105 transition-all duration-300 ease-in-out light:bg-background dark:bg-dark space-y-16 opacity-95 ${produto.Stock < 1 ? "opacity-30" : ""
-      }"`}>
+    <div className={`"flex flex-col p-2 gap-2 items-start light:text-txlight dark:text-txDark border border-gray-300 md:max-w-80 rounded-md px-2 min-h-[370px] w-[230px] max-h-[370px]shadow-lg hover:shadow-xl hover:transform hover:scale-105 transition-all duration-300 ease-in-out light:bg-background dark:bg-dark space-y-16 opacity-95 ${produto.Stock < 1 ? "opacity-30" : ""
+      }"`} aria-label={produto.title} title={produto.title}>
 
 
       {produto.Iimage && (
@@ -49,12 +49,12 @@ export function Cards({ produto, onComprar, setCartCount, onVeiw}: ProductCardPr
         </div>
       )}
 
-      <p className="flex flex-col md:text-lg text-base font-medium text-black break-words max-h-20 mx-auto w-full text-center">
+      <p className="flex flex-col md:text-lg text-base font-medium light:text-txlight dark:text-txDark  break-words max-h-20 mx-auto w-full text-center">
         <span className="flex items-center justify-center"><span className="md:text-lg text-base font-bold flex items-center justify-center gap-2 text-center">{produto.title}</span></span>
         {produto.description}
       </p>
       <div className="flex justify- items-center w-full mb-0 mt-5 flex-col gap-2">
-        <button onClick={() => onVeiw(produto)} className="w-48 h-10 rounded-xl bg-green-600 mx-auto text-center text-white cursor-pointer">
+        <button onClick={() => onVeiw(produto)} className="  bg-green-500 hover:bg-green-800 ttext-lg font-semibold light:text-txlight dark:text-txDark shadow cursor-pointer transition-colors duration-200 h-10 m text-center px-4 rounded w-52 disabled:opacity-50 mt-3 mx-auto" aria-label="Ver Detalhes" title="Ver Detalhes">
           Ver Detalhes
         </button>
         <AddButton handleAddToCart={handleAddToCart} />
@@ -62,3 +62,4 @@ export function Cards({ produto, onComprar, setCartCount, onVeiw}: ProductCardPr
     </div>
   );
 }
+

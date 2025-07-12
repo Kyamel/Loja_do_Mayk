@@ -12,6 +12,8 @@ export function ThemeToggle() {
       onClick={toggleMode}
       className="p-2 rounded-full bg-gray-800 text-yellow-400 hover:bg-gray-700 transition"
       aria-label="Alternar tema"
+
+      title="Alternar tema"
     >
       <AnimatePresence mode="wait" initial={false}>
         <motion.div

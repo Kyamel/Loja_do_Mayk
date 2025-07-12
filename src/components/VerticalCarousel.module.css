@@ -15,6 +15,10 @@
   width: 100%;
 }
 
+/* components/VerticalCarousel.module.css */
+
+
+
 .grid {
   
   display: grid;
@@ -61,3 +65,5 @@
 .button:hover {
   background-color: var(--button-bg-hover);
 }
+
+

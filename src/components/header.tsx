@@ -32,16 +32,16 @@ const Navigation = ({ cartCount, onComprar}: NavProps) => {
 
   return (
     <div className="flex items-center gap-6">
-      <Link
+      {/* <Link
         href="/"
-        className="shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-75 ease-in-out"
+        className="w-10 h-10 flex items-center justify-center  p-2  text-yellow-800 hover:text-yellow-500 transition"
       >
         Início
-      </Link>
+      </Link> */}
 
       <div className="relative">
         <button
-          className="shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-75 ease-in-out hover:border-yellow-500 hover:border p-2 rounded-full w-10 h-10 flex items-center justify-center bg-gray-900 text-white"
+          className=" w-10 h-10 flex items-center justify-center  p-2 rounded-full bg-gray-800 text-yellow-400 hover:bg-gray-700 transition"
           disabled={cartCount === 0}
           aria-label="Carrinho de compras"
           title="Carrinho de compras"
@@ -66,89 +66,16 @@ export default Navigation;
 
 
 
-// import { SunIcon, MoonIcon } from '@heroicons/vue/24/outline'
-// import { useColorMode } from '@vueuse/core'
-
-// const mode = useColorMode({
-//   attribute: 'data-theme',
-//   modes: {
-//     light: 'light',
-//     dark: 'dark',
-//   },
-//   disableTransition: false,
-// })
-
-// const toggleMode = () => {
-//   mode.value = mode.value === 'dark' ? 'light' : 'dark'
-// }
-
-{/* <script setup>
-
-</script>
-
-<template>
-  <button @click="toggleMode" class="cursor-pointer">
-    <transition name="rotate-element" mode="out-in">
-      <div :key="mode" class="icon-wrapper">
-        <component :is="mode === 'dark' ? SunIcon : MoonIcon" class="w-8 h-8 stroke-1" />
-      </div>
-    </transition>
-  </button>
-</template> */}
-
-
-
-
-
-
-type ThemeMode = "auto" | "light" | "dark";
-
 export function Header({  cartCount, onComprar}: NavProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showScrollNav, setShowScrollNav] = useState(false);
 
   // Lucas: Add funções para controlar dark mode
   const [mounted, setMounted] = useState(false);
-  // const [theme, setTheme] = useState<ThemeMode>("auto");
-  // const themeIcon = theme === "auto" ? "🖥️" : theme === "dark" ? "🌙" : "☀️";
-  // const themeLabel = theme === "auto" ? "Seguir sistema" : theme === "dark" ? "Modo escuro" : "Modo claro";
-
-  // // Aplicar tema no DOM
-  // const applyTheme = (mode: ThemeMode) => {
-  //   const html = document.documentElement;
-  //   html.classList.remove("light", "dark");
-
-  //   if (mode === "dark") {
-  //     html.classList.add("dark");
-  //   } else if (mode === "light") {
-  //     html.classList.add("light");
-  //   } else {
-  //     // Auto: aplica com base no sistema
-  //     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  //     html.classList.add(prefersDark ? "dark" : "light");
-  //   }
-
-  //   localStorage.setItem("theme", mode);
-  // };
-
-  // // Alterna entre os temas: auto | dark | light
-  // const toggleTheme = () => {
-  //   const next = theme === "auto" ? "dark" : theme === "dark" ? "light" : "auto";
-  //   setTheme(next);
-  //   applyTheme(next);
-  // };
 
   useEffect(() => {
     setMounted(true);
-    // const stored = localStorage.getItem("theme") as ThemeMode | null;
-
-    // if (stored === "dark" || stored === "light") {
-    //   setTheme(stored);
-    //   applyTheme(stored);
-    // } else {
-    //   setTheme("auto");
-    //   applyTheme("auto");
-    // }
+  
   }, []);
 
   const handleScroll = useCallback(
@@ -186,7 +113,7 @@ export function Header({  cartCount, onComprar}: NavProps) {
 
         {/* Logo na esquerda */}
         <Link href="/" className="flex items-center space-x-2 rounded-md px-2 max-h-8 p-2">
-          <Image src={Logo} alt="MaykShop logo" width={340} height={80} className="md:max-w-[340px] max-h-20 object-contain py-2" />
+          <Image src={Logo} alt="MaykShop logo" width={340} height={80} className="md:max-w-[340px] max-h-20 object-contain py-2" aria-label="MaykShop" title="MaykShop"/>
         </Link>
       
 
@@ -194,15 +121,6 @@ export function Header({  cartCount, onComprar}: NavProps) {
         <div className="hidden md:flex items-center space-x-4">
           
           <ThemeToggle/>
-          {/* <button
-            onClick={toggleTheme}
-            className="  transition-colors hover:border-yellow-500 hover:border p-2 rounded-full w-10 h-10 flex items-center justify-center bg-gray-900 text-white"
-            aria-label={themeLabel}
-            title={themeLabel}
-          >
-            {themeIcon}
-          </button> */}
-         
           <nav className="flex space-x-6 text-gray-400">
             <Navigation cartCount={cartCount} onComprar={onComprar}/>
           </nav>

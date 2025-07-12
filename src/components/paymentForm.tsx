@@ -43,54 +43,54 @@ export function PaymentForm({produto}:Props) {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmitForm)} className="mt-4 space-y-3 bg-[#fff8dc] w-full mx-auto">
-      <label className="block text-black">
+    <form onSubmit={handleSubmit(onSubmitForm)} className="mt-4 space-y-3 light:bg-background dark:bg-dark w-full mx-auto light:text-txlight dark:text-txDark">
+      <label className="block light:text-txlight dark:text-txDark">
         Nome:
-        <input type="text" {...register("name")} className="w-full border p-2 rounded" placeholder="Digite seu nome" />
+        <input type="text" {...register("name")} className="w-full border p-2 rounded light:bg-background dark:bg-dark" autoComplete='off' placeholder="Digite seu nome" aria-label="Nome" title="Nome"/>
       </label>
 
-      <label className="block text-black">
+      <label className="block light:text-txlight dark:text-txDark">
         E-mail:
-        <input type="email" {...register("email")} className="w-full border p-2 rounded" placeholder="Digite seu e-mail" />
+        <input type="email" {...register("email")} className="w-full border p-2 rounded" placeholder="Digite seu e-mail" autoComplete='off' aria-label="E-mail" title="E-mail"/>
       </label>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-black">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 light:text-txlight dark:text-txDark">
         <label>
           Rua:
-          <input {...register("rua")} className="w-full border p-2 rounded" placeholder="Rua..." />
+          <input {...register("rua")} className="w-full border p-2 rounded" placeholder="Rua..." autoComplete='off'aria-label="Rua" title="Rua"/>
         </label>
         <label>
           Cidade:
-          <input {...register("cidade")} className="w-full border p-2 rounded" placeholder="Cidade..." />
+          <input {...register("cidade")} className="w-full border p-2 rounded" placeholder="Cidade..." autoComplete='off'aria-label="Cidade" title="Cidade"/>
         </label>
         <label>
           Estado:
-          <input {...register("estado")} className="w-full border p-2 rounded" placeholder="Estado..." />
+          <input {...register("estado")} className="w-full border p-2 rounded" placeholder="Estado..." autoComplete='off' aria-label="Estado" title="Estado"/>
         </label>
         <label>
           CEP:
-          <input {...register("cep")} className="w-full border p-2 rounded" placeholder="CEP..." />
+          <input {...register("cep")} className="w-full border p-2 rounded" placeholder="CEP..." autoComplete='off' aria-label="CEP" title="CEP"/>
         </label>
         <label className="md:col-span-2">
           Complemento:
-          <input {...register("complemento")} className="w-full border p-2 rounded" placeholder="Apartamento, bloco, etc..." />
+          <input {...register("complemento")} className="w-full border p-2 rounded" placeholder="Apartamento, bloco, etc..." autoComplete='off'aria-label="Complemento" title="Complemento"/>
         </label>
       </div>
 
       <div>
-        <label className="text-black">Forma de pagamento:</label>
-        <select {...register("formaPagamento")} className="w-full border p-2 rounded text-black">
-          <option value="pix">Pix</option>
-          <option value="cartao">Cartão</option>
-          <option value="boleto">Boleto</option>
+        <label className="light:text-txlight dark:text-txDark">Forma de pagamento:</label>
+        <select {...register("formaPagamento")} className="w-full border p-2 rounded light:text-txlight dark:text-txDark">
+          <option value="pix" className='light:bg-background dark:bg-dark light:text-txlight dark:text-txDark' aria-label="Pix" title="Pix">Pix</option>
+          <option value="cartao" className='light:bg-background dark:bg-dark light:text-txlight dark:text-txDark' aria-label="Cartão" title="Cartão">Cartão</option>
+          <option value="boleto" className='light:bg-background dark:bg-dark light:text-txlight dark:text-txDark' aria-label="Boleto" title="Boleto">Boleto</option>
         </select>
       </div>
 
       <div className="w-full flex flex-col items-center">
         <button
           type="submit"
-          className="bg-[#ffcc00] hover:bg-[#cc9900] text-white px-4 py-2 rounded w-60 disabled:opacity-50"
-
+          className="bg-yellow-500 hover:bg-yellow-800 text-lg font-semibold light:text-txlight dark:text-txDark shadow cursor-pointer transition-colors duration-200 h-10 m text-center px-4  rounded w-52 disabled:opacity-50 mt-3 mx-auto"
+          aria-label="Confirmar compra" title="Confirmar compra"
         >
           Confirmar compra
         </button>
@@ -98,3 +98,4 @@ export function PaymentForm({produto}:Props) {
     </form>
   );
 }
+
