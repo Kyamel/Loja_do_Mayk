@@ -9,41 +9,17 @@
   --fs-xl: 1.875rem;
 }
 
-body {
+
+body{
   font-family: var(--font-roboto);
   color: var(--foreground);
 }
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@custom-variant light (&:where([data-theme=light], [data-theme=light] *));
 
-*{
-  /* Estilização padrão para navegadores baseados em WebKit (Chrome, Edge, Safari) */
-::-webkit-scrollbar {
-  width: 8px;               /* Largura do scroll vertical */
-  height: 8px;              /* Altura do scroll horizontal */
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;  /* Fundo do trilho */
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: rgba(100, 100, 100, 0.5); /* Cor do scroll com transparência */
-  border-radius: 10px;      /* Bordas arredondadas */
-  border: 2px solid transparent; /* Espaço entre o thumb e o track */
-  background-clip: padding-box;  /* Garante o arredondamento correto */
-}
-
-/* Firefox */
-* {
-  scrollbar-width: thin;           /* Scroll mais fino */
-  scrollbar-color: rgba(100, 100, 100, 0.5) transparent; /* Cor do thumb e do trilho */
-}
-
-}
-
-
-/* Suporte para tema manual */
-:root, :root.light {
+/*For example*/
+[data-theme='light'] {
   --background: #ffffff;
   --foreground: #171717;
 
@@ -106,8 +82,7 @@ body {
     --shadow-default: rgba(204, 153, 0, 0.5);
 }
 
-:root.dark {
- 
+[data-theme='dark'] {
   --background: #0a0a0a;
   --foreground: #ededed;
 
@@ -163,31 +138,59 @@ body {
   /* Cabeçalhos e Títulos */
   --header-text: var(--text-primary);
 
+  --bg-dark: #121212;
+
+
   /* Sombras */
   --shadow-default: rgba(255, 204, 0, 0.5);
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-dark: var(--bg-dark);
+  --color-bg-primary: var(--bg-primary);
+  --color-text-primary: var(--text-primary);
   
 }
 
-/*
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
 *{
-  font-family: "Helvetica Neue LT", "Helvetica Neue", "Helvetica", "Roboto", sans-serif
+  /* Estilização padrão para navegadores baseados em WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 8px;               /* Largura do scroll vertical */
+  height: 8px;              /* Altura do scroll horizontal */
 }
-*/
 
+::-webkit-scrollbar-track {
+  background: transparent;  /* Fundo do trilho */
+}
 
-/* Begin - Lucas: add retro color palete e fonte */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.5); /* Cor do scroll com transparência */
+  border-radius: 10px;      /* Bordas arredondadas */
+  border: 2px solid transparent; /* Espaço entre o thumb e o track */
+  background-clip: padding-box;  /* Garante o arredondamento correto */
+}
 
-/* ======= Pixel art friendly ======= */
+/* Firefox */
+* {
+  scrollbar-width: thin;           /* Scroll mais fino */
+  scrollbar-color: rgba(100, 100, 100, 0.5) transparent; /* Cor do thumb e do trilho */
+}
+
 img, canvas {
   image-rendering: pixelated;
 }
+
+
+}
+
+img, canvas {
+  image-rendering: pixelated;
+}
+
+
 
 /* ======= Grid para sprites/blocos ======= */
 .pixel-grid {

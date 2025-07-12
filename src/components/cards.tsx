@@ -32,7 +32,7 @@ export function Cards({ produto, onComprar, setCartCount, onVeiw}: ProductCardPr
   };
 
   return (
-    <div className={`"flex flex-col p-2 gap-2 items-start text-black border border-gray-300 md:max-w-80 rounded-md px-2 min-h-[370px] w-[230px] max-h-[370px]shadow-lg hover:shadow-xl hover:transform hover:scale-105 transition-all duration-300 ease-in-out bg-[#fff8dc] space-y-16 opacity-95 ${produto.Stock < 1 ? "opacity-30" : ""
+    <div className={`"flex flex-col p-2 gap-2 items-start text-black border border-gray-300 md:max-w-80 rounded-md px-2 min-h-[370px] w-[230px] max-h-[370px]shadow-lg hover:shadow-xl hover:transform hover:scale-105 transition-all duration-300 ease-in-out light:bg-background dark:bg-dark space-y-16 opacity-95 ${produto.Stock < 1 ? "opacity-30" : ""
       }"`}>
 
 
