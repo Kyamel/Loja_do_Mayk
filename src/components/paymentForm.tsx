@@ -16,6 +16,7 @@ interface Props {
   
 }
 
+// Lucas update component theme
 export function PaymentForm({produto}:Props) {
   const queryClient = useQueryClient();
 
@@ -43,54 +44,93 @@ export function PaymentForm({produto}:Props) {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmitForm)} className="mt-4 space-y-3 light:bg-background dark:bg-dark w-full mx-auto light:text-txlight dark:text-txDark">
-      <label className="block light:text-txlight dark:text-txDark">
+    <form
+      onSubmit={handleSubmit(onSubmitForm)}
+      className="mt-4 space-y-3 bg-[var(--container-bg)] text-[var(--container-text)] border border-[var(--container-border)] rounded-md p-4 w-full mx-auto"
+    >
+      <label className="block">
         Nome:
-        <input type="text" {...register("name")} className="w-full border p-2 rounded light:bg-background dark:bg-dark" autoComplete='off' placeholder="Digite seu nome" aria-label="Nome" title="Nome"/>
+        <input
+          type="text"
+          {...register("name")}
+          className="w-full bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--input-text)] placeholder-[var(--input-placeholder)] p-2 rounded"
+          placeholder="Digite seu nome"
+        />
       </label>
 
-      <label className="block light:text-txlight dark:text-txDark">
+      <label className="block">
         E-mail:
-        <input type="email" {...register("email")} className="w-full border p-2 rounded" placeholder="Digite seu e-mail" autoComplete='off' aria-label="E-mail" title="E-mail"/>
+        <input
+          type="email"
+          {...register("email")}
+          className="w-full bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--input-text)] placeholder-[var(--input-placeholder)] p-2 rounded"
+          placeholder="Digite seu e-mail"
+        />
       </label>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 light:text-txlight dark:text-txDark">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <label>
           Rua:
-          <input {...register("rua")} className="w-full border p-2 rounded" placeholder="Rua..." autoComplete='off'aria-label="Rua" title="Rua"/>
+          <input
+            {...register("rua")}
+            className="w-full bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--input-text)] placeholder-[var(--input-placeholder)] p-2 rounded"
+            placeholder="Rua..."
+          />
         </label>
+
         <label>
           Cidade:
-          <input {...register("cidade")} className="w-full border p-2 rounded" placeholder="Cidade..." autoComplete='off'aria-label="Cidade" title="Cidade"/>
+          <input
+            {...register("cidade")}
+            className="w-full bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--input-text)] placeholder-[var(--input-placeholder)] p-2 rounded"
+            placeholder="Cidade..."
+          />
         </label>
+
         <label>
           Estado:
-          <input {...register("estado")} className="w-full border p-2 rounded" placeholder="Estado..." autoComplete='off' aria-label="Estado" title="Estado"/>
+          <input
+            {...register("estado")}
+            className="w-full bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--input-text)] placeholder-[var(--input-placeholder)] p-2 rounded"
+            placeholder="Estado..."
+          />
         </label>
+
         <label>
           CEP:
-          <input {...register("cep")} className="w-full border p-2 rounded" placeholder="CEP..." autoComplete='off' aria-label="CEP" title="CEP"/>
+          <input
+            {...register("cep")}
+            className="w-full bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--input-text)] placeholder-[var(--input-placeholder)] p-2 rounded"
+            placeholder="CEP..."
+          />
         </label>
+
         <label className="md:col-span-2">
           Complemento:
-          <input {...register("complemento")} className="w-full border p-2 rounded" placeholder="Apartamento, bloco, etc..." autoComplete='off'aria-label="Complemento" title="Complemento"/>
+          <input
+            {...register("complemento")}
+            className="w-full bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--input-text)] placeholder-[var(--input-placeholder)] p-2 rounded"
+            placeholder="Apartamento, bloco, etc..."
+          />
         </label>
       </div>
 
       <div>
-        <label className="light:text-txlight dark:text-txDark">Forma de pagamento:</label>
-        <select {...register("formaPagamento")} className="w-full border p-2 rounded light:text-txlight dark:text-txDark">
-          <option value="pix" className='light:bg-background dark:bg-dark light:text-txlight dark:text-txDark' aria-label="Pix" title="Pix">Pix</option>
-          <option value="cartao" className='light:bg-background dark:bg-dark light:text-txlight dark:text-txDark' aria-label="Cartão" title="Cartão">Cartão</option>
-          <option value="boleto" className='light:bg-background dark:bg-dark light:text-txlight dark:text-txDark' aria-label="Boleto" title="Boleto">Boleto</option>
+        <label>Forma de pagamento:</label>
+        <select
+          {...register("formaPagamento")}
+          className="w-full bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--input-text)] p-2 rounded"
+        >
+          <option value="pix">Pix</option>
+          <option value="cartao">Cartão</option>
+          <option value="boleto">Boleto</option>
         </select>
       </div>
 
       <div className="w-full flex flex-col items-center">
         <button
           type="submit"
-          className="bg-yellow-500 hover:bg-yellow-800 text-lg font-semibold light:text-txlight dark:text-txDark shadow cursor-pointer transition-colors duration-200 h-10 m text-center px-4  rounded w-52 disabled:opacity-50 mt-3 mx-auto"
-          aria-label="Confirmar compra" title="Confirmar compra"
+          className="bg-[var(--button-bg-default)] hover:bg-[var(--button-bg-hover)] text-[var(--button-text-default)] px-4 py-2 rounded w-60 disabled:opacity-50"
         >
           Confirmar compra
         </button>
