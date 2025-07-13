@@ -6,6 +6,7 @@ import { Produto } from "@/types/types";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { seedProducts } from "@/lib/seed";
+import ImagemCarrossel from '@/components/ImagemCarrossel';
 
 
 export default function Home() {
@@ -45,6 +46,12 @@ export default function Home() {
         cartCount={cartCount}
         onComprar={handleAbrirCarrinho}
       />
+
+            <section style={{ marginTop: '40px', marginBottom: '40px' }}>
+        <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>DESTAQUES</h2>
+        <ImagemCarrossel />
+      </section>
+
       <ContainerFull
         setCartCount={setCartCount}
         onComprar={handleAdicionarAoCarrinho}
@@ -54,6 +61,7 @@ export default function Home() {
         onClose={fecharModais}
 
       />
+
       <Footer />
     </>
   );
