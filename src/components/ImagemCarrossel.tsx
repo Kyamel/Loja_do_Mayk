@@ -15,12 +15,12 @@ import 'swiper/css/effect-coverflow';
 // ▼▼▼ PONTO 1: AUMENTAMOS O NÚMERO DE IMAGENS ▼▼▼
 // Dupliquei o array para ter 6 imagens no total.
 const imagens = [
-  '/carousel-images/ps5-pro.jpeg',
-  '/carousel-images/switch-oled.jpg',
-  '/carousel-images/ps5-pro.jpeg',
-  '/carousel-images/ps5-pro.jpeg',
-  '/carousel-images/switch-oled.jpg',
-  '/carousel-images/ps5-pro.jpeg',
+  '/carousel-image/ps5-pro.jpeg',
+  '/carousel-image/switch-oled.jpg',
+  '/carousel-image/ps5-pro.jpeg',
+  '/carousel-image/ps5-pro.jpeg',
+  '/carousel-image/switch-oled.jpg',
+  '/carousel-image/ps5-pro.jpeg',
 ];
 
 const ImagemCarrossel = () => {
