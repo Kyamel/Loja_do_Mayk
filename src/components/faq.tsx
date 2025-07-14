@@ -11,7 +11,7 @@ export function Faq({ question, response }: FaqProps) {
   return (
     <div className="flex flex-col items-center justify-center gap-4 mx-auto">
       <li
-        className="list-none text-start w-full font-semibold text-lg mx-auto" 
+        className="list-none text-start md:text-[1.35rem] w-full font-semibold text-lg mx-auto" 
         style={{
       
           fontFamily: "VCRMono",
@@ -20,7 +20,7 @@ export function Faq({ question, response }: FaqProps) {
       >
         {question}
       </li>
-      <p className="text-start w-full font-normal text-lg mx-auto"
+      <p className="text-start w-full font-normal text-lg md:text-[1.35rem] mx-auto"
         style={{
        
           fontFamily: "VCRMono",

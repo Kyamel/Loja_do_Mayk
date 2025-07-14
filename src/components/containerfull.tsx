@@ -19,9 +19,10 @@ import { VendaModal } from "@/components/vendaModal";
 import { Produto } from "@/types/types";
 
 
-import { VerticalCarousel } from "@/components/VerticalCarousel";
+
 import { Modal } from "./modal";
 import { useCarouselProducts, useProducts } from "@/lib/api/Products";
+import ImagemCarrossel from '@/components/ImagemCarrossel';
 
 
 interface ContainerProps {
@@ -41,9 +42,9 @@ const queryClient = new QueryClient({
   },
 });
 
-export function ContainerFull({setCartCount, onClose, onComprar, onVeiw, produtoCarrinho, produtoDetalhes}: ContainerProps) {
+export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produtoCarrinho, produtoDetalhes }: ContainerProps) {
 
-  
+
   const games: Produto[] = useCarouselProducts();
   const producs: Produto[] = useProducts();
 
@@ -82,6 +83,11 @@ export function ContainerFull({setCartCount, onClose, onComprar, onVeiw, produto
           </div>
         </section>
 
+        <section className="max-w[300px] mx-auto px-4 py-8 text-center ">
+          <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>DESTAQUES</h2>
+          <ImagemCarrossel />
+        </section>
+
         <section className="w-full mx-auto px-4 py-8 text-center">
           <h2
             className="text-4xl"
@@ -96,8 +102,8 @@ export function ContainerFull({setCartCount, onClose, onComprar, onVeiw, produto
 
           <div className="
                   w-full 
-                  mx-auto 
-                  px-10 
+                  mx-auto
+                  px-10
                   py-4 
                   text-center 
                   flex flex-col justify-center items-center
@@ -118,17 +124,30 @@ export function ContainerFull({setCartCount, onClose, onComprar, onVeiw, produto
           <Separator />
         </section>
 
-        {/* Lucas: Adicionar Carousel na página */}
-        <section className="w-full max-w-[1200px] mx-auto px-4 py-8">
-          <h2 className="text-4xl text-center mb-6" style={{
-            color: "var(--text-primary)",
-            fontFamily: "VCRMono",
-            fontWeight: 200,
-          }}>
+                <section className="w-full mx-auto px-4 py-8 text-center">
+          <h2
+            className="text-4xl"
+            style={{
+              color: "var(--text-primary)",
+              fontFamily: "VCRMono",
+              fontWeight: 200,
+            }}
+          >
             Explore mais jogos
           </h2>
 
-          <VerticalCarousel>
+          <div className="
+                  w-full 
+                  mx-auto
+                  px-24
+                  py-4 
+                  text-center 
+                  flex flex-col justify-center items-center
+                  space-y-5
+                  md:grid md:grid-cols-3 md:gap-5 md:justify-items-center md:space-y-0
+                  lg:grid-cols-3
+                
+                ">
             {games.map((p, idx) => (
               <Cards
                 setCartCount={setCartCount}
@@ -138,10 +157,11 @@ export function ContainerFull({setCartCount, onClose, onComprar, onVeiw, produto
                 onVeiw={onVeiw}
               />
             ))}
-          </VerticalCarousel>
-
+          </div>
           <Separator />
         </section>
+
+      
 
         <section>
           <div className="max-w-3xl mx-auto px-4 py-8 text-center">
@@ -164,7 +184,7 @@ export function ContainerFull({setCartCount, onClose, onComprar, onVeiw, produto
             <Separator />
           </div>
         </section>
-        
+
         {produtoDetalhes && (
           <Modal
             produto={produtoDetalhes}
