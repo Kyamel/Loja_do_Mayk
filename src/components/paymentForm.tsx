@@ -24,24 +24,6 @@ export function PaymentForm({ produto }: Props) {
     resolver: zodResolver(emailSchemaPay),
   });
 
-  // async function onSubmitForm(data: DataSchema) {
-  //   await sendMailPay([{
-  //     name: data.name,
-  //     email: data.email,
-  //     subject: produto?.title,
-  //     formaPagamento: data.formaPagamento,
-  //     rua: data.rua,
-  //     complemento: data.complemento,
-  //     cidade: data.cidade,
-  //     estado: data.estado,
-  //     cep: data.cep,
-
-  //   }]);
-
-  //   queryClient.invalidateQueries({ queryKey: ["email"] });
-  //   reset();
-
-  // };
 
 
   const mutation = useMutation({
@@ -70,19 +52,19 @@ export function PaymentForm({ produto }: Props) {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmitForm)} className="mt-4 space-y-3 light:bg-background dark:bg-dark w-full mx-auto light:text-txlight dark:text-txDark flex flex-col items-center  py-2 rounded-lg shadow-lg">
+    <form onSubmit={handleSubmit(onSubmitForm)} className="mt-4 space-y-3 light:bg-background dark:bg-dark w-full mx-auto light:text-txlight dark:text-txDark flex flex-col items-center  py-2 rounded-lg">
       {mutation.isPending ? (
         <>
             <div
-              className="  light:bg-background dark:bg-dark w-full mx-auto light:text-txlight dark:text-txDark max-h-[500px] h-[500px] flex justify-center items-center rounded-lg shadow-lg"
+              className="  light:bg-background dark:bg-dark w-full mx-auto light:text-txlight dark:text-txDark max-h-[570px] h-[570px] flex justify-center items-center"
           
             >
               <div
-                className="w-full max-w-2xl light:bg-background dark:bg-dark py-6 px-10 flex flex-col items-center"
+                className="w-full light:bg-background dark:bg-dark py-6 px-10 flex flex-col items-center mx-auto"
                
               >
         
-                <div className="w-full py-24 max-h[500px] h-[500px] p-8 mb-1 flex justify-center overflow-hidden flex-col space-y-3">
+                <div className="w-full py-24 max-h[500px] h-[500px] p-8 mb-1 flex justify-center overflow-hidden flex-col mx-auto">
                   <Loading /> 
                  
             
@@ -94,49 +76,54 @@ export function PaymentForm({ produto }: Props) {
         </>
       ) : (
         <>
-          <label className="light:bg-background dark:bg-dark block light:text-txlight dark:text-txDark w-full">
+          <label className="light:bg-background dark:bg-dark block light:text-txlight dark:text-txDark w-full mx-auto">
             Nome:
-            <input type="text" {...register("name")} className="w-full border p-2 rounded light:bg-background dark:bg-dark" autoComplete='off' placeholder="Digite seu nome" aria-label="Nome" title="Nome" />
+            <input type="text" {...register("name", {required: errors.name?.message})} className="w-full border p-2 rounded light:bg-background dark:bg-dark mx-auto" autoComplete='off' placeholder="Digite seu nome" aria-label="Nome" title="Nome" />
           </label>
 
-          <label className="light:bg-background dark:bg-dark block light:text-txlight dark:text-txDark w-full">
+          <label className="light:bg-background dark:bg-dark block light:text-txlight dark:text-txDark w-full mx-auto">
             E-mail:
-            <input type="email" {...register("email")} className="w-full border p-2 rounded light:bg-background dark:bg-dark" placeholder="Digite seu e-mail" autoComplete='off' aria-label="E-mail" title="E-mail" />
+            <input type="email" {...register("email", {required: errors.email?.message})} className="w-full border p-2 rounded light:bg-background dark:bg-dark mx-auto" placeholder="Digite seu e-mail" autoComplete='off' aria-label="E-mail" title="E-mail" />
           </label>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 light:text-txlight dark:text-txDark w-full">
-            <label>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 light:text-txlight dark:text-txDark w-full mx-auto">
+            <label className="light:bg-background dark:bg-dark block light:text-txlight dark:text-txDark w-full mx-auto">
               Rua:
-              <input {...register("rua")} className="w-full border p-2 rounded light:bg-background dark:bg-dark" placeholder="Rua..." autoComplete='off' aria-label="Rua" title="Rua" />
+              <input {...register("rua", {required: errors.rua?.message})} className="w-full border p-2 rounded light:bg-background dark:bg-dark mx-auto" placeholder="Rua..." autoComplete='off' aria-label="Rua" title="Rua" />
             </label>
-            <label>
+
+            <label className="light:bg-background dark:bg-dark block light:text-txlight dark:text-txDark w-full mx-auto">
               Cidade:
-              <input {...register("cidade")} className="w-full border p-2 rounded light:bg-background dark:bg-dark" placeholder="Cidade..." autoComplete='off' aria-label="Cidade" title="Cidade" />
+              <input {...register("cidade", {required: errors.cidade?.message})} className="w-full border p-2 rounded light:bg-background dark:bg-dark mx-auto" placeholder="Cidade..." autoComplete='off' aria-label="Cidade" title="Cidade" />
             </label>
-            <label>
+
+            <label className="light:bg-background dark:bg-dark block light:text-txlight dark:text-txDark w-full mx-auto">
               Estado:
-              <input {...register("estado")} className="w-full border p-2 rounded light:bg-background dark:bg-dark" placeholder="Estado..." autoComplete='off' aria-label="Estado" title="Estado" />
+              <input {...register("estado", {required: errors.estado?.message})} className="w-full border p-2 rounded light:bg-background dark:bg-dark mx-auto" placeholder="Estado..." autoComplete='off' aria-label="Estado" title="Estado" />
             </label>
-            <label>
+
+            <label className="light:bg-background dark:bg-dark block light:text-txlight dark:text-txDark w-full mx-auto">
               CEP:
-              <input {...register("cep")} className="w-full border p-2 rounded light:bg-background dark:bg-dark" placeholder="CEP..." autoComplete='off' aria-label="CEP" title="CEP" />
+              <input {...register("cep", {required: errors.cep?.message})} className="w-full border p-2 rounded light:bg-background dark:bg-dark mx-auto" placeholder="CEP..." autoComplete='off' aria-label="CEP" title="CEP" />
             </label>
-            <label className="light:bg-background dark:bg-dark md:col-span-2">
+
+            <label className="light:bg-background dark:bg-dark md:col-span-2 w-full mx-auto">
               Complemento:
-              <input {...register("complemento")} className="w-full border p-2 rounded light:bg-background dark:bg-dark" placeholder="Apartamento, bloco, etc..." autoComplete='off' aria-label="Complemento" title="Complemento" />
+              <input {...register("complemento", {required: errors.complemento?.message})} className="w-full border p-2 rounded light:bg-background dark:bg-dark mx-auto" placeholder="Apartamento, bloco, etc..." autoComplete='off' aria-label="Complemento" title="Complemento" />
             </label>
+            
           </div>
 
-          <div>
-            <label className="light:bg-background dark:bg-dark light:text-txlight dark:text-txDark">Forma de pagamento:</label>
-            <select {...register("formaPagamento")} className="w-full border p-2 rounded light:text-txlight dark:text-txDark">
+          <div className="w-full flex flex-col items-center mx-auto">
+            <label className="light:bg-background dark:bg-dark light:text-txlight dark:text-txDark mx-auto">Forma de pagamento:</label>
+            <select {...register("formaPagamento", {required: errors.formaPagamento?.message})} className="w-full border p-2 rounded light:text-txlight dark:text-txDark">
               <option value="pix" className='light:bg-background dark:bg-dark light:text-txlight dark:text-txDark' aria-label="Pix" title="Pix">Pix</option>
               <option value="cartao" className='light:bg-background dark:bg-dark light:text-txlight dark:text-txDark' aria-label="Cartão" title="Cartão">Cartão</option>
               <option value="boleto" className='light:bg-background dark:bg-dark light:text-txlight dark:text-txDark' aria-label="Boleto" title="Boleto">Boleto</option>
             </select>
           </div>
 
-          <div className="w-full flex flex-col items-center">
+          <div className="w-full flex flex-col items-center mx-auto">
             <button
               type="submit"
               className="bg-yellow-500 hover:bg-yellow-800 text-lg font-semibold light:text-txlight dark:text-txDark shadow cursor-pointer transition-colors duration-200 h-10 m text-center px-4  rounded w-52 disabled:opacity-50 mt-3 mx-auto"

@@ -11,23 +11,20 @@ export function Faq({ question, response }: FaqProps) {
   return (
     <div className="flex flex-col items-center justify-center gap-4 mx-auto">
       <li
-        className="list-none text-start w-full font-semibold"
+        className="list-none text-start w-full font-semibold text-lg mx-auto" 
         style={{
-          fontSize: "var(--fs-xl)",
-          color: "var(--text-primary)",
+      
           fontFamily: "VCRMono",
-          fontWeight: 200,
+      
         }}
       >
         {question}
       </li>
-      <p
+      <p className="text-start w-full font-normal text-lg mx-auto"
         style={{
-          fontSize: "var(--fs-sm)",
-          color: "var(--text-primary)",
+       
           fontFamily: "VCRMono",
-          fontWeight: 200,
-          textAlign: "justify",
+      
         }}
       >
         {response}

@@ -21,7 +21,7 @@ export function Modal({ produto, onClose, setCartCount, onComprar, cartCount}: P
       onClick={onClose} // Clique fora fecha
     >
       <div
-        className="w-full max-w-2xl light:bg-background dark:bg-dark py-6 px-10 h-[600px] overflow-y-auto flex flex-col items-center rounded-lg border-gray-700 border-2 shadow-2xl text-black"
+        className="w-full max-w-2xl light:bg-background dark:bg-dark py-6 px-10 h-[600px] overflow-y-auto flex flex-col items-center rounded-lg border-gray-700 border-2 shadow-2xl text-black -mt-6 md:mt-0"
         onClick={(e) => e.stopPropagation()} // Clique dentro não fecha
       >
 
@@ -60,15 +60,15 @@ export function Modal({ produto, onClose, setCartCount, onComprar, cartCount}: P
   return (
     // Lucas: Modal fecha ao clicar fora
     <div
-      className="fixed inset-0 top-10 bg-black/30 flex justify-center items-start pt-12 light:text-txlight dark:text-txDark"
+      className="fixed inset-0 top-10 bg-black/30 flex justify-center items-start pt-12 light:text-txlight dark:text-txDark px-4"
       onClick={onClose} // Clique fora fecha
     >
       <div
-        className="w-full max-w-2xl light:bg-background dark:bg-dark py-6 px-10 h-[600px] overflow-y-auto flex flex-col items-center rounded-lg border-gray-700 border-2 shadow-2xl text-black"
+        className="w-full max-w-2xl light:bg-background dark:bg-dark py-6 px-10 h-[600px] overflow-y-auto flex flex-col items-center rounded-lg border-gray-700 border-2 shadow-2xl text-black -mt-6 md:mt-0"
         onClick={(e) => e.stopPropagation()} // Clique dentro não fecha
       >
 
-        <div className="w-full py-24 max-h[500px] h-[500px] border border-gray-400 rounded-md p-8 shadow-2xl mb-1 flex justify-center overflow-hidden flex-col space-y-3">
+        <div className="w-full py-24 max-h[500px] h-[500px] border border-gray-400 rounded-md px-4 shadow-2xl mb-1 flex justify-center overflow-hidden flex-col space-y-3">
           <img
             src={produto.Iimage}
             alt={produto.title}
@@ -79,11 +79,11 @@ export function Modal({ produto, onClose, setCartCount, onComprar, cartCount}: P
             {produto.description}
           </p>
           <div className="flex justify-between items-center gap-2 mb-4 mt-2">
-            <p className="text-lg font-semibold text-center light:text-white  dark:text-txDark bg-green-600 max-w-64 rounded px-4 mx-auto">
+            <p className="md:text-lg text-md font-semibold text-center light:text-white  dark:text-txDark bg-green-600 max-w-64 max-h-[42px] h-[42px] rounded px-4 mx-auto flex items-center">
               {produto.Stock} unidades disponíveis.
           </p>
-          <p className="text-lg font-semibold text-center light:text-white dark:text-txDark bg-green-600 max-w-32 rounded px-2 mx-auto">
-            R$ {produto.price.toFixed(2)}
+          <p className="md:text-lg text-md font-semibold text-center light:text-white dark:text-txDark bg-green-600 max-w-64 max-h-[42px] h-[42px] rounded px-4 mx-auto flex items-center">
+            R${produto.price.toFixed(2)}
           </p>
           </div>
     
