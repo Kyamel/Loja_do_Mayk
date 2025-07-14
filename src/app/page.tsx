@@ -6,6 +6,7 @@ import { Produto } from "@/types/types";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { seedProducts } from "@/lib/seed";
+import { Loading } from "@/components/loading";
 
 
 export default function Home() {
