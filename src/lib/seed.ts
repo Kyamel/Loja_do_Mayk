@@ -31,6 +31,7 @@ export function seedProducts() {
         price: 2499,
         Stock: 8,
       },
+      
     ];
 
     const carouselProducts: Produto[] = [
@@ -58,6 +59,8 @@ export function seedProducts() {
         price: 300,
         Stock: 8,
       },
+
+       
     ];
 
     localStorage.setItem("products", JSON.stringify(products));

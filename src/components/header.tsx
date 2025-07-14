@@ -32,12 +32,7 @@ const Navigation = ({ cartCount, onComprar}: NavProps) => {
 
   return (
     <div className="flex items-center gap-6">
-      {/* <Link
-        href="/"
-        className="w-10 h-10 flex items-center justify-center  p-2  text-yellow-800 hover:text-yellow-500 transition"
-      >
-        Início
-      </Link> */}
+
 
       <div className="relative">
         <button
@@ -130,24 +125,12 @@ export function Header({  cartCount, onComprar}: NavProps) {
         <div className="md:hidden flex items-center space-x-4">
          
           <ThemeToggle/>
-          {/* Botão hambúrguer no mobile */}
-          <button
-            className="bg-black text-white px-4 py-2 rounded-lg"
-            onClick={() => setMenuOpen((prev) => !prev)}
-            aria-label="Menu"
-          >
-            ☰
-          </button>
           
+        <Navigation cartCount={cartCount} onComprar={onComprar}/>
         </div>
       </div>
 
-      {/* Menu mobile aberto */}
-      {menuOpen && (
-        <nav className="mt-5 mx-auto w-full bg-black text-gray-400 flex flex-col space-y-4 py-4 px-6 shadow-lg rounded-md md:hidden">
-          <Navigation cartCount={cartCount} onComprar={onComprar}/>
-        </nav>
-      )}
+  
     </header>
   );
 }

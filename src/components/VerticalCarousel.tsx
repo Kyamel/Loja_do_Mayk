@@ -18,7 +18,7 @@ export function VerticalCarousel({ children, height = "500px" }: VerticalCarouse
     <div className={styles.container} style={{ maxHeight: height }}>
    
       <div >
-        <div className={styles.grid}>
+        <div className={styles.grid} >
           {Children.map(children, (child, idx) =>
             isValidElement(child) ? (
               <div key={idx} className={styles.gridItem}>

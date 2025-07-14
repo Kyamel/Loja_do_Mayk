@@ -6,7 +6,10 @@ import { Produto } from "@/types/types";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { seedProducts } from "@/lib/seed";
+
+
 import ImagemCarrossel from '@/components/ImagemCarrossel';
+
 
 
 export default function Home() {
