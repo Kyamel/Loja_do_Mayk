@@ -60,7 +60,7 @@ export function Modal({ produto, onClose, setCartCount, onComprar, cartCount}: P
   return (
     // Lucas: Modal fecha ao clicar fora
     <div
-      className="fixed inset-0 top-10 bg-black/30 flex justify-center items-start pt-12 light:text-txlight dark:text-txDark px-4"
+      className="fixed inset-0 top-10 z-50 bg-black/30 flex justify-center items-start pt-12 light:text-txlight dark:text-txDark px-4"
       onClick={onClose} // Clique fora fecha
     >
       <div

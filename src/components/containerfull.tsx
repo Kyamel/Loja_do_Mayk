@@ -83,7 +83,7 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
           </div>
         </section>
 
-        <section className="max-w[300px] mx-auto px-4 py-8 text-center ">
+        <section className="w-full mx-auto px-4 py-8 text-center">
           <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>DESTAQUES</h2>
           <ImagemCarrossel />
         </section>
