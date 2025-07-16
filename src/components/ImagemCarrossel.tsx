@@ -98,7 +98,9 @@ const imagens = [
   "/carousel-image/banner.jpg",
 ];
 
-const TEMPO_AUTOPLAY = 8000; // 8s
+
+
+const TEMPO_AUTOPLAY:number = 8000; // 8s
 
 const ImagemCarrossel = () => {
   const [indexAtual, setIndexAtual] = useState(1);

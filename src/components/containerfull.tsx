@@ -53,7 +53,7 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
   return (
     <QueryClientProvider client={queryClient}>
       <main
-        className="relative flex-grow max-w-[1200px] text-white mx-auto bg-transparent z-10 mt-24"
+        className="relative flex-grow md:max-w-[1200px] text-white md:mx-auto bg-transparent z-10 mt-24 w-full "
       >
         <section>
           <div className="max-w-3xl mx-auto px-4 py-8 text-center">
