@@ -4,7 +4,7 @@ export interface Produto {
   price: number
   title: string;
   description: string;
-  Iimage?: string;
+  Iimage: string;
   Stock: number; // mínimo 1
 }
 
