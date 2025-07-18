@@ -1,14 +1,14 @@
 // Desenvolvido por [Danilo Da Silva Batista] - https://github.com/kovarike
 // Este código foi criado/alterado por mim.
+import { Press_Start_2P } from 'next/font/google'
 
+const pressStart = Press_Start_2P({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-press-start',
+})
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
-
-
-
-
-
 
 import { Faq } from "@/components/faq";
 import { Separator } from "@/components/separator";
@@ -18,11 +18,12 @@ import { VendaModal } from "@/components/vendaModal";
 
 import { Produto } from "@/types/types";
 
-
-
 import { Modal } from "./modal";
 import { useCarouselProducts, useProducts } from "@/lib/api/Products";
 import ImagemCarrossel from '@/components/ImagemCarrossel';
+import Mapa from './mapView';
+
+
 
 
 interface ContainerProps {
@@ -53,27 +54,19 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
   return (
     <QueryClientProvider client={queryClient}>
       <main
-        className="relative flex-grow md:max-w-[1200px] text-white md:mx-auto bg-transparent z-10 mt-24 w-full "
+        className={`relative flex-grow md:max-w-[1200px] text-white md:mx-auto bg-transparent z-10 mt-24 w-full ${pressStart.variable}`}
       >
-        <section>
+        <section className="w-full mx-auto px-4 py-8 text-center">
           <div className="max-w-3xl mx-auto px-4 py-8 text-center">
             <h2
-              className="text-4xl"
-              style={{
-                color: "var(--text-primary)",
-                fontFamily: "VCRMono",
-                fontWeight: 200,
-                marginBottom: 15,
-              }}
+              className="md:text-2xl text-white font-normal text-lg mb-4"
+
             >
               MaykShop
             </h2>
             <p
-              style={{
-                fontSize: "var(--fs-md)",
-                color: "var(--text-primary)",
-                textAlign: "justify",
-              }}
+              className="text-lg text-gray-300 mt-4 md:text-xl text-start font-sans "
+
             >
               A MaykShop é uma empresa especializada em segmentação comercial,
               criada para conectar entusiastas e amadores das áreas de tecnologia
@@ -84,18 +77,14 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
         </section>
 
         <section className="w-full mx-auto px-4 py-8 text-center">
-          <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>DESTAQUES</h2>
+          <h2 className="md:text-2xl text-white font-normal text-lg md:mb-4">DESTAQUES</h2>
           <ImagemCarrossel />
         </section>
 
         <section className="w-full mx-auto px-4 py-8 text-center">
           <h2
-            className="text-4xl"
-            style={{
-              color: "var(--text-primary)",
-              fontFamily: "VCRMono",
-              fontWeight: 200,
-            }}
+            className="md:text-2xl text-white font-normal text-lg mb-4"
+
           >
             Produtos Novos e Lançamentos
           </h2>
@@ -124,14 +113,10 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
           <Separator />
         </section>
 
-                <section className="w-full mx-auto px-4 py-8 text-center">
+        <section className="w-full mx-auto px-4 py-8 text-center">
           <h2
-            className="text-4xl"
-            style={{
-              color: "var(--text-primary)",
-              fontFamily: "VCRMono",
-              fontWeight: 200,
-            }}
+            className="md:text-2xl text-white font-normal text-lg mb-4"
+
           >
             Explore mais jogos
           </h2>
@@ -161,27 +146,28 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
           <Separator />
         </section>
 
-      
-
-        <section>
+        <section className="w-full mx-auto px-4 py-8 text-center">
           <div className="max-w-3xl mx-auto px-4 py-8 text-center">
             <h2
-              className="text-3xl"
-              style={{
-                color: "var(--text-primary)",
-                fontFamily: "VCRMono",
-                fontWeight: 200,
-                textAlign: "center",
-                marginBottom: 15,
-              }}
+              className="md:text-2xl text-white font-normal text-lg mb-4"
+
             >
               Perguntas Frequentes
             </h2>
             <Faq
-              question="QUEM SOMOS"
+              question="QUEM SOMOS ?"
               response="A MaykShop é uma empresa especializada em segmentação comercial, que reúne entusiastas e amadores da tecnologia e dos games"
             />
             <Separator />
+          </div>
+        </section>
+
+        <section className="w-full mx-auto px-4 py-8 text-center">
+
+          <div className="p-8 max-w-xl mx-auto">
+            <h1 className="md:text-2xl text-white font-normal text-lg mb-4">Onde estamos</h1>
+            <p className="text-zinc-600 mb-4 font-sans">Confira no mapa nossa localização exata:</p>
+            <Mapa />
           </div>
         </section>
 

@@ -1,5 +1,12 @@
 // Desenvolvido por [Danilo Da Silva Batista] - https://github.com/kovarike
 // Este código foi criado/alterado por mim.
+import { Press_Start_2P } from 'next/font/google'
+
+const pressStart = Press_Start_2P({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-press-start',
+})
 
 interface FaqProps {
   question: string;
@@ -9,23 +16,15 @@ interface FaqProps {
 export function Faq({ question, response }: FaqProps) {
   // Lucas: Adicionar Esquema de Global
   return (
-    <div className="flex flex-col items-center justify-center gap-4 mx-auto">
+    <div className={`flex flex-col items-center justify-center gap-4 mx-auto ${pressStart.variable}`}>
       <li
-        className="list-none text-start md:text-[1.35rem] w-full font-semibold text-lg mx-auto" 
-        style={{
-      
-          fontFamily: "VCRMono",
-      
-        }}
+        className={` list-none text-start w-full text-white mt-4 md:text-xl text-lg mx-auto font-normal ${pressStart.variable}`} 
+       
       >
         {question}
       </li>
-      <p className="text-start w-full font-normal text-lg md:text-[1.35rem] mx-auto"
-        style={{
+      <p className="text-start text-lg text-gray-300 mt-4 md:text-xl font-sans "
        
-          fontFamily: "VCRMono",
-      
-        }}
       >
         {response}
       </p>

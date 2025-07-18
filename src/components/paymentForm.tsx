@@ -126,7 +126,7 @@ export function PaymentForm({ produto }: Props) {
           <div className="w-full flex flex-col items-center mx-auto">
             <button
               type="submit"
-              className="bg-yellow-500 hover:bg-yellow-800 text-lg font-semibold light:text-txlight dark:text-txDark shadow cursor-pointer transition-colors duration-200 h-10 m text-center px-4  rounded w-52 disabled:opacity-50 mt-3 mx-auto"
+              className="bg-green-500 hover:bg-green-800 text-lg font-semibold light:text-txlight dark:text-txDark shadow cursor-pointer transition-colors duration-200 h-10 m text-center px-4  rounded w-52 disabled:opacity-50 mt-3 mx-auto"
               aria-label="Confirmar compra" title="Confirmar compra"
             >
               Confirmar compra

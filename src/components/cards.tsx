@@ -1,7 +1,13 @@
 // Desenvolvido por [Danilo Da Silva Batista] - https://github.com/kovarike
 // Este código foi criado/alterado por mim.
 
+import { Roboto} from "next/font/google";
 import Image from "next/image";
+const roboto = Roboto({
+  variable: "--font-Roboto",
+  subsets: ["latin"],
+  weight: "400"
+})
 
 
 import { Produto } from "@/types/types";
@@ -49,12 +55,12 @@ export function Cards({ produto, onComprar, setCartCount, onVeiw}: ProductCardPr
         </div>
       )}
 
-      <p className="flex flex-col md:text-lg text-base font-medium light:text-txlight dark:text-txDark  break-words max-h-20 mx-auto w-full text-center">
-        <span className="flex items-center justify-center"><span className="md:text-lg text-base font-bold flex items-center justify-center gap-2 text-center">{produto.title}</span></span>
+      <p className="flex flex-col md:text-lg text-md font-normal light:text-txlight dark:text-txDark  break-words max-h-20 mx-auto w-full text-center font-sans ">
+        <span className="flex items-center justify-center"><span className="md:text-lg text-md font-bold flex items-center justify-center gap-2 text-center mb-2 font-sans ">{produto.title}</span></span>
         {produto.description}
       </p>
       <div className="flex justify- items-center w-full mb-0 mt-5 flex-col gap-2">
-        <button onClick={() => onVeiw(produto)} className="  bg-green-500 hover:bg-green-800 ttext-lg font-semibold light:text-txlight dark:text-txDark shadow cursor-pointer transition-colors duration-200 h-10 m text-center px-4 rounded w-52 disabled:opacity-50 mt-3 mx-auto" aria-label="Ver Detalhes" title="Ver Detalhes">
+        <button onClick={() => onVeiw(produto)} className="  bg-green-500 hover:bg-green-800 ttext-lg font-sans font-semibold light:text-txlight dark:text-txDark shadow cursor-pointer transition-colors duration-200 h-10 m text-center px-4 rounded w-52 disabled:opacity-50 mt-3 mx-auto" aria-label="Ver Detalhes" title="Ver Detalhes">
           Ver Detalhes
         </button>
         <AddButton handleAddToCart={handleAddToCart} />

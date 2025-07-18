@@ -15,7 +15,7 @@ export default function GameOverScreen() {
         <div className={`z-10 text-center text-white space-y-6 ${pressStart.variable}`}>
             <div className="text-2xl text-black">❤️❤️❤️🤍🤍</div>
 
-            <h1 className="text-8xl text-orange-500 drop-shadow-[2px_2px_0px_#000] w-full">
+            <h1 className="text-2xl text-orange-500 drop-shadow-[2px_2px_0px_#000] w-full">
                 GAME OVER
             </h1>
 
