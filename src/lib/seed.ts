@@ -5,7 +5,9 @@ export function seedProducts() {
   if (typeof window === "undefined") return;
 
   const alreadySeeded = localStorage.getItem("products");
-  if (!alreadySeeded) {
+  const alreadySeeded2 = localStorage.getItem("carouselProducts");
+
+  if (!alreadySeeded && !alreadySeeded2) {
     const products: Produto[] = [
       {
         id: "1",

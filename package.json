@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev && npm run seed",
     "seed": "ts-node src/lib/seed.ts",
+    "seed:build": "node src/lib/seed.ts",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
