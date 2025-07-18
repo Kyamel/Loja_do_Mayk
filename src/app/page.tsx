@@ -21,7 +21,7 @@ export default function Home() {
 
   useEffect(() => {
     seedProducts(); // Preenche o localStorage se necessário
-    window.location.reload();
+    
   }, []);
 
    const handleAdicionarAoCarrinho = (produto: Produto) => {
