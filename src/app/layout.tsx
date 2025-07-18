@@ -36,9 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html 
-      lang="pt-BR"    
-      data-lt-installed="true"> {/* Lucas: Concertar bug de hidratação */}
+    <html lang="pt-BR">
       
 
       <body

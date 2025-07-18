@@ -22,8 +22,9 @@ import { Modal } from "./modal";
 import { useCarouselProducts, useProducts } from "@/lib/api/Products";
 import ImagemCarrossel from '@/components/ImagemCarrossel';
 import Mapa from './mapView';
-import { Carousel } from '@/components/carousel';
-import { EmailForm } from '@/components/emailform';
+import { Carousel } from '@/components/Carousel';
+import { EmailForm } from '@/components/EmailForm';
+import CommentSection from './commentSection';
 
 
 
@@ -50,6 +51,8 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
 
   const games: Produto[] = useCarouselProducts();
   const producs: Produto[] = useProducts();
+  const postId = "maykshop-pagina-principal";
+  const postTitle = "Comentários sobre a MaykShop";
 
 
 
@@ -162,6 +165,18 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
             <Mapa />
           </div>
         </section>
+
+      <section className="w-full mx-auto px-4 py-8 text-center">
+        <div className="max-w-2xl mx-auto px-4 py-8">
+          <h1 className="text-2xl font-bold mb-4">{postTitle}</h1>
+          <p>Conteúdo do post aqui...</p>
+
+          <hr className="my-8" />
+
+          <CommentSection/>
+
+        </div>
+      </section>
 
         {produtoDetalhes && (
           <Modal

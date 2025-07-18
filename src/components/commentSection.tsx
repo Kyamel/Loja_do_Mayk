@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Send } from "lucide-react";
 
 interface Comment {
@@ -11,43 +11,35 @@ interface Comment {
 }
 
 export default function CommentSection() {
-  const [comments, setComments] = useState<Comment[]>([
-     {
-    id: 1,
-    name: "Pedro",
-    message: "Esse artigo está excelente!",
-    createdAt: "17/07/2025 14:23",
-  },
-  {
-    id: 2,
-    name: "DuDU",
-    message: "Melhor jogo da atualidade. Obrigado!",
-    createdAt: "17/07/2025 15:02",
-  },
-  {
-    id: 3,
-    name: "Alice",
-    message: "Que lançamento incrível!.",
-    createdAt: "17/07/2025 15:30",
-  },
-  ]);
+  const [comments, setComments] = useState<Comment[]>([]);
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    fetch("/api/comments")
+      .then((res) => res.json())
+      .then(setComments)
+      .catch((err) => console.error("Erro ao carregar comentários", err));
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !message.trim()) return;
 
-    const newComment: Comment = {
-      id: Date.now(),
-      name,
-      message,
-      createdAt: new Date().toLocaleString("pt-BR"),
-    };
+    const res = await fetch("/api/comments", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, message }),
+    });
 
-    setComments([newComment, ...comments]);
-    setName("");
-    setMessage("");
+    if (res.ok) {
+      const newComment = await res.json();
+      setComments((prev) => [newComment, ...prev]);
+      setName("");
+      setMessage("");
+    } else {
+      alert("Erro ao enviar comentário");
+    }
   };
 
   return (
@@ -78,7 +70,7 @@ export default function CommentSection() {
 
       <div className="space-y-4">
         {comments.length === 0 ? (
-          <p className="light:text-txlight dark:text-txDark text-center font-sans ">Nenhum comentário ainda.</p>
+          <p className="light:text-txlight dark:text-txDark text-center font-sans">Nenhum comentário ainda.</p>
         ) : (
           comments.map((comment) => (
             <div key={comment.id} className="bg-background dark:bg-dark p-3 rounded-lg font-sans">
@@ -94,6 +86,3 @@ export default function CommentSection() {
     </div>
   );
 }
-// This component provides a simple comment section where users can submit their name and message.
-// It maintains a list of comments in the local state and displays them below the form.
-// The comments are displayed with the name of the commenter and the time they were created.    
