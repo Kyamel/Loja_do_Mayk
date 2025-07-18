@@ -1,3 +1,5 @@
+// Lucas: Adicionar funcionalidade de comentários
+
 import { NextResponse } from "next/server";
 import DatabaseSingleton from "@/lib/database/init";
 
@@ -27,11 +29,22 @@ export async function POST(request: Request) {
   }
 }
 
-export async function GET() {
+
+export async function GET(req: Request) {
   try {
-    const stmt = db.prepare("SELECT * FROM comments ORDER BY id DESC");
-    const comments = stmt.all();
-    return NextResponse.json(comments);
+    const { searchParams } = new URL(req.url);
+    const page = parseInt(searchParams.get("page") || "1");
+    const pageSize = 10;
+    const offset = (page - 1) * pageSize;
+
+    const totalStmt = db.prepare("SELECT COUNT(*) as total FROM comments");
+    const { total } = totalStmt.get() as { total: number };
+    const totalPages = Math.ceil(total / pageSize);
+
+    const stmt = db.prepare("SELECT * FROM comments ORDER BY id DESC LIMIT ? OFFSET ?");
+    const comments = stmt.all(pageSize, offset);
+
+    return NextResponse.json({ comments, totalPages });
   } catch (error) {
     console.error("Erro ao buscar comentários:", error);
     return NextResponse.json({ error: "Erro interno no servidor" }, { status: 500 });

@@ -86,6 +86,7 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
           <ImagemCarrossel />
         </section>
 
+         {/*Lucas: Adicionar Carrosel de Jogos */}
         <section className="w-full mx-auto px-4 py-8 text-center">
           <h2
             className="md:text-2xl text-white font-normal text-lg mb-4"
@@ -153,6 +154,7 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
             />
            
           </div>
+            {/*Lucas: Adicionar Formulário de Contato*/}
             <EmailForm />
             <Separator />
         </section>
@@ -166,6 +168,7 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
           </div>
         </section>
 
+       {/*Lucas: Adicionar Seção de Comentários */}
       <section className="w-full mx-auto px-4 py-8 text-center">
         <div className="max-w-2xl mx-auto px-4 py-8">
           <h1 className="text-2xl font-bold mb-4">{postTitle}</h1>

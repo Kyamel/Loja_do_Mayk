@@ -1,4 +1,4 @@
-// Lucas: Criar rota
+// Lucas: Criar rota de contato
 
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
