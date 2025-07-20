@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { ContainerFull } from "@/components/containerfull";
 import { Produto } from "@/types/types";
 import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import { seedProducts } from "@/lib/seed";
 
 
@@ -19,16 +18,19 @@ export default function Home() {
   const [modalDetalhes, setModalDetalhes] = useState<Produto | null>(null);
   const [modalCarrinho, setModalCarrinho] = useState<Produto | null>(null);
 
-   const [isZeldaModalOpen, setIsZeldaModalOpen] = useState(false);
+  const [isZeldaModalOpen, setIsZeldaModalOpen] = useState(false);
+
+  const [score, setScore] = useState<number>(0);
 
   useEffect(() => {
     seedProducts(); // Preenche o localStorage se necessário
     
   }, []);
 
-   const handleAdicionarAoCarrinho = (produto: Produto) => {
+  const handleAdicionarAoCarrinho = (produto: Produto) => {
     setCartItems((prev) => [...prev, produto]);
     setCartCount(1);
+    setScore((i) => (i + produto.price))
     setModalCarrinho(produto); // abre o modal do carrinho
   };
 
@@ -51,11 +53,13 @@ export default function Home() {
   return (
     <>
       <Header
+        score={score}
         cartCount={cartCount}
         onComprar={handleAbrirCarrinho}
       />
 
       <ContainerFull
+      
         setCartCount={setCartCount}
         onComprar={handleAdicionarAoCarrinho}
         onVeiw={handleVerDetalhes}

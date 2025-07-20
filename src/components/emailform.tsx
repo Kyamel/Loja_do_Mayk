@@ -66,6 +66,7 @@ export function EmailForm() {
           type="text"
           name="name"
           placeholder="Seu nome"
+          autoComplete='off'
           value={form.name}
           onChange={handleChange}
           className="w-full p-2 mb-2 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-background dark:bg-dark light:text-txlight dark:text-txDark"
@@ -75,6 +76,7 @@ export function EmailForm() {
           type="email"
           name="email"
           placeholder="Seu email"
+          autoComplete='off'
           value={form.email}
           onChange={handleChange}
           className="w-full p-2 mb-2 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-background dark:bg-dark light:text-txlight dark:text-txDark"
@@ -85,6 +87,7 @@ export function EmailForm() {
           name="subject"
           placeholder="Assunto"
           value={form.subject}
+          autoComplete='off'
           onChange={handleChange}
           className="w-full p-2 mb-2 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-background dark:bg-dark light:text-txlight dark:text-txDark"
         />
@@ -94,6 +97,7 @@ export function EmailForm() {
           placeholder="Escreva sua mensagem..."
           value={form.message}
           onChange={handleChange}
+          autoComplete='off'
           rows={5}
           className="w-full p-2 mb-2 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-background dark:bg-dark light:text-txlight dark:text-txDark resize-none"
         />

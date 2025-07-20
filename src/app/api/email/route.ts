@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Dados inválidos", details: validationPay.error?.format() }, { status: 400 });
     }
 
-    const { email: EmailPay, subject: SubjectPay, cep, cidade, estado, rua, complemento, name: NamePay, formaPagamento } = validationPay.data;
+    const { email: EmailPay, subject: SubjectPay, cep, cidade, estado, rua, complemento, name: NamePay, formaPagamento, cupom} = validationPay.data;
 
     //sanitize Email Pay
 
@@ -38,6 +38,7 @@ export async function POST(req: NextRequest) {
     const sanitizedEmailPay = EmailPay.replace(/</g, "&lt;").replace(/>/g, "&gt;");
     const sanitizedSubjectPay = SubjectPay?.replace(/</g, "&lt;").replace(/>/g, "&gt;");
     const sanitizedPay = formaPagamento.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+     const sanitizedCupom = cupom.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
     // Configuração do transportador com TLS
     const transporter = nodemailer.createTransport({
@@ -84,6 +85,10 @@ export async function POST(req: NextRequest) {
     
             <p style="font-size: 16px; margin: 10px 0;">
               <strong>Produto(s):</strong> ${sanitizedSubjectPay}
+            </p>
+
+            <p style="font-size: 16px; margin: 10px 0;">
+              <strong>Cupom(s):</strong> ${sanitizedCupom}
             </p>
     
             <p style="font-size: 16px; margin: 10px 0;">

@@ -16,6 +16,7 @@ import { ThemeToggle } from "./buttonTheme";
 interface NavProps {
   cartCount: number;
   onComprar: () => void
+  score: number,
 }
 
 
@@ -61,9 +62,11 @@ export default Navigation;
 
 
 
-export function Header({  cartCount, onComprar}: NavProps) {
+export function Header({  cartCount, onComprar, score}: NavProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showScrollNav, setShowScrollNav] = useState(false);
+
+
 
   // Lucas: Add funções para controlar dark mode
   const [mounted, setMounted] = useState(false);
@@ -117,16 +120,24 @@ export function Header({  cartCount, onComprar}: NavProps) {
           
           <ThemeToggle/>
           <nav className="flex space-x-6 text-gray-400">
-            <Navigation cartCount={cartCount} onComprar={onComprar}/>
+            <Navigation cartCount={cartCount} onComprar={onComprar} score={score}/>
           </nav>
+          <div className="text-white text-xs rounded-full flex flex-col items-center " aria-label="Score" title="Score">
+            <div className="text-[10px] text-center ">SCORE:</div>
+            <div className="text-yellow-400 text-xs text-center font-bold">{score}</div>
+          </div>
         </div>
 
         {/* Mobile */}
         <div className="md:hidden flex items-center space-x-4">
          
           <ThemeToggle/>
-          
-        <Navigation cartCount={cartCount} onComprar={onComprar}/>
+            
+          <Navigation cartCount={cartCount} onComprar={onComprar} score={score}/>
+          <div className="text-white text-xs rounded-full flex flex-col items-center " aria-label="Score" title="Score">
+            <div className="text-[10px] text-center ">SCORE:</div>
+            <div className="text-yellow-400 text-xs text-center font-bold">{score}</div>
+          </div>
         </div>
       </div>
 

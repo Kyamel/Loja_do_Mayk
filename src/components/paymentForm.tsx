@@ -14,7 +14,8 @@ import { Separator } from './separator';
 type DataSchema = z.infer<typeof emailSchemaPay>;
 
 interface Props {
-  produto: Produto | null
+  produto: Produto | null,
+  
 
 }
 

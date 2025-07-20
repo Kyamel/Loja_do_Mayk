@@ -22,7 +22,7 @@ export async function sendMail([{name, email, message, subject, }]: DataSchemaEm
        
 }
 
-export async function sendMailPay([{name, email, cep, cidade, estado,  rua, complemento, subject, formaPagamento}]: DataSchemaPay[]){
+export async function sendMailPay([{name, email, cep, cidade, estado,  rua, complemento, subject, formaPagamento, cupom}]: DataSchemaPay[]){
     const data = {
         name,
         email, 
@@ -32,7 +32,8 @@ export async function sendMailPay([{name, email, cep, cidade, estado,  rua, comp
         estado,
         rua,
         complemento,
-        formaPagamento 
+        formaPagamento,
+        cupom
     };
     
     await axios.post('/api/email', data);

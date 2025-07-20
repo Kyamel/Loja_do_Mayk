@@ -7,7 +7,8 @@ import { Separator } from './separator';
 
 interface Props {
   produto: Produto | null;
-  onClose: () => void
+  onClose: () => void,
+  
 
  
   

@@ -24,8 +24,9 @@ import ImagemCarrossel from '@/components/ImagemCarrossel';
 import Mapa from './mapView';
 import { EmailForm } from '@/components/emailform';
 
-import CouponCard from './CouponCard';
+
 import CupomTrigger from './cupomtrigger';
+import CouponCard from './CouponCard';
 
 
 
@@ -42,6 +43,7 @@ interface ContainerProps {
   onClose: () => void;
   isZeldaModalOpen: boolean;
   setIsZeldaModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  
 }
 
 const queryClient = new QueryClient({
@@ -187,9 +189,9 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
           </div>
         </section>
 
-      <CupomTrigger onClick={() => setIsZeldaModalOpen(true)}/>
+      <CupomTrigger isOpen={isZeldaModalOpen} onClick={() => setIsZeldaModalOpen(true)}/>
 
-        <CouponCard/>
+      <CouponCard isOpen={isZeldaModalOpen} onClose={setIsZeldaModalOpen}/>
 
       {/* <ZeldaCouponModal 
         isOpen={isZeldaModalOpen} 
