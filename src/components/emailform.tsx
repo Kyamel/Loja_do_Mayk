@@ -60,7 +60,7 @@ export function EmailForm() {
         onSubmit={handleSubmit}
         className="w-full max-w-xl space-y-4 border border-gray-300 rounded-md shadow-md p-6 bg-background dark:bg-dark text-txlight dark:text-txDark"
       >
-        <h2 className="text-center text-2xl font-bold mb-4">Fale com a loja</h2>
+        <h2 className="text-2xl font-bold mb-4 light:text-txlight dark:text-txDark font-sans text-center">Fale com a loja</h2>
 
         <input
           type="text"
@@ -68,7 +68,7 @@ export function EmailForm() {
           placeholder="Seu nome"
           value={form.name}
           onChange={handleChange}
-          className="w-full p-2 rounded border border-gray-300 dark:bg-zinc-800 dark:border-zinc-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full p-2 mb-2 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-background dark:bg-dark light:text-txlight dark:text-txDark"
         />
 
         <input
@@ -77,7 +77,7 @@ export function EmailForm() {
           placeholder="Seu email"
           value={form.email}
           onChange={handleChange}
-          className="w-full p-2 rounded border border-gray-300 dark:bg-zinc-800 dark:border-zinc-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full p-2 mb-2 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-background dark:bg-dark light:text-txlight dark:text-txDark"
         />
 
         <input
@@ -86,7 +86,7 @@ export function EmailForm() {
           placeholder="Assunto"
           value={form.subject}
           onChange={handleChange}
-          className="w-full p-2 rounded border border-gray-300 dark:bg-zinc-800 dark:border-zinc-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full p-2 mb-2 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-background dark:bg-dark light:text-txlight dark:text-txDark"
         />
 
         <textarea
@@ -95,7 +95,7 @@ export function EmailForm() {
           value={form.message}
           onChange={handleChange}
           rows={5}
-          className="w-full p-2 rounded border border-gray-300 dark:bg-zinc-800 dark:border-zinc-700 resize-none focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full p-2 mb-2 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-background dark:bg-dark light:text-txlight dark:text-txDark resize-none"
         />
 
         {errorMsg && <p className="text-sm text-red-600">{errorMsg}</p>}
@@ -105,7 +105,7 @@ export function EmailForm() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-2 px-4 rounded bg-blue-600 hover:bg-blue-700 text-white font-medium flex items-center justify-center gap-2 transition duration-300"
+          className="flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-xl hover:bg-green-800 transition"
         >
           {loading ? <Loader2 className="animate-spin w-4 h-4" /> : <Send size={16} />}
           {loading ? 'Enviando...' : 'Enviar mensagem'}

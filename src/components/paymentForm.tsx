@@ -8,6 +8,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { sendMailPay } from "@/lib/http/sendmail";
 import { emailSchemaPay } from '@/lib/mail';
 import { Loading } from './loading';
+import { Separator } from './separator';
 
 
 type DataSchema = z.infer<typeof emailSchemaPay>;
@@ -38,6 +39,7 @@ export function PaymentForm({ produto }: Props) {
         cidade: data.cidade,
         estado: data.estado,
         cep: data.cep,
+        cupom:data.cupom
 
       }]);
     },
@@ -110,6 +112,13 @@ export function PaymentForm({ produto }: Props) {
             <label className="light:bg-background dark:bg-dark md:col-span-2 w-full mx-auto">
               Complemento:
               <input {...register("complemento", {required: errors.complemento?.message})} className="w-full border p-2 rounded light:bg-background dark:bg-dark mx-auto" placeholder="Apartamento, bloco, etc..." autoComplete='off' aria-label="Complemento" title="Complemento" />
+            </label>
+
+            <Separator className='bg-[#000099] mx-auto w-full max-h-10 p-[1px] rounded-md '/>
+
+            <label className="light:bg-background dark:bg-dark md:col-span-2 w-full mx-auto">
+              Cupom:
+              <input {...register("cupom", {required: errors.cupom?.message})} className="w-full border p-2 rounded light:bg-background dark:bg-dark mx-auto" placeholder="Cupom" autoComplete='off' aria-label="Cupom" title="Cupom" />
             </label>
             
           </div>

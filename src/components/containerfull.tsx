@@ -23,6 +23,7 @@ import { useCarouselProducts, useProducts } from "@/lib/api/Products";
 import ImagemCarrossel from '@/components/ImagemCarrossel';
 import Mapa from './mapView';
 import { EmailForm } from '@/components/emailform';
+import CouponCard from './CouponCard';
 
 
 
@@ -192,6 +193,8 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
         {produtoCarrinho && (
           <VendaModal produto={produtoCarrinho} onClose={onClose} />
         )}
+
+        <CouponCard/>
 
       </main>
     </QueryClientProvider>

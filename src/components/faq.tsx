@@ -16,7 +16,7 @@ interface FaqProps {
 export function Faq({ question, response }: FaqProps) {
   // Lucas: Adicionar Esquema de Global
   return (
-    <div className={`flex flex-col items-center justify-center gap-4 mx-auto ${pressStart.variable}`}>
+    <div className={`flex flex-col items-center justify-center gap-4 mx-auto border-l-2 border-l-[#000099] px-3 ${pressStart.variable}`}>
       <li
         className={` list-none text-start w-full text-white mt-4 md:text-xl text-lg mx-auto font-normal ${pressStart.variable}`} 
        

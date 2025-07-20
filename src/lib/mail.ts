@@ -22,6 +22,7 @@ export const emailSchemaPay = z.object({
   formaPagamento: z.enum(['pix', 'cartao', 'boleto'], {
     errorMap: () => ({ message: 'Selecione uma forma de pagamento válida.' }),
   }),
+  cupom: z.string(),
   subject: z.string().min(3, "O assunto deve ter pelo menos 3 caracteres").optional(),
 });
 
