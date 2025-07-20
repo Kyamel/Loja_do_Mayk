@@ -22,9 +22,7 @@ import { Modal } from "./modal";
 import { useCarouselProducts, useProducts } from "@/lib/api/Products";
 import ImagemCarrossel from '@/components/ImagemCarrossel';
 import Mapa from './mapView';
-import { Carousel } from '@/components/Carousel';
-import { EmailForm } from '@/components/EmailForm';
-import CommentSection from './commentSection';
+import { EmailForm } from '@/components/emailform';
 
 
 
@@ -124,17 +122,30 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
             Explore mais jogos
           </h2>
 
-          <div className="w-full">
-            {games.length > 0 ? (
-              <Carousel
-                produtos={games}
+          <div 
+          className="
+                  w-full 
+                  mx-auto
+                  px-10
+                  py-4 
+                  text-center 
+                  flex flex-col justify-center items-center
+                  space-y-5
+                  md:grid md:grid-cols-3 md:gap-5 md:justify-items-center md:space-y-0
+                  lg:grid-cols-3
+                "
+          
+          >
+            {games.map((p, idx) => (
+              <Cards
+                setCartCount={setCartCount}
+                key={p.id}
+                produto={p}
                 onComprar={onComprar}
                 onVeiw={onVeiw}
-                setCartCount={setCartCount}
+
               />
-            ) : (
-              <p className="text-white opacity-60">Nenhum jogo encontrado.</p>
-            )}
+            ))}
           </div>
 
           <Separator />
@@ -152,7 +163,7 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
               question="QUEM SOMOS ?"
               response="A MaykShop é uma empresa especializada em segmentação comercial, que reúne entusiastas e amadores da tecnologia e dos games"
             />
-           
+            <Separator />
           </div>
             {/*Lucas: Adicionar Formulário de Contato*/}
             <EmailForm />
@@ -168,18 +179,6 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
           </div>
         </section>
 
-       {/*Lucas: Adicionar Seção de Comentários */}
-      <section className="w-full mx-auto px-4 py-8 text-center">
-        <div className="max-w-2xl mx-auto px-4 py-8">
-          <h1 className="text-2xl font-bold mb-4">{postTitle}</h1>
-          <p>Conteúdo do post aqui...</p>
-
-          <hr className="my-8" />
-
-          <CommentSection/>
-
-        </div>
-      </section>
 
         {produtoDetalhes && (
           <Modal
