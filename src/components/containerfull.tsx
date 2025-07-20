@@ -23,7 +23,12 @@ import { useCarouselProducts, useProducts } from "@/lib/api/Products";
 import ImagemCarrossel from '@/components/ImagemCarrossel';
 import Mapa from './mapView';
 import { EmailForm } from '@/components/emailform';
+
 import CouponCard from './CouponCard';
+import CupomTrigger from './cupomtrigger';
+
+
+
 
 
 
@@ -35,6 +40,8 @@ interface ContainerProps {
   onComprar: (produto: Produto) => void;
   onVeiw: (produto: Produto) => void;
   onClose: () => void;
+  isZeldaModalOpen: boolean;
+  setIsZeldaModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const queryClient = new QueryClient({
@@ -45,7 +52,7 @@ const queryClient = new QueryClient({
   },
 });
 
-export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produtoCarrinho, produtoDetalhes }: ContainerProps) {
+export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produtoCarrinho, produtoDetalhes, isZeldaModalOpen, setIsZeldaModalOpen }: ContainerProps) {
 
 
   const games: Produto[] = useCarouselProducts();
@@ -180,6 +187,14 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
           </div>
         </section>
 
+      <CupomTrigger onClick={() => setIsZeldaModalOpen(true)}/>
+
+        <CouponCard/>
+
+      {/* <ZeldaCouponModal 
+        isOpen={isZeldaModalOpen} 
+        onClose={setIsZeldaModalOpen} 
+      /> */}
 
         {produtoDetalhes && (
           <Modal
@@ -194,7 +209,7 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
           <VendaModal produto={produtoCarrinho} onClose={onClose} />
         )}
 
-        <CouponCard/>
+        
 
       </main>
     </QueryClientProvider>

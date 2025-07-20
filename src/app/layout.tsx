@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Roboto, Montserrat } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/context/theme-context";
+import { Footer } from "@/components/footer";
 
 
 const roboto = Roboto({
@@ -48,6 +49,7 @@ export default function RootLayout({
         <ThemeProvider>
 
           {children}
+          <Footer />
         </ThemeProvider>
 
 
