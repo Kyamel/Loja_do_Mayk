@@ -4,7 +4,12 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 
-export default function CouponCard() {
+interface ZeldaModalProps {
+  isOpen: boolean;
+  onClose: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function CouponCard({isOpen,onClose}:ZeldaModalProps) {
   const [visible, setVisible] = useState(true);
 
   const handleClose = () => setVisible(false);
