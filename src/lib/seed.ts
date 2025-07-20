@@ -36,6 +36,7 @@ export function seedProducts() {
       
     ];
 
+    // Lucas: Adicionar Covers de Jogos
     const carouselProducts: Produto[] = [
       {
         id: "4",
@@ -64,7 +65,7 @@ export function seedProducts() {
       {
         title: "Streets of Rage 4",
         description: "Beat 'em up com arte desenhada à mão e trilha retrô.",
-        Iimage: "/img7.png",
+        Iimage: "/covers/Streets of Rage 4.jpg",
         id: "7",
         price: 110,
         Stock: 4
@@ -72,7 +73,7 @@ export function seedProducts() {
       {
         title: "Cuphead",
         description: "Estética de desenho animado dos anos 30 com ação hardcore.",
-        Iimage: "/img8.png",
+        Iimage: "/covers/Cuphead.png",
         id: "8",
         price: 100,
         Stock: 9
@@ -80,7 +81,7 @@ export function seedProducts() {
       {
         title: "Castlevania Anniversary Collection",
         description: "Coletânea com os clássicos 8-bit e 16-bit da série.",
-        Iimage: "/img9.png",
+        Iimage: "/covers/Castlevania Anniversary Collection.png",
         id: "9",
         price: 80,
         Stock: 1
@@ -88,7 +89,7 @@ export function seedProducts() {
       {
         title: "TMNT: Shredder's Revenge",
         description: "Tartarugas Ninja com visual retrô e ação cooperativa.",
-        Iimage: "/img10.png",
+        Iimage: "/covers/TMNT.jpg",
         id: "10",
         price: 130,
         Stock: 3
@@ -96,7 +97,7 @@ export function seedProducts() {
       {
         title: "Hollow Knight",
         description: "Metroidvania atmosférico com combate desafiador e arte linda.",
-        Iimage: "/img11.png",
+        Iimage: "/covers/Hollow Knight.jpg",
         id: "11",
         price: 90,
         Stock: 120
@@ -104,7 +105,7 @@ export function seedProducts() {
       {
         title: "Celeste",
         description: "Plataforma 2D sobre superação com trilha sonora incrível.",
-        Iimage: "/img12.png",
+        Iimage: "/covers/Celeste.png",
         id: "12",
         price: 70,
         Stock: 6
@@ -112,7 +113,7 @@ export function seedProducts() {
       {
         title: "Dead Cells",
         description: "Roguevania com combate rápido e níveis gerados proceduralmente.",
-        Iimage: "/img13.png",
+        Iimage: "/covers/Dead Cells.png",
         id: "13",
         price: 100,
         Stock: 0
@@ -120,7 +121,7 @@ export function seedProducts() {
       {
         title: "Hades",
         description: "Rogue-like com narrativa forte e combate fluido no submundo grego.",
-        Iimage: "/img14.png",
+        Iimage: "/covers/Hades.jpeg",
         id: "14",
         price: 120,
         Stock: 7
@@ -128,7 +129,7 @@ export function seedProducts() {
       {
         title: "Ori and the Blind Forest",
         description: "Plataforma e aventura com visuais deslumbrantes e história emocionante.",
-        Iimage: "/img15.png",
+        Iimage: "/covers/Ori and the Blind Forest.jpeg",
         id: "15",
         price: 110,
         Stock: 12
