@@ -56,7 +56,7 @@ Sinta-se à vontade para abrir issues e pull requests, contribuindo para o desen
 ---
 **Contribuentes:**  
 - [Danilo Da Silva Batista](https://github.com/kovarike)
--
+- [Lucas dos Anos Camelo](https://github.com/kyamel)
 -
 -
 -
