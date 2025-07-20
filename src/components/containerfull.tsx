@@ -23,6 +23,7 @@ import { useCarouselProducts, useProducts } from "@/lib/api/Products";
 import ImagemCarrossel from '@/components/ImagemCarrossel';
 import Mapa from './mapView';
 import { EmailForm } from '@/components/emailform';
+import { ZeldaCouponModal } from '@/components/ZeldaCouponModal';
 
 
 
@@ -34,6 +35,8 @@ interface ContainerProps {
   onComprar: (produto: Produto) => void;
   onVeiw: (produto: Produto) => void;
   onClose: () => void;
+  isZeldaModalOpen: boolean;
+  setIsZeldaModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const queryClient = new QueryClient({
@@ -44,7 +47,7 @@ const queryClient = new QueryClient({
   },
 });
 
-export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produtoCarrinho, produtoDetalhes }: ContainerProps) {
+export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produtoCarrinho, produtoDetalhes, isZeldaModalOpen, setIsZeldaModalOpen }: ContainerProps) {
 
 
   const games: Produto[] = useCarouselProducts();
@@ -179,6 +182,15 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
           </div>
         </section>
 
+        
+      <div style={{ textAlign: 'center', padding: '20px', cursor: 'pointer', backgroundColor: 'transparent' , zIndex: 500, width: "200px", height: "200px"}} onClick={() => setIsZeldaModalOpen(true)}>
+        <img src="/kokiri.png" alt="Segredo" style={{ width: '32px' }} title="?" />
+      </div>
+
+      <ZeldaCouponModal 
+        isOpen={isZeldaModalOpen} 
+        onClose={setIsZeldaModalOpen} 
+      />
 
         {produtoDetalhes && (
           <Modal

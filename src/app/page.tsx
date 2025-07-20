@@ -19,6 +19,8 @@ export default function Home() {
   const [modalDetalhes, setModalDetalhes] = useState<Produto | null>(null);
   const [modalCarrinho, setModalCarrinho] = useState<Produto | null>(null);
 
+   const [isZeldaModalOpen, setIsZeldaModalOpen] = useState(false);
+
   useEffect(() => {
     seedProducts(); // Preenche o localStorage se necessário
     
@@ -44,24 +46,27 @@ export default function Home() {
     setModalDetalhes(null);
   };
 
-  return (
-    <>
-      <Header
-        cartCount={cartCount}
-        onComprar={handleAbrirCarrinho}
-      />
+ // Substitua seu 'return' por este bloco completo
 
-      <ContainerFull
-        setCartCount={setCartCount}
-        onComprar={handleAdicionarAoCarrinho}
-        onVeiw={handleVerDetalhes}
-        produtoDetalhes={modalDetalhes}
-        produtoCarrinho={modalCarrinho}
-        onClose={fecharModais}
+  return (
+    <>
+      <Header
+        cartCount={cartCount}
+        onComprar={handleAbrirCarrinho}
+      />
 
-      />
+      <ContainerFull
+        setCartCount={setCartCount}
+        onComprar={handleAdicionarAoCarrinho}
+        onVeiw={handleVerDetalhes}
+        produtoDetalhes={modalDetalhes}
+        produtoCarrinho={modalCarrinho}
+        onClose={fecharModais}
+        isZeldaModalOpen={isZeldaModalOpen}
+        setIsZeldaModalOpen={setIsZeldaModalOpen}
+      />
 
-      <Footer />
-    </>
-  );
+  
+    </>
+  );
 }
