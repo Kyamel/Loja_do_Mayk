@@ -59,7 +59,7 @@ Sinta-se à vontade para abrir issues e pull requests, contribuindo para o desen
 - [Lucas dos Anos Camelo](https://github.com/kyamel)
 - [Eduardo Christianini Fonseca Junior](github.com/EduardoC-Fonseca)
 - [Jonas Elias Kretli](https://github.com/KretliJ)
--
+- [Gabriel Diniz Soares](https://github.com/BielDinizSoares)
 
 ---
 **Resumo:**  
