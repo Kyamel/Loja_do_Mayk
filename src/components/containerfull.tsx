@@ -27,7 +27,7 @@ import { EmailForm } from '@/components/emailform';
 
 import CupomTrigger from './cupomtrigger';
 import CouponCard from './CouponCard';
-import { Carousel } from './Carousel';
+// import { Carousel } from './Carousel'; // Comentado temporariamente - arquivo não existe
 import GlobalComments from './GlobalComments';
 
 
@@ -137,12 +137,15 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
 
           <div className="w-full">
             {games.length > 0 ? (
-              <Carousel
-                produtos={games}
-                onComprar={onComprar}
-                onVeiw={onVeiw}
-                setCartCount={setCartCount}
-              />
+              // <Carousel
+              //   produtos={games}
+              //   onComprar={onComprar}
+              //   onVeiw={onVeiw}
+              //   setCartCount={setCartCount}
+              // />
+              <div className="text-center p-8 text-gray-500">
+                Carrossel temporariamente desabilitado - arquivo Carousel.tsx não encontrado
+              </div>
             ) : (
               <p className="text-white opacity-60">Nenhum jogo encontrado.</p>
             )}
