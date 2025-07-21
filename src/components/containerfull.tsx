@@ -169,7 +169,7 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
             {/*Lucas: Adicionar Formulário de Contato*/}
             <EmailForm />
             <Separator />
-        </section>
+        </section>   
 
         <section className="w-full mx-auto px-4 py-8 text-center">
 
@@ -180,6 +180,21 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
           </div>
         </section>
 
+        <section className="w-full mx-auto px-4 py-8 text-center">
+          <Separator />
+        <div className="max-w-3xl mx-auto px-4 py-8 text-center">
+          <h2 className="md:text-2xl text-white font-normal text-lg mb-4">
+            Commente Aqui
+          </h2>
+        </div>
+
+        {/*Lucas: Adicionar Comentários Globais*/}
+        <GlobalComments />
+
+        {/* Espaço extra entre os comentários e o rodapé */}
+        <div className="h-16 md:h-32" />
+      </section>
+
       <CupomTrigger isOpen={isZeldaModalOpen} onClick={() => setIsZeldaModalOpen(true)}/>
 
       <CouponCard isOpen={isZeldaModalOpen} onClose={setIsZeldaModalOpen}/>
@@ -189,7 +204,7 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
         onClose={setIsZeldaModalOpen} 
       /> */}
 
-      <GlobalComments/>
+      
 
         {produtoDetalhes && (
           <Modal
