@@ -184,7 +184,7 @@ export function ContainerFull({ setCartCount, onClose, onComprar, onVeiw, produt
           <Separator />
         <div className="max-w-3xl mx-auto px-4 py-8 text-center">
           <h2 className="md:text-2xl text-white font-normal text-lg mb-4">
-            Commente Aqui
+            Compartilhe sua Experiência
           </h2>
         </div>
 
