@@ -1,111 +1,77 @@
-<!-- Begin - Jonas: Criar e manter escopo atualizado conforme andamento atual do projeto -->
-### 1. Tema - Loja do Mayk
+# Loja do Mayk
 
-  Um website para promover e exibir os produtos vendidos pela loja de Mayk
+Um website para promover e exibir os produtos vendidos pela loja de Mayk.
 
-### 2. Escopo
+## Análise do Projeto
 
-  * O site será desenvolvido com uma temática pixel, remetendo aos jogos clássicos. Mayk é fã dos personagens Mario Bros e Sonic. Trazer elementos relacionados a esses personagens.
-  * As cores de design devem ser vibrantes, inspiradas nos jogos do Mario. O site deve permitir a escolha entre modo claro e escuro.
-  * O site contará com um banner inicial que exibirá alguns dos principais itens disponíveis na loja de Mayk, como consoles Xbox, PCs e jogos diversos. Esses itens serão escolhidos de acordo com as preferências e disponibilidade de estoque da loja.
-  * O site deverá ter uma seção com imagens e frases de jogos para deixar o site mais bonito e atraente.
-  * A seção de comentários deve ser terceirizada para algum sistema externo, como o Disqus.
-  * A seção de comentários deve permitir que um comentário seja enviado diretamente ao e-mail do Mayk.
-  * Compras baseadas em pix com backend manual. Notificar o Mayk via e-mail sobre os dados da compra para o mesmo então checar com o seu banco o pagamento e fazer o envio (caso produto físico).
-  * Foco no front-end,  com apenas alguns dados de estoque mocados para teste que podem ser trocados por uma chamada de API ao banco de dados eventualmente, a qual não será feita aqui.
+O projeto **Loja do Mayk** é um sistema web desenvolvido em TypeScript com o objetivo de criar uma vitrine online para a venda de produtos. O repositório está organizado para facilitar a manutenção, implementação de funcionalidades e expansão futura.
 
-### 3. Restrições
+### Objetivo
 
-  * O sistema será desenvolvido utilizando tecnologias web open-source.
-  * O sistema será desenvolvido utilizando html/css/TypeScript e frameworks de componentes reutilizáveis.
+O principal objetivo do projeto é proporcionar uma experiência de compra descomplicada, oferecendo aos clientes uma interface intuitiva para visualizar produtos, realizar pedidos e efetuar pagamentos. Além disso, inclui funcionalidades para o envio de e-mails automáticos relacionados às compras.
+
+### Funcionalidades Principais
+
+- **Catálogo de Produtos:** Exibição dos produtos disponíveis de forma clara e atrativa.
+- **Sistema de Compra:** Permite ao usuário selecionar produtos, adicioná-los ao carrinho e realizar a compra.
+- **Pagamento Online:** Integração com sistemas de pagamento para finalizar o pedido de forma segura.
+- **Envio de E-mail:** Notificações automáticas por e-mail após a conclusão da compra.
+- **Ajuste Dinâmico de Layout e Imagens:** Layout responsivo, com otimização das imagens para melhor experiência do usuário.
+- **Cards de Produto:** Cada produto é exibido em um card com informações detalhadas.
+
+### Estrutura do Projeto
+
+- `src/`: Contém o código-fonte principal do projeto.
+- `docs/`: Documentação, incluindo requisitos funcionais e não funcionais.
+- `public/`: Arquivos estáticos, como imagens e ícones.
+- `README.md`: Documentação geral do projeto.
+
+### Exemplo de Uso
+
+1. O usuário acessa a página inicial e navega pelo catálogo de produtos.
+2. Ao escolher um produto, adiciona-o ao carrinho.
+3. No carrinho, revisa os itens e segue para o pagamento.
+4. Após o pagamento, o sistema envia um e-mail de confirmação.
+
+### Tecnologias Utilizadas
+
+- **TypeScript:** Linguagem principal do projeto.
+- **Frameworks e Libraries:** (Detalhar aqui conforme o projeto, ex: React, Next.js, Express, etc.)
+- **Integração com APIs de pagamento:** Para transações seguras.
+- **Serviço de envio de e-mail:** (Ex: Nodemailer, SendGrid, etc.)
+
+### Como Executar o Projeto
+
+```bash
+git clone https://github.com/KretliJ/Loja_do_Mayk.git
+cd Loja_do_Mayk
+npm install
+npm start
+```
+
+### Contribuição
+
+Sinta-se à vontade para abrir issues e pull requests, contribuindo para o desenvolvimento e aprimoramento do projeto!
+
+---
+**Contribuentes:**  
+- [Danilo Da Silva Batista](https://github.com/kovarike)
+- [Lucas dos Anos Camelo](https://github.com/kyamel)
+-
+-
+-
+
+---
+**Resumo:**  
+O projeto Loja do Mayk visa digitalizar e modernizar o processo de vendas de uma loja, oferecendo ao cliente uma experiência prática, segura e agradável. Ele conta com funcionalidades essenciais para o comércio eletrônico, integração com sistemas de pagamento e envio de notificações, além de um layout moderno e responsivo.
+
+### Requisitos e Discuções
+[Requisitos e Discuções](/docs/required.md)
+
+---
+
+### Demo
+
+![Demonstração do app](/public/demo.gif)
   
-### 4. Protótipo
 
-  Prototipagem ainda não iniciada (27/06)
-  Protótipo de _landing page_ (28/06)
-  Adição de módulos de funcionalidades e segunda versão da _landing page_ (01/07)
-<!-- End - Jonas: Criar e manter escopo atualizado conforme andamento atual do projeto -->
-### 5. Recursos
-
-Para enviar e-mail sem backend-
-1. https://www.emailjs.com/ 
-
-Figma-
-1. https://www.figma.com/@rocketseat
-2. https://www.figma.com/community/file/1471120839033505457/nlw-connect-devstage
-3. https://www.figma.com/community/file/1471119935944492720/nlw-connect-devstage
-4. https://www.figma.com/community/file/1469664201049887575/sistema-de-reembolso-2-0
-5. https://www.figma.com/community/file/1448070647757721748/nlw-pocket-mobile-nearby
-6. https://www.figma.com/community/file/1438870666697133195/clickmail
-7. https://www.figma.com/community/file/1422965214657616410/lista-de-compras-desktop
-8. https://www.figma.com/community/file/1405890943950015706/gestao-de-marketplace
-9. https://www.figma.com/community/file/1402302237126862071/ama-ask-me-anything
-10. https://www.figma.com/community/file/1397279978314668489/lista-de-compras
-11. https://www.figma.com/community/file/1371886246180677672/lp-de-produto
-12. https://www.figma.com/community/tag/rocketseat
-13. https://www.figma.com/community/tag/rocketseat/files
-14. https://www.figma.com/community/file/1313455989218460480/rocketseat-ui
-
-
-### 6. Instalacão e Configuração do projeto
-
- - 1. Fazer a instalação do git   - [https://git-scm.com/downloads]
- - 2. configurar o git: 
-        ``` bash 
-        git config --global user.name "Seu Nome"
-        git config --global user.email "seuemail@exemplo.com"
-        ```
-
- - 3. clonar o repositorio:
-        ``` bash 
-        git clone https://github.com/KretliJ/Loja_do_Mayk.git
-        ```
-
- - 4. Instalar o node - [https://nodejs.org/en/download]
-
- - 5. Instalar as dependencias e Executar o projeto: 
-        ``` bash 
-        npm i 
-        npm run dev
-        ```
-
-  
-<!-- Begin - Lucas: Adicionar requisitos e rodamap -->
-### 7. Requisitos não Funcionais
-
-Veja [Requisitos não Funcionais](./docs/requisitos_nao_funcionais.md).
-
-### 8. Roadmap
-
-- Adaptar os componentes existentes para seguir o novo sistema de temas da aplicação (modo claro/escuro, variáveis CSS, novo sistema de cores).
-
-- Criar um componente **ImagemCarrossel** genérico:
-  - Deve aceitar `props` de `Card[]` para gerar um carrossel de imagens.
-  - Deve funcionar tanto em **toque (mobile)** quanto com **mouse (desktop)**.
-
-- Criar um componente **SliderBar**:
-  - Usado para navegação manual do carrossel em telas maiores (desktop).
-  - Deve ser incorporado pelo ImagemCarrossel para permitir o deslizar suave usando mouse.
-
-- Adicionar uma **seção de comentários** acima do `footer`, usando o sistema **Disqus** para embutir os comentários.
-
-- Criar um componente **PopUpMenu**:
-  - Ao clicar em uma imagem de produto, exibe os **detalhes**, **preço** e um **QR code PIX** para pagamento.
-
-- Desenvolver uma **lib de simulação de API**:
-  - Dados mockados dos produtos.
-  - Será usada pelos componentes `Carrossel` e `PopUpMenu` para priorixar a listagem de items em estoque e para detalhes do popup de pagamento.
-
-- No `PopUpMenu`, integrar chamada para essa lib:
-  - Quando o cliente confirmar a compra, a lib **envia uma notificação por e-mail** para o endereço do **Mayke** com os dados da compra (produto, valor, horário).
-
-- Gerar documentação do sistema inteiro e salvar em `/docs`, componentes, libs e api se houver. Pode ser instalado sistema de geração de documentação automático via hints como Storybook e TypeDocs
-
-
-- Gerar documentação do sistema inteiro e salvar em `/docs`, incluindo:
-  - Componentes visuais com **Storybook**
-  - Funções, tipos e classes com **Typedoc**
-  - `Storybook` para componentes React (baseado em props e estados)
-  - `Typedoc` para código TypeScript puro (baseado em JSDoc + types)
-
-<!-- End - Lucas: Adicionar requisitos e rodamap -->

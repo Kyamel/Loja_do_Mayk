@@ -9,21 +9,72 @@ import Link from "next/link";
 import Logo from "../../public/logo.png"
 
 import { throttle } from "lodash";
+import { ShoppingCart } from "lucide-react";
+import { ThemeToggle } from "./buttonTheme";
 
-interface HeaderProps {
-  children?: React.ReactNode;
+
+interface NavProps {
+  cartCount: number;
+  onComprar: () => void
+  score: number,
 }
 
-const Navigation = () => (
-  <>
-    <Link href="/" className="hover:text-white hadow-lg hover:shadow-xl hover:transform hover:scale-105 transition-all duration-75 ease-in-out">Inicio</Link>
-    <Link href="/contatos" className="hover:text-white hadow-lg hover:shadow-xl hover:transform hover:scale-105 transition-all duration-75 ease-in-out">Contatos</Link>
-  </>
-);
 
-export function Header({ children }: HeaderProps) {
+
+const Navigation = ({ cartCount, onComprar}: NavProps) => {
+
+  const handleClick = () => {
+    if (cartCount > 0) {
+      onComprar();
+    } else {
+      alert("Nenhum produto selecionado.");
+    }
+  };
+
+  return (
+    <div className="flex items-center gap-6">
+
+
+      <div className="relative">
+        <button
+          className=" w-10 h-10 flex items-center justify-center  p-2 rounded-full bg-gray-800 text-yellow-400 hover:bg-gray-700 transition"
+          disabled={cartCount === 0}
+          aria-label="Carrinho de compras"
+          title="Carrinho de compras"
+          onMouseDown={(e) => e.preventDefault()} // Previne o foco no botão  
+          onClick={handleClick}
+        >
+          <ShoppingCart className="text-yellow-400" />
+        </button>
+
+        { cartCount > 0 &&(
+          <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
+            {cartCount}
+          </span>
+        )}
+      </div>
+
+    </div>
+  );
+};
+
+export default Navigation;
+
+
+
+export function Header({  cartCount, onComprar, score}: NavProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showScrollNav, setShowScrollNav] = useState(false);
+
+
+
+  // Lucas: Add funções para controlar dark mode
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  
+  }, []);
 
   const handleScroll = useCallback(
     throttle(() => {
@@ -51,35 +102,46 @@ export function Header({ children }: HeaderProps) {
     };
   }, [handleScroll]);
 
+  if (!mounted) return null;
+
+  // Lucas: Add dark mode buttom
   return (
- <header className="fixed top-0 left-0 w-full z-50 p-3 text-center flex flex-col justify-between items-center bg-black">
-      <div className="bg-transparent flex justify-between items-center w-full">
-        <Link href="/" className="flex items-center space-x-2 bg-transparent rounded-md px-2 max-h-20 p-2">
-          <Image src={Logo} alt="MaykShop logo" sizes="80" width={340} height={80} className="md:max-w-[340px] max-h-20 object-contain py-2"/>
+    <header className="fixed top-0 left-0 w-full z-50 p-3 bg-black">
+      <div className="flex justify-between items-center w-full">
+
+        {/* Logo na esquerda */}
+        <Link href="/" className="flex items-center space-x-2 rounded-md px-2 max-h-8 p-2">
+          <Image src={Logo} alt="MaykShop logo" width={340} height={80} className="md:max-w-[340px] max-h-20 object-contain py-2" aria-label="MaykShop" title="MaykShop"/>
         </Link>
-        
-        <div className="md:hidden flex items-center border-2 border-slate-600 rounded-md">
-          <button 
-            className="bg-black text-white px-4 py-2 rounded-lg text-center"
-            onClick={() => setMenuOpen((prev) => !prev)}
-            aria-label="Menu"
-          >
-            ☰
-          </button>
+      
+
+        {/* Desktop */}
+        <div className="hidden md:flex items-center space-x-4">
+          
+          <ThemeToggle/>
+          <nav className="flex space-x-6 text-gray-400">
+            <Navigation cartCount={cartCount} onComprar={onComprar} score={score}/>
+          </nav>
+          <div className="text-white text-xs rounded-full flex flex-col items-center " aria-label="Score" title="Score">
+            <div className="text-[10px] text-center ">SCORE:</div>
+            <div className="text-yellow-400 text-xs text-center font-bold">{score}</div>
+          </div>
         </div>
-        
-        <nav className="hidden md:flex top-5 left-1/2 transform -translate-x-1/2 bg-transparent text-gray-400 px-6 py-3 rounded-full space-x-6 mr-0">
-          <Navigation />
-        </nav>
+
+        {/* Mobile */}
+        <div className="md:hidden flex items-center space-x-4">
+         
+          <ThemeToggle/>
+            
+          <Navigation cartCount={cartCount} onComprar={onComprar} score={score}/>
+          <div className="text-white text-xs rounded-full flex flex-col items-center " aria-label="Score" title="Score">
+            <div className="text-[10px] text-center ">SCORE:</div>
+            <div className="text-yellow-400 text-xs text-center font-bold">{score}</div>
+          </div>
+        </div>
       </div>
 
-      {menuOpen && (
-        <nav className="mt-5 mx-auto w-full bg-black text-gray-400 flex flex-col space-y-4 py-4 px-6 shadow-lg rounded-md">
-          <Navigation />
-        </nav>
-      )}
-
-   
+  
     </header>
   );
 }

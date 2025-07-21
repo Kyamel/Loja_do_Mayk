@@ -3,11 +3,12 @@
 
 import axios from "axios";
 import { z } from "zod";
-import { emailSchema } from "../mail";
+import { emailSchema, emailSchemaPay } from "../mail";
 
-type DataSchema = z.infer<typeof emailSchema>;
+type DataSchemaEmail = z.infer<typeof emailSchema >;
+type DataSchemaPay = z.infer<typeof emailSchemaPay >;
 
-export async function sendMail([{name, email, message, subject}]: DataSchema[]): Promise<any>{
+export async function sendMail([{name, email, message, subject, }]: DataSchemaEmail[]): Promise<any>{
     const data = {
         name,
         email, 
@@ -15,8 +16,28 @@ export async function sendMail([{name, email, message, subject}]: DataSchema[]):
         message, 
     };
     
-    const  res = await axios.post('/api/email', data);
+    const  res = await axios.post('/api/contact', data);
 
     return res.status;
+       
+}
+
+export async function sendMailPay([{name, email, cep, cidade, estado,  rua, complemento, subject, formaPagamento, cupom}]: DataSchemaPay[]){
+    const data = {
+        name,
+        email, 
+        subject,
+        cep,
+        cidade,
+        estado,
+        rua,
+        complemento,
+        formaPagamento,
+        cupom
+    };
+    
+    await axios.post('/api/email', data);
+
+    
        
 }
