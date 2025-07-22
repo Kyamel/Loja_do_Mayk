@@ -48,7 +48,7 @@ cd Loja_do_Mayk
 npm install
 npx vite dev
 
-# For static buiding
+# For static buidings
 npx vite build
 ```
 
