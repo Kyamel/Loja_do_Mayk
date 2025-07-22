@@ -3,7 +3,7 @@
 
 import { motion } from "framer-motion";
 
-const mario = ".mario.png"; // ajuste o caminho conforme a organização do seu projeto
+const mario = "mario.png"; // ajuste o caminho conforme a organização do seu projeto
 
 export function Loading() {
   return (

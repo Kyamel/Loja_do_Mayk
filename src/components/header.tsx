@@ -17,7 +17,7 @@ interface NavProps {
   score: number,
 }
 
-const Logo = ".logo.png"
+const Logo = "logo.png"
 
 
 const Navigation = ({ cartCount, onComprar}: NavProps) => {
