@@ -1,5 +1,5 @@
 // src/lib/storage.ts
-import { Produto } from "@/types/types";
+import { Produto } from "../types/types";
 
 export function seedProducts() {
   if (typeof window === "undefined") return;

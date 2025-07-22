@@ -3,9 +3,9 @@
 
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
-import mario from "../../public/mario.png"; // ajuste o caminho conforme a organização do seu projeto
+
+const mario = "mario.png"; // ajuste o caminho conforme a organização do seu projeto
 
 export function Loading() {
   return (
@@ -24,7 +24,7 @@ export function Loading() {
             delay: i * 0.2,
           }}
         >
-          <Image
+          <img
             src={mario}
             alt="Mario"
             width={32}
