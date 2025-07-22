@@ -1,11 +1,9 @@
 // Desenvolvido por [Danilo Da Silva Batista] - https://github.com/kovarike
 // Este código foi criado/alterado por mim.
 
-"use client";
-
 import { motion } from "framer-motion";
 
-const mario = "mario.png"; // ajuste o caminho conforme a organização do seu projeto
+const mario = ".mario.png"; // ajuste o caminho conforme a organização do seu projeto
 
 export function Loading() {
   return (

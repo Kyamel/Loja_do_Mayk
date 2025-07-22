@@ -1,5 +1,4 @@
 // components/PaymentForm.tsx
-"use client";
 import { Produto } from '../types/types';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';

@@ -1,7 +1,5 @@
 // Lucas: Criar componente de contatosp
 
-'use client';
-
 import { useState } from 'react';
 import { z } from 'zod';
 import { sendMail } from '../lib/http/sendmail';
